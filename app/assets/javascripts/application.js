@@ -15,3 +15,10 @@
 //= require materialize
 //= require moment.min
 //= require_tree .
+
+
+(function($){
+  $(function(){
+    $(".button-collapse").sideNav();
+  });
+})(jQuery);
