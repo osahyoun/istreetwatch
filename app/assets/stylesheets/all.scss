@@ -1,0 +1,87 @@
+$blue: #00949D;
+$blue-hover: lighten($blue, 10%);
+$red: rgb(239,70,45);
+$red-hover: lighten($red, 10%);
+$white: #fff;
+$light-grey: rgb(250, 250, 250);
+
+
+/* DEFAULTS */
+
+* {
+  &:focus { outline: none; }
+}
+.hide { display: none; }
+
+.container {
+  padding-bottom: 4em;
+}
+
+/* NAV */
+
+nav {
+  background: $light-grey;
+  box-shadow: none;
+  .brand-logo {
+    padding: 0 0.5em;
+    color: black;
+  }
+
+  li a {
+    color: $blue;
+    font-size: 110%;
+    &:hover {
+      color: $blue-hover;
+      background: transparent;
+    }
+    &.report {
+      color: $red;
+      &:hover { color: $red-hover; }
+    }
+  }
+}
+
+
+/* HOME */
+
+#map {
+  width: 100%;
+  height: 100vh;
+}
+
+
+/* TIMELINE */
+
+.report.card {
+  .summary {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .time { color: #9e9e9e; }
+}
+
+ul.browser-default {
+  margin-left: 1em;
+  li { list-style-type: initial; }
+}
+
+
+/* REPORT FORM */
+
+input::-moz-placeholder {color: blue !important;}
+
+label {
+  font-size: 120%;
+  color: darken($light-grey, 30%);
+}
+
+.field-big input { font-size: 150% !important; }
+
+textarea {
+  height: 200px;
+  font-size: 120%;
+  &:focus { outline: 2px solid $blue; }
+}
+
+form div { margin: 1em 0; }
