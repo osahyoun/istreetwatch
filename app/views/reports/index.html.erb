@@ -1,41 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class='row'>
+<%- Report.latest.each do |report| %>
+  <div class="col s12 m8 offset-m2">
+    <div class="report card">
+      <div class="card-content">
 
-<h1>Reports</h1>
+        <span class='time'><strong><%= report.town %></strong> <%= report.time.to_s(:short) %></span>
 
-<table>
-  <thead>
-    <tr>
-      <th>Lat</th>
-      <th>Lng</th>
-      <th>Time</th>
-      <th>Address</th>
-      <th>Town</th>
-      <th>Description</th>
-      <th>Summary</th>
-      <th>Approved</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <% if report.description  %>
+          <p class='summary'>
+            <%= simple_format report.description %>
+          </p>
+        <% end %>
+      </div>
+      <div class="card-action">
+        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
+      </div>
+    </div>
+  </div>
+<%- end %>
 
-  <tbody>
-    <% @reports.each do |report| %>
-      <tr>
-        <td><%= report.lat %></td>
-        <td><%= report.lng %></td>
-        <td><%= report.time %></td>
-        <td><%= report.address %></td>
-        <td><%= report.town %></td>
-        <td><%= report.description %></td>
-        <td><%= report.summary %></td>
-        <td><%= report.approved %></td>
-        <td><%= link_to 'Show', report %></td>
-        <td><%= link_to 'Edit', edit_report_path(report) %></td>
-        <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Report', new_report_path %>
+</div>
