@@ -6,6 +6,15 @@ $white: #fff;
 
 nav {
   background: $white;
+
+  a.button-collapse {
+    color: $blue;
+    margin-left: 1em;
+    &:hover {
+      color: $blue-hover;
+    }
+  }
+
   box-shadow: none;
   .brand-logo {
     margin: 0 0.5em;
