@@ -11,54 +11,56 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :time %>
-    <%= f.datetime_select :time %>
-  </div>
+  <p class="flow-text center">Tell us what happened...</p>
 
   <div class="field">
+    <!-- <%= f.label :description, 'Tell us what happened?' %> -->
+    <%= f.text_area :description %>
+  </div>
+
+  <p class="flow-text center">Tell us when it happened...</p>
+
+  <div class="field">
+    <input type="date" class="datepicker">
+  </div>
+
+  <p class="flow-text center">Tell us where it happened...</p>
+
+  <div class="field field-big">
     <%= text_field_tag 'map_address_finder', nil, id: 'autocomplete' %>
   </div>
 
   <%= f.hidden_field :house%>
 
-  <div class="field">
-    <%= f.label :town %>
-    <%= f.text_field :town %>
-  </div>
-
-  <div class="field">
-    <%= f.label :postcode %>
-    <%= f.text_field :postcode %>
-  </div>
-
-  <div class="field">
-    <%= f.label :region %>
-    <%= f.text_field :region %>
-  </div>
-
-  <div class="field">
-    <%= f.label :country %>
-    <%= f.text_field :country %>
-  </div>
-
-  <div class="field">
-    <%= f.label :summary %>
-    <%= f.text_area :summary %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
+  <div class="hide">
+    <div class="field">
+      <%= f.label :town %>
+      <%= f.text_field :town %>
+    </div>
 
     <div class="field">
-      <%= f.hidden_field :lng %>
-      <%= f.hidden_field :lat %>
+      <%= f.label :postcode %>
+      <%= f.text_field :postcode %>
+    </div>
+
+    <div class="field">
+      <%= f.label :region %>
+      <%= f.text_field :region %>
+    </div>
+
+    <div class="field">
+      <%= f.label :country %>
+      <%= f.text_field :country %>
+    </div>
+
   </div>
 
-  <div class="actions">
+  <div class="field">
+    <%= f.hidden_field :lng %>
+    <%= f.hidden_field :lat %>
+  </div>
+
+  <div class="actions waves-effect waves-light btn-large disabled">
     <%= f.submit %>
   </div>
 <% end %>
