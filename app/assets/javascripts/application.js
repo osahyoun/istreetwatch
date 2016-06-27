@@ -12,8 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require react
-//= require react_ujs
-//= require components
+//= require materialize
+//= require moment.min
 //= require_tree .

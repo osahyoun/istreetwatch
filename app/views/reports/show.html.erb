@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Approved:</strong>
+  <%= @report.approved %>
+</p>
+
+
+<p>
+  <strong>Lat:</strong>
+  <%= @report.lat %>
+</p>
+
+<p>
+  <strong>Lng:</strong>
+  <%= @report.lng %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @report.time %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @report.address %>
+</p>
+
+<p>
+  <strong>Town:</strong>
+  <%= @report.town%>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @report.description %>
+</p>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @report.summary %>
+</p>
+
+<%= link_to 'Edit', edit_report_path(@report) %> |
+<%= link_to 'Back', reports_path %>
