@@ -1,12 +1,28 @@
+$blue: #00949D;
+$blue-hover: lighten($blue, 10%);
+$red: rgb(239,70,45);
+$red-hover: lighten($red, 10%);
+$white: #fff;
+
 nav {
-  background: white;
+  background: $white;
+  box-shadow: none;
   .brand-logo {
     margin: 0 0.5em;
     color: black;
   }
 
   li a {
-    color: rgb(239,70,45);
+    color: $blue;
+    font-size: 110%;
+    &:hover {
+      color: $blue-hover;
+      background: transparent;
+    }
+    &.report {
+      color: $red;
+      &:hover { color: $red-hover; }
+    }
   }
 }
 

@@ -5,18 +5,25 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
     <nav>
-      <div class='nav-wrapper'>
-        <div class='col s12'>
-          <%= link_to 'StreetWatch', root_path, class: 'brand-logo' %>
-          <ul class='right hide-on-med-and-down'>
-            <li><%= link_to "Report!", new_report_path %></li>
-          </ul>
-        </div>
-      </div>
+      <%= link_to 'StreetWatch', root_path, class: 'brand-logo' %>
+
+      <ul class='right hide-on-med-and-down'>
+        <li><%= link_to "About", "#" %></li>
+        <li><%= link_to "Report Incident", new_report_path, class: 'report' %></li>
+      </ul>
+
+      <ul id='slide-out' class='side-nav'>
+        <li><%= link_to "About", "#" %></li>
+        <li><%= link_to "Report Incident", new_report_path, class: 'report' %></li>
+      </ul>
+
+      <a href="#" data-activates="slide-out"
+        class="button-collapse"><i class="mdi-navigation-menu"></i></a>
     </nav>
 
     <%= javascript_include_tag 'application' %>
