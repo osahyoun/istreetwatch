@@ -1,15 +1,11 @@
-<nav>
-  <div class='nav-wrapper container'>
-    <div class='col s12'>
-      <%= link_to 'StreetWatch', root_path, class: 'brand-logo' %>
-      <ul class='right hide-on-med-and-down'>
-        <li>test</li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
 <div id="map"></div>
+
+<div class="fixed-action-btn" style="bottom: 24px; right: 24px;">
+  <a class="btn-floating btn-large waves-effect waves-light red" href='/reports/new'>
+    <i class="material-icons">add</i>
+  </a>
+</div>
+
 <script>
   var events = <%= Report.latest.to_json.html_safe %>;
 </script>
@@ -20,28 +16,27 @@ var map;
 
 function initMap() {
   window.map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 50.513427, lng:  3.043213},
-    zoom: 6
+    center: {lat: 53.096556, lng:  -3.91907},
+    zoom: 5,
+    mapTypeControl: false,
+    zoomControl: true,
+    zoomControlOptions: {
+      position: google.maps.ControlPosition.RIGHT_TOP
+    },
+    scaleControl: true
   });
 
   var infowindow = new google.maps.InfoWindow();
 
   events.forEach(function(event) {
-
-    var lineSymbol = {
-      path: 'M0 0h24v24H0z',
-      strokeOpacity: 1,
-      scale: 4
-    };
-
-
-
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(event.lat, event.lng),
       icon: {
         path: google.maps.SymbolPath.CIRCLE,
-        strokeColor: 'rgb(250,97,93)',
-        scale: 5
+        strokeColor: 'rgb(239,70,45)',
+        scale: 5,
+        fillColor: '#ffffff',
+        fillOpacity: 1
       },
       map: map
     });
