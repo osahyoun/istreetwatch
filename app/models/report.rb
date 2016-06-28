@@ -3,7 +3,7 @@ class Report < ApplicationRecord
 
   class << self
     def latest
-      where(approved: false).
+      where(approved: true).
       where.not(lat: nil).
       order('time desc').
       limit(200)

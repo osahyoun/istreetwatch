@@ -1,0 +1,19 @@
+<div class="container">
+  <h2 class="center">New Report</h2>
+  <%= render 'form', report: @report %>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.js"></script>
+
+<script>
+$(function(){
+  $('.datepicker').pickadate();
+});
+
+function init() {
+  initAutocomplete();
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbViT0qpX0wzJSN3f6kkoz4gBS-qQlhYc&callback=init&libraries=places"
+async defer></script>

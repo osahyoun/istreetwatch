@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   end
   root 'home#index'
   get '/about', to: 'home#about'
+
+  namespace :admin do
+    resources :reports
+  end
 end

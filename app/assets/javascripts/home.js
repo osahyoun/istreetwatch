@@ -31,13 +31,25 @@ function initMap() {
 
     google.maps.event.addListener(marker, 'click', (function(marker, event) {
       return function() {
-        infowindow.setContent(event.description + "<br /><strong>" + event.town + "</strong>") ;
+        infowindow.setContent(bubbleContent(event));
         infowindow.open(map, marker);
       }
     })(marker, event));
   });
 
   init();
+}
+
+function bubbleContent(report){
+  var content = report.description;
+  content += "<br /><strong>";
+
+  if(report.name){
+    content += report.name + ", ";
+  }
+
+  content += report.town + "</strong>";
+  return content;
 }
 
 function initAutocomplete() {
