@@ -54,4 +54,4 @@ gem "sprockets-es6"
 gem 'rails-assets-materialize', source: 'https://rails-assets.org'
 gem 'rails_12factor', group: :production
 
-ruby "2.3.1"
+ruby "2.3.0"
