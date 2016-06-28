@@ -7,7 +7,7 @@ class Admin::ReportsController < ApplicationController
   layout 'admin'
 
   def index
-    @reports = Report.all
+    @reports = Report.order('created_at desc').limit(50).all
     render :index
   end
 
