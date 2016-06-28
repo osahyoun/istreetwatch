@@ -18,6 +18,12 @@
     </style>
   <% end %>
 
+  <p class="flow-text center">Tell us your name (skip if you want to remain anonymous)</p>
+
+  <div class="field">
+    <%= f.text_field :name %>
+  </div>
+
   <p class="flow-text center">Tell us what happened...</p>
 
   <div class="field">
@@ -37,6 +43,11 @@
   </div>
 
   <div class="hidden-address">
+    <div class="field">
+      <%= f.label :street %>
+      <%= f.text_field :street %>
+    </div>
+
     <div class="field">
       <%= f.label :town %>
       <%= f.text_field :town %>

@@ -14,6 +14,8 @@ class CreateReports < ActiveRecord::Migration[5.0]
       t.string :postcode
       t.string :country
       t.string :region
+      t.string :email
+      t.string :name
 
       t.timestamps
     end

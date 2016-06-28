@@ -1,22 +1,24 @@
 <div class='row'>
-<%- Report.latest.each do |report| %>
-  <div class="col s12 m8 offset-m2">
-    <div class="report card">
-      <div class="card-content">
-        <span class='time'><strong><%= report.town %></strong> <%= report.time.strftime("%d %B") if report.time %></span>
+  <div class="col s12 m10 offset-m1">
+    <h4>Timeline</h4>
 
-        <% if report.description  %>
-          <p class='summary'>
+    <%- Report.latest.each do |report| %>
+
+      <div class="report card">
+        <div class="card-content">
+          <p class='time'><strong><%= report.town %></strong> <%= report.time.strftime("%d %B") if report.time %></p>
+
+          <% if report.description  %>
+            <p class='summary'>
             <%= simple_format report.description %>
-          </p>
-        <% end %>
+            </p>
+          <% end %>
+        </div>
+        <%#<div class="card-action">%>
+          <%#<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>%>
+          <%#</div>%>
       </div>
-      <div class="card-action">
-        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
-      </div>
-    </div>
+    <%- end %>
   </div>
-<%- end %>
-
 </div>
 

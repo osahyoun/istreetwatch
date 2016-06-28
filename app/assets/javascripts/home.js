@@ -5,7 +5,7 @@ var map;
 function initMap() {
   window.map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 53.096556, lng:  -3.91907},
-    zoom: 5,
+    zoom: 6,
     mapTypeControl: false,
     zoomControl: true,
     zoomControlOptions: {
@@ -31,7 +31,7 @@ function initMap() {
 
     google.maps.event.addListener(marker, 'click', (function(marker, event) {
       return function() {
-        infowindow.setContent(event.description + "<br /><strong>" + moment(event.time).format("dddd, MMMM Do YYYY, h:mm:ss a")+ "</strong>") ;
+        infowindow.setContent(event.description + "<br /><strong>" + event.town + "</strong>") ;
         infowindow.open(map, marker);
       }
     })(marker, event));
@@ -42,6 +42,7 @@ function initMap() {
 
 function initAutocomplete() {
   var componentForm = {
+    administrative_area_level_3: 'town',
     postal_town: 'town',
     locality: 'town',
     country: 'country',
@@ -92,7 +93,3 @@ $(function(){
     }
   });
 });
-
-
-
-

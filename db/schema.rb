@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20160627114010) do
     t.string   "postcode"
     t.string   "country"
     t.string   "region"
+    t.string   "email"
+    t.string   "name"
     t.datetime "created_at",                                           null: false
     t.datetime "updated_at",                                           null: false
   end
