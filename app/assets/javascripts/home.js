@@ -8,6 +8,7 @@ function initMap() {
     zoom: 6,
     mapTypeControl: false,
     zoomControl: true,
+    streetViewControl: false,
     zoomControlOptions: {
       position: google.maps.ControlPosition.RIGHT_TOP
     },
