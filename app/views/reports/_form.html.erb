@@ -1,27 +1,33 @@
 <%= form_for(report, id: 'report-form') do |f| %>
+
   <% if report.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(report.errors.count, "error") %> prohibited this report from being saved:</h2>
+      <h4><%= pluralize(report.errors.count, "error") %> stopped this report from being saved:</h4>
 
       <ul>
-      <% report.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% report.errors.messages.values.each do |message| %>
+        <li><%= message.first %></li>
       <% end %>
       </ul>
     </div>
+
+    <style type="text/css" media="all">
+      .hidden-address {
+        display: block;
+      }
+    </style>
   <% end %>
 
   <p class="flow-text center">Tell us what happened...</p>
 
   <div class="field">
-    <!-- <%= f.label :description, 'Tell us what happened?' %> -->
     <%= f.text_area :description %>
   </div>
 
   <p class="flow-text center">Tell us when it happened...</p>
 
   <div class="field">
-    <input type="date" class="datepicker">
+    <%= f.text_field :time, class: 'datepicker' %>
   </div>
 
   <p class="flow-text center">Tell us where it happened...</p>
@@ -30,9 +36,7 @@
     <%= text_field_tag 'map_address_finder', nil, id: 'autocomplete' %>
   </div>
 
-  <%= f.hidden_field :house%>
-
-  <div class="hide">
+  <div class="hidden-address">
     <div class="field">
       <%= f.label :town %>
       <%= f.text_field :town %>
@@ -47,20 +51,16 @@
       <%= f.label :region %>
       <%= f.text_field :region %>
     </div>
-
-    <div class="field">
-      <%= f.label :country %>
-      <%= f.text_field :country %>
-    </div>
-
   </div>
 
-  <div class="field">
-    <%= f.hidden_field :lng %>
-    <%= f.hidden_field :lat %>
-  </div>
+  <%= f.hidden_field :lng %>
+  <%= f.hidden_field :lat %>
+  <%= f.hidden_field :house %>
+  <%= f.hidden_field :country %>
 
-  <div class="actions waves-effect waves-light btn-large disabled">
-    <%= f.submit %>
+  <div class='center-btn'>
+    <button class="actions waves-effect waves-light btn-large submit-button disabled">
+      Create Report
+    </button>
   </div>
 <% end %>

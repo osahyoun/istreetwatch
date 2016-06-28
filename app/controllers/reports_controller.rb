@@ -15,16 +15,22 @@ class ReportsController < ApplicationController
   def edit
   end
 
+  def sent
+  end
+
+  def timeline
+  end
+
   def create
     @report = Report.new(report_params)
 
     respond_to do |format|
       if @report.save
-        format.html { redirect_to @report, notice: 'Report was successfully created.' }
-        format.json { render :show, status: :created, location: @report }
+        #format.html { redirect_to @report, notice: 'Report was successfully created.' }
+        format.html { redirect_to report_sent_path }
       else
         format.html { render :new }
-        format.json { render json: @report.errors, status: :unprocessable_entity }
+        #format.json { render json: @report.errors, status: :unprocessable_entity }
       end
     end
   end

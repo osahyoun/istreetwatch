@@ -20,4 +20,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        report:
+          attributes:
+            time:
+              blank: "Date of incident is missing."
+            town:
+              blank: "Report must at least have a town."
+            description:
+              blank: "Description of incident is missing."

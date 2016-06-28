@@ -1,10 +1,49 @@
-function init(){
+function init(){}
 
+var map;
+
+function initMap() {
+  window.map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 53.096556, lng:  -3.91907},
+    zoom: 5,
+    mapTypeControl: false,
+    zoomControl: true,
+    zoomControlOptions: {
+      position: google.maps.ControlPosition.RIGHT_TOP
+    },
+    scaleControl: true
+  });
+
+  var infowindow = new google.maps.InfoWindow();
+
+  events.forEach(function(event) {
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(event.lat, event.lng),
+      icon: {
+        path: google.maps.SymbolPath.CIRCLE,
+        strokeColor: 'rgb(239,70,45)',
+        scale: 5,
+        fillColor: '#ffffff',
+        fillOpacity: 1
+      },
+      map: map
+    });
+
+    google.maps.event.addListener(marker, 'click', (function(marker, event) {
+      return function() {
+        infowindow.setContent(event.description + "<br /><strong>" + moment(event.time).format("dddd, MMMM Do YYYY, h:mm:ss a")+ "</strong>") ;
+        infowindow.open(map, marker);
+      }
+    })(marker, event));
+  });
+
+  init();
 }
 
 function initAutocomplete() {
-
-  var componentForm = { postal_town: 'town',
+  var componentForm = {
+    postal_town: 'town',
+    locality: 'town',
     country: 'country',
     postal_code: 'postcode',
     street_number: 'house',
@@ -12,18 +51,25 @@ function initAutocomplete() {
     administrative_area_level_2: 'region'
   };
 
-  autocomplete = new google.maps.places.Autocomplete( document.getElementById('autocomplete'), {types: ['geocode']});
+  var options = {
+    types: ['geocode'],
+    componentRestrictions: {country: 'uk'}
+  };
+
+  autocomplete = new google.maps.places.Autocomplete( document.getElementById('autocomplete'), options);
 
   autocomplete.addListener('place_changed', function(){
     var place = autocomplete.getPlace();
 
-
     place.address_components.forEach(function(place){
-      var addressType = place.types[0];
-      var formName = componentForm[addressType];
-      var val = place.long_name;
-      var field = "#report_" + formName;
-      $("#report_" + formName).val(val);
+      var addressType = place.types[0],
+      formName = componentForm[addressType],
+      val = place.long_name,
+      field = "#report_" + formName;
+
+      if(val != '') {
+        $("#report_" + formName).val(val);
+      }
     });
 
     var loc = autocomplete.getPlace(),
@@ -33,14 +79,20 @@ function initAutocomplete() {
     $('#report_lng').val( lng );
     $('#report_lat').val( lat );
 
-    var myLatLng = {lat: lat, lng: lng};
-    new google.maps.Marker({
-      position: myLatLng,
-      map: window.map,
-      title: 'Hello World!'
-    });
-
-  })
+    $('.hidden-address').show();
+    $('.submit-button').removeClass('disabled').prop('disabled', false);
+  });
 }
+
+$(function(){
+  $('#autocomplete').on('keypress', function(e){
+    if(e.keyCode == 13){
+      e.preventDefault();
+      return false;
+    }
+  });
+});
+
+
 
 

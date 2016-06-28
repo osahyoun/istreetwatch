@@ -10,51 +10,6 @@
   var events = <%= Report.latest.to_json.html_safe %>;
 </script>
 
-<script>
-
-var map;
-
-function initMap() {
-  window.map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 53.096556, lng:  -3.91907},
-    zoom: 5,
-    mapTypeControl: false,
-    zoomControl: true,
-    zoomControlOptions: {
-      position: google.maps.ControlPosition.RIGHT_TOP
-    },
-    scaleControl: true
-  });
-
-  var infowindow = new google.maps.InfoWindow();
-
-  events.forEach(function(event) {
-    marker = new google.maps.Marker({
-      position: new google.maps.LatLng(event.lat, event.lng),
-      icon: {
-        path: google.maps.SymbolPath.CIRCLE,
-        strokeColor: 'rgb(239,70,45)',
-        scale: 5,
-        fillColor: '#ffffff',
-        fillOpacity: 1
-      },
-      map: map
-    });
-
-    google.maps.event.addListener(marker, 'click', (function(marker, event) {
-      return function() {
-        infowindow.setContent(event.description + "<br /><strong>" + moment(event.time).format("dddd, MMMM Do YYYY, h:mm:ss a")+ "</strong>") ;
-        infowindow.open(map, marker);
-      }
-    })(marker, event));
-  });
-
-
-  init();
-}
-
-</script>
-
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbViT0qpX0wzJSN3f6kkoz4gBS-qQlhYc&callback=initMap&libraries=places"
 async defer></script>
 
