@@ -4,7 +4,7 @@
     <%- Report.latest.each do |report| %>
       <div class="report card">
         <div class="card-content">
-          <p class='time'><strong><%= "#{report.name}, " if report.name %> <%= report.town %></strong> <%= report.time.strftime("%d %B") if report.time %></p>
+          <p class='time'><strong><%= "#{report.name}, " unless report.name.blank? %> <%= report.town %></strong> <%= report.time.strftime("%d %B") if report.time %></p>
 
           <% if report.description  %>
             <p class='summary'>
