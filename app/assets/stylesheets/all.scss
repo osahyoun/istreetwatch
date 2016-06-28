@@ -22,23 +22,50 @@ $light-grey: rgb(250, 250, 250);
   padding-top: 5px;
 }
 
+a {
+  color: $blue;
+  &:hover { color: $blue-hover; }
+  &.report {
+    color: $red;
+    &:hover { color: $red-hover; }
+  }
+}
+
+ul.browser-default {
+  margin-left: 1em;
+  li {
+    list-style-type: square;
+    @media (max-width: 992px) { list-style-type: none; }
+  }
+}
+
+
+h1, h2, h3, h4, h5, p, ul {
+  @media (max-width: 992px) { text-align: center; }
+}
+
+
 /* NAV */
 
 nav {
   background: $light-grey;
   box-shadow: none;
+
   .brand-logo {
     padding: 0 0.5em;
     color: black;
   }
 
-  li a {
+  .button-collapse {
+    padding: 0 0.5em;
     color: $blue;
+    &:hover { color: $blue-hover; }
+  }
+
+  li a {
     font-size: 110%;
-    &:hover {
-      color: $blue-hover;
-      background: transparent;
-    }
+    color: $blue;
+    &:hover { background: transparent; }
     &.report {
       color: $red;
       &:hover { color: $red-hover; }
@@ -64,11 +91,6 @@ nav {
   }
 
   .time { color: #9e9e9e; }
-}
-
-ul.browser-default {
-  margin-left: 1em;
-  li { list-style-type: initial; }
 }
 
 
