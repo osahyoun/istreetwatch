@@ -1,3 +1,16 @@
+<style>
+
+
+.pledge_counter {
+  font-size: 4em;
+  color: #2bbbad;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+</style>
+
 <div class="row">
   <div id="map" style="width: 100%; height: 500px"></div>
 </div>
@@ -7,6 +20,15 @@
     <a class="waves-effect waves-light btn-large" href="/pledges/new"><i class="material-icons left">person_pin</i>Take the pledge</a>
   </div>
 </div>
+
+
+<div class="row">
+  <div class="center-align">
+    <p class="pledge_counter"><%= pledge_count %></p>
+    <p>people have pledged to make our streets safe for everone
+  </div>
+</div>
+
 
 <div class="fixed-action-btn" style="bottom: 24px; right: 24px;">
   <a class="btn-floating btn-large waves-effect waves-light red" href='/reports/new'>
