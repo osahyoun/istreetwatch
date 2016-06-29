@@ -1,0 +1,32 @@
+<%= form_for(pledge, id: 'pledge-form') do |f| %>
+
+  <% if pledge.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(pledge.errors.count, "error") %> stopped this pledge from being saved:</h4>
+
+      <ul>
+      <% pledge.errors.messages.values.each do |message| %>
+        <li><%= message.first %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p class="flow-text center">Your name</p>
+
+  <div class="field">
+    <%= f.text_field :name, :required => true %>
+  </div>
+
+  <p class="flow-text center">Your email address</p>
+
+  <div class="field">
+    <%= f.text_field :email, :required => true %>
+  </div>
+
+  <div class='center-btn'>
+    <button class="actions waves-effect waves-light btn-large submit-button">
+      <i class="material-icons left">done</i> Take the pledge
+    </button>
+  </div>
+<% end %>
