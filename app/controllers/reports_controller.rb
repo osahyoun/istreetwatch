@@ -29,11 +29,12 @@ class ReportsController < ApplicationController
   end
 
   private
-    def set_report
-      @report = Report.find(params[:id])
-    end
 
-    def report_params
-      params.require(:report).permit(:lat, :lng, :time, :address, :description, :summary, :approved, :town, :postcode, :region, :country, :house, :street, :name )
-    end
+  def set_report
+    @report = Report.find(params[:id])
+  end
+
+  def report_params
+    params.require(:report).permit(:lat, :lng, :time, :address, :description, :summary, :town, :postcode, :region, :country, :house, :street, :name )
+  end
 end
