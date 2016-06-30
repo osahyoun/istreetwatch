@@ -1,0 +1,20 @@
+<div class="row">
+  <%= form_for Pledge.new, data: { remote: true }, html: { class: 'homepage' } do |f| %>
+    <div class="col s10">
+      <div class="row">
+        <div class="input-field col s4">
+          <%= f.text_field :email,  type: 'text', class: 'validate' %>
+          <%= f.label :email, "Email" %>
+        </div>
+        <div class="input-field col s4">
+          <%= f.text_field :name,  type: 'text', class: 'validate' %>
+          <%= f.label :name, "Name" %>
+        </div>
+        <div class="input-field col s2">
+          <button class="waves-effect waves-light btn">Pledge</button>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+

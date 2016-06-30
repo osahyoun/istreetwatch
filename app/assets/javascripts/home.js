@@ -2,8 +2,19 @@ function init(){}
 
 var map;
 
+function setHeightOfMap() {
+  var bodyHeight = $(window).height(),
+      navHeight = $('nav').outerHeight();
+
+
+  $('#map').css('height', bodyHeight - navHeight - 1);
+}
+
 function initMap() {
-  window.map = new google.maps.Map(document.getElementById('map'), {
+  setHeightOfMap();
+
+  $( window ).resize(setHeightOfMap);
+  map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 53.096556, lng:  -3.91907},
     zoom: 6,
     mapTypeControl: false,
@@ -105,4 +116,24 @@ $(function(){
       return false;
     }
   });
+});
+
+
+
+// Pledges Form
+//
+//
+$(function(){
+
+  var handleSuccess = function(){
+    console.log('success');
+  };
+
+  var handleFailure = function(){
+    console.log('failure');
+  }
+
+  $('form#new_pledge.homepage').on('ajax:success', handleSuccess)
+  $('form#new_pledge.homepage').on('ajax:error', handleFailure)
+
 });

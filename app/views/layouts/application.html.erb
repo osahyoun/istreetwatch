@@ -6,6 +6,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <% if content_for?(:fb_head) %>
+      <%= yield(:fb_head) %>
+    <% end %>
+
   </head>
 
   <body>
@@ -15,19 +20,29 @@
 
       <ul class='right hide-on-med-and-down'>
         <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Map", root_path %></li>
         <li><%= link_to "Timeline", timeline_reports_path %></li>
         <li><%= link_to "Report Incident", new_report_path, class: 'report' %></li>
       </ul>
 
       <ul id='slide-out' class='side-nav'>
         <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Map", root_path %></li>
         <li><%= link_to "Timeline", timeline_reports_path %></li>
         <li><%= link_to "Report Incident", new_report_path, class: 'report' %></li>
       </ul>
     </nav>
-
     <%= javascript_include_tag 'application' %>
+
     <%= yield %>
 
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1150495698327638";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
   </body>
 </html>
