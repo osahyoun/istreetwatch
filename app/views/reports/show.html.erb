@@ -1,45 +1,24 @@
-<p id="notice"><%= notice %></p>
+<%- content_for :fb_head do %>
+  <meta property="fb:app_id" content="1150495698327638" />
+  <meta property="og:url"    content="<%= report_url(@report) %>" />
+  <meta property="og:description"  content="<%= @report.description %>" />
+  <meta property="og:title"  content="iStreetWatch - report racism and xenophobia" />
+  <meta property="og:image" content='<%= static_map_url(@report.lat, @report.lng) %>' />
+  <meta property="og:image:width" content="600" />
+  <meta property="og:image:height" content="400" />
+<% end %>
 
-<p>
-  <strong>Approved:</strong>
-  <%= @report.approved %>
-</p>
 
+<div class="row">
+  <div class="col s12 m10 offset-m1">
+    <h2>Report #<%= @report.id %></h2>
 
-<p>
-  <strong>Lat:</strong>
-  <%= @report.lat %>
-</p>
+    <p class="flow-text">
+      <%= display_address(@report) %>
+    </p>
 
-<p>
-  <strong>Lng:</strong>
-  <%= @report.lng %>
-</p>
-
-<p>
-  <strong>Time:</strong>
-  <%= @report.time %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @report.address %>
-</p>
-
-<p>
-  <strong>Town:</strong>
-  <%= @report.town%>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @report.description %>
-</p>
-
-<p>
-  <strong>Summary:</strong>
-  <%= @report.summary %>
-</p>
-
-<%= link_to 'Edit', edit_report_path(@report) %> |
-<%= link_to 'Back', reports_path %>
+    <p class='flow-text'>
+      <%= simple_format @report.description %>
+    </p>
+  </div>
+</div>

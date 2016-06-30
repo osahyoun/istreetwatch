@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   get '/reports/sent', to: 'reports#sent', as: :report_sent
+  get 'take_the_pledge', to: 'pledges#new', as: :take_the_pledge
+
   resources :pledges, only: [:create, :new] do
     collection do
       get 'thankyou'
     end
   end
 
-  resources :reports, only: [:create, :new] do
+  resources :reports, only: [:create, :show, :new] do
     collection do
       get 'timeline'
     end
