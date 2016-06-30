@@ -71,15 +71,12 @@ nav {
 
 #pledge-bar {
   margin-bottom: 0;
-  padding: 1em .5em;
-  background: rgb(235,187,0);
+  background: rgb(249,190,0);
   color: $white;
   span {
-    margin: .5em;
-    font-size: 110%;
-    @media (max-width: 992px) {
-      display: block;
-    }
+    font-size: 120%;
+    padding: .5em;
+    display: inline-block;
   }
 }
 
