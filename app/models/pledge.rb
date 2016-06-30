@@ -8,6 +8,7 @@ end
 
 class Pledge < ApplicationRecord
   validates :email, presence: true, email: true
+  validates :email, uniqueness: true
 
 
   def self.counter

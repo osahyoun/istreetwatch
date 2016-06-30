@@ -10,6 +10,14 @@
 
     <% if content_for?(:fb_head) %>
       <%= yield(:fb_head) %>
+    <% else %>
+      <meta property="fb:app_id" content="1150495698327638" />
+      <meta property="og:url"    content="<%= root_url %>" />
+      <meta property="og:description"  content="Incidents of racist and anti-migrant abuse are becoming ever more public and prolific. We'd like to hear from you if you've witnessed or experienced racist or xenophobic harassment." />
+      <meta property="og:title"  content="iStreetWatch - report racism and xenophobia" />
+      <meta property="og:image"  content="<%= image_url('I-Street-Watch-FB')%>" />
+      <meta property="og:image:width" content="921" />
+      <meta property="og:image:height" content="546" />
     <% end %>
 
   </head>
@@ -52,17 +60,10 @@
           <div class="col l4 offset-l2 s12">
             <h5 class="white-text">Share</h5>
             <div class='share-buttons'>
-                <div class="fb-share-button"
-                     data-href="http://www.istreetwatch.co.uk/"
-                     data-layout="button"
-                     data-size="small"
-                     data-mobile-iframe="true">
-                </div>
-
-                  <a class="twitter-share-button"
-                     href="https://twitter.com/intent/tweet?text="
-                     data-size="small">
-                    Tweet</a>
+              <div class="fb-share-button" data-href="http://www.istreetwatch.com" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.istreetwatch.com%2F&amp;src=sdkpreparse">Share</a></div>
+              <a class="twitter-share-button"
+                  href="https://twitter.com/intent/tweet?text="
+                  data-size="small">Tweet</a>
             </div>
           </div>
         </div>
