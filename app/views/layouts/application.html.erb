@@ -33,11 +33,11 @@
         <li><%= link_to "Report Incident", new_report_path, class: 'report' %></li>
       </ul>
     </nav>
-    
+
     <div id="pledge-bar" class="row center">
       <div class="col s12">
-        <span>5784594 people have pledged to help end street harassment. <em>Will you?</em></span>
-        <a class="waves-effect waves-light btn">Pledge</a>
+        <span><%= Pledge.counter %> people have pledged to help end street harassment. <em>Will you?</em></span>
+        <%= link_to 'Pledge', new_pledge_path, class: "waves-effect waves-light btn" %>
       </div>
     </div>
 
