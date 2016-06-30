@@ -34,15 +34,6 @@
       </ul>
     </nav>
 
-    <div id="pledge-bar" class="row center">
-      <div class="col s12">
-        <span>
-          <%= Pledge.counter %> people have pledged to help end street harassment.
-          <strong><%= link_to "Will you?", new_pledge_path %></strong>
-        </span>
-      </div>
-    </div>
-
     <%= javascript_include_tag 'application' %>
 
     <%= yield %>
@@ -55,5 +46,22 @@
       js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1150495698327638";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
+
+    <script>window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, "script", "twitter-wjs"));</script>
   </body>
 </html>
