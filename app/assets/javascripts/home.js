@@ -104,7 +104,7 @@ function initAutocomplete() {
     $('#report_lng').val( lng );
     $('#report_lat').val( lat );
 
-    $('.hidden-address').show();
+    $('.hide-fields').show();
     $('.submit-button').removeClass('disabled').prop('disabled', false);
   });
 }
