@@ -181,7 +181,6 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (>= 5.0.0.rc1, < 5.1)
   rails-assets-materialize!
-  rb-fsevent (<= 0.9.4)
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
@@ -191,9 +190,6 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console
-
-RUBY VERSION
-   ruby 2.2.2p95
 
 BUNDLED WITH
    1.12.5

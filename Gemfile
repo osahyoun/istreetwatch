@@ -59,4 +59,4 @@ if RbConfig::CONFIG['target_os'] =~ /darwin(1[0-3])/i
   gem 'rb-fsevent', '<= 0.9.4'
 end
 
-ruby "2.2.2"
+ruby "2.3.0"
