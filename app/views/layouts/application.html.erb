@@ -36,8 +36,10 @@
 
     <div id="pledge-bar" class="row center">
       <div class="col s12">
-        <span><%= Pledge.counter %> people have pledged to help end street harassment. <em>Will you?</em></span>
-        <%= link_to 'Pledge', new_pledge_path, class: "waves-effect waves-light btn" %>
+        <span>
+          <%= Pledge.counter %> people have pledged to help end street harassment.
+          <strong><%= link_to "Will you?", new_pledge_path %></strong>
+        </span>
       </div>
     </div>
 
