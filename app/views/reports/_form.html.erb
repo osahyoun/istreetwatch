@@ -12,7 +12,7 @@
     </div>
 
     <style type="text/css" media="all">
-      .hidden-address {
+      .hide {
         display: block;
       }
     </style>
@@ -43,7 +43,7 @@
     <%= text_field_tag 'map_address_finder', nil, id: 'autocomplete' %>
   </div>
 
-  <div class="hidden-address">
+  <div class="hide">
     <div class="field">
       <%= f.label :street %>
       <%= f.text_field :street %>
