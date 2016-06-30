@@ -20,23 +20,43 @@
       <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 
       <ul class='right hide-on-med-and-down'>
-        <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Map", root_path %></li>
         <li><%= link_to "Timeline", timeline_reports_path %></li>
+        <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Report Incident", new_report_path, class: 'report' %></li>
       </ul>
 
       <ul id='slide-out' class='side-nav'>
-        <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Map", root_path %></li>
         <li><%= link_to "Timeline", timeline_reports_path %></li>
+        <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Report Incident", new_report_path, class: 'report' %></li>
       </ul>
     </nav>
 
     <%= javascript_include_tag 'application' %>
 
-    <%= yield %>
+    <div class='content'>
+      <%= yield %>
+    </div>
+
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Have you taken our pledge?</h5>
+            <button class="btn actions waves-effect waves-light">Pledge</button>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Share</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
