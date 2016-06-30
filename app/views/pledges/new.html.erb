@@ -7,43 +7,38 @@
 <% end %>
 
 
-<div class="row">
-  <div class="col s12 m10 offset-m1">
+<div class="row take-pledge-page">
+  <div class="col s12 m10 offset-m1 center">
     <h2>Take the Pledge</h2>
 
-    <p class="flow-text">
-      We all have a responsibility to tackle racism and xenophobia on our streets.
-    </p>
-
-    <p class='flow-text'>
-    Take the iStreetwatch pledge today and commit to making our streets safe for everyone.
-    </p>
+    <p class="flow-text">We all have a responsibility to tackle racism and xenophobia on our streets: Take the iStreetwatch pledge today and commit to making our streets safe for everyone.</p>
 
     <h4>I pledge:</h4>
 
     <ul class='browser-default'>
-      <li><p class='flow-text'><strong>Not to look away</strong> if I see someone being harassed on the street.</p></li>
-      <li><p class='flow-text'><strong>To speak up</strong> in situations where someone is being racist or xenophobic.</p></li>
-      <li><p class='flow-text'><strong>To offer support</strong>  to people who have been harassed on the street.</p></li>
+      <li><p><strong>Not to look away</strong> if I see someone being harassed on the street.</p></li>
+      <li><p><strong>To speak up</strong> in situations where someone is being racist or xenophobic.</p></li>
+      <li><p><strong>To offer support</strong>  to people who have been harassed on the street.</p></li>
     </ul>
 
-    <%= form_for Pledge.new, html: { class: 'homepage' } do |f| %>
-
-      <div class="field">
-        <%= f.label :email, "Email" %>
-        <%= f.text_field :email,  type: 'text', class: 'validate' %>
-      </div>
+    <%= form_for Pledge.new do |f| %>
 
       <div class="field">
         <%= f.label :name, "Name" %>
-        <%= f.text_field :name,  type: 'text', class: 'validate' %>
+        <%= f.text_field :name, class: 'validate', required: true %>
       </div>
 
       <div class="field">
-        <button class="btn">Pledge</button>
+        <%= f.label :email, "Email" %>
+        <%= f.email_field :email, class: 'validate', required: true %>
+      </div>
+
+      <div class="field">
+        <button class="btn actions waves-effect waves-light">Pledge</button>
       </div>
     <% end %>
 
-    <p>Many people feel unsure what to do when they witness abuse or harassment. But doing something is better than doing nothing at all. People who take the iStreetwatch pledge are committing to taking action whenever it is safe to do so, to documenting incidents of harassment and where possible reporting them to the police. <a href='http://www.unitedagainstracism.org/archive/pages/info30.htm'>http://www.unitedagainstracism.org/archive/pages/info30.htm</a></p>
+    <p>Many people feel unsure what to do when they witness abuse or harassment. But doing something is better than doing nothing at all. People who take the iStreetwatch pledge are committing to taking action whenever it is safe to do so, including documenting incidents of harassment and where possible reporting them to the police.</p>
+
   </div>
 </div>
