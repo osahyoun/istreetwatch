@@ -9,6 +9,7 @@
       <th>When</th>
       <th>Town</th>
       <th>Description</th>
+      <th>Support</th>
       <th>Approved</th>
       <th colspan="2"></th>
     </tr>
@@ -20,6 +21,7 @@
         <td><%= report.time.strftime("%d %B") %></td>
         <td><%= report.town %></td>
         <td><%= truncate(report.description, length: 100) %></td>
+        <td><%= truncate(report.support, length: 100) %></td>
         <td><%= report.approved %></td>
         <td><%= link_to 'Edit', edit_admin_report_path(report) %></td>
         <td><%= link_to 'Destroy', [:admin, report], method: :delete, data: { confirm: 'Are you sure?' } %></td>
