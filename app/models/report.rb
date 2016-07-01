@@ -4,7 +4,7 @@ class Report < ApplicationRecord
   class << self
     def latest
       where(approved: true).
-      order('time desc').
+      order('created_at desc').
       limit(200)
     end
 
