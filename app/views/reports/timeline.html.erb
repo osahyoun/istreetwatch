@@ -12,6 +12,11 @@
             <%= simple_format report.description %>
             </p>
           <% end %>
+          <% if report.support  %>
+            <p class='summary'><em>
+            <%= simple_format report.support %>
+            </em></p>
+          <% end %>
         </div>
         <div class="card-action">
           <div class='share-buttons'>

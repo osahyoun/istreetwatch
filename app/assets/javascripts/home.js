@@ -54,8 +54,12 @@ function initMap() {
 
 function bubbleContent(report){
   var content = report.description;
-  content += "<br /><strong>";
 
+  if(report.support){
+    content += '<br /><em>' + report.support + '</em>';
+  }
+
+  content += "<br /><strong>";
   if(report.name){
     content += report.name + ", ";
   }
