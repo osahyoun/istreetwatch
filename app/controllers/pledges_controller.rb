@@ -1,7 +1,11 @@
 class PledgesController < ApplicationController
   def create
     @pledge = Pledge.new(pledge_params)
-    @pledge.save
+
+    if @pledge.save
+      REDIS.incr("pledges:counter")
+    end
+
     redirect_to thankyou_pledges_path
   end
 

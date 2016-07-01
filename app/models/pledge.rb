@@ -12,6 +12,6 @@ class Pledge < ApplicationRecord
 
 
   def self.counter
-    count
+    REDIS.get("pledges:counter")
   end
 end
