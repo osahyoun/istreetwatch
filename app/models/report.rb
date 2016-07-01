@@ -4,9 +4,12 @@ class Report < ApplicationRecord
   class << self
     def latest
       where(approved: true).
-      where.not(lat: nil).
       order('time desc').
       limit(200)
+    end
+
+    def latest_for_map
+      latest.where.not(lat: nil)
     end
   end
 end

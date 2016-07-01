@@ -14,7 +14,7 @@
 </div>
 
 <script>
-  var events = <%= Report.latest.to_json.html_safe %>;
+  var events = <%= Report.latest_for_map.to_json.html_safe %>;
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT3-Tll1vHfGMSQuvCOnPUpeWw1YC0FKk&callback=initMap&libraries=places"
