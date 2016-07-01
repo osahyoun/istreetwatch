@@ -1,7 +1,8 @@
 <div class='row'>
   <div class="col s12 m10 offset-m1">
     <h2>Timeline</h2>
-    <%- Report.latest.each do |report| %>
+    <%- Report.page(params[:page]).latest.each do |report| %>
+
       <div class="report card">
         <div class="card-content">
           <p class='time'><strong><%= "#{report.name}, " unless report.name.blank? %> <%= report.town %></strong> <%= report.time.strftime("%d %B") if report.time %></p>
