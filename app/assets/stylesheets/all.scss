@@ -56,6 +56,11 @@ a {
   }
 }
 
+a.email {
+  color: $white;
+  font-size: 0.8em;
+}
+
 .col:not(.center) ul.browser-default {
   margin-left: 1em;
   li { list-style-type: square; }
