@@ -1,7 +1,7 @@
 <div class='row'>
   <div class="col s12 m10 offset-m1">
     <h2>Timeline</h2>
-    <%- Report.page(params[:page]).latest.each do |report| %>
+    <%- @reports.each do |report| %>
 
       <div class="report card">
         <div class="card-content">
@@ -30,5 +30,7 @@
          </div>
       </div>
     <%- end %>
+
+    <%= will_paginate @reports %>
   </div>
 </div>
