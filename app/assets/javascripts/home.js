@@ -56,7 +56,7 @@ function bubbleContent(report){
   var content = report.description;
 
   if(report.support){
-    content += '<br /><br />Did anyone speak up or offer support?';
+    content += '<br />Did anyone speak up or offer support?';
     content += '<br />' + report.support;
   }
 
