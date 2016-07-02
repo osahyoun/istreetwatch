@@ -54,12 +54,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "sprockets-es6"
 
 gem 'rails-assets-materialize', source: 'https://rails-assets.org'
-# gem 'rails_12factor', group: :production
-
-require 'rbconfig'
-if RbConfig::CONFIG['target_os'] =~ /darwin(1[0-3])/i
-  gem 'rb-fsevent', '<= 0.9.4'
-end
+gem 'rails_12factor', group: :production
 
 gem 'will_paginate', '~> 3.1.0'
 

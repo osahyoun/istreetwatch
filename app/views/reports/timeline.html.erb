@@ -2,20 +2,27 @@
   <div class="col s12 m10 offset-m1">
     <h2>Timeline</h2>
     <%- @reports.each do |report| %>
-
       <div class="report card">
         <div class="card-content">
-          <p class='time'><strong><%= "#{report.name}, " unless report.name.blank? %> <%= report.town %></strong> <%= report.time.strftime("%d %B") if report.time %></p>
+          <p class='grey-para truncate'>
+            <strong>
+              <%= "#{report.name}, " unless report.name.blank? %>
+              <%= report.town %>
+            </strong>
 
+            <%= content_tag(:small, "- #{report.time.strftime("%d %B")}") if report.time %>
+          </p>
           <% if report.description  %>
-            <p class='summary'>
-            <%= simple_format report.description %>
-            </p>
+            <section>
+              <%= simple_format report.description.strip %>
+            </section>
           <% end %>
-          <% if report.support  %>
-            <p class='summary'><em>
-            <%= simple_format report.support %>
-            </em></p>
+
+          <% unless report.support.blank?  %>
+            <p class='grey-para'>Did anyone speak up or offer support?</p>
+            <section>
+              <%= simple_format report.support %>
+            </section>
           <% end %>
         </div>
         <div class="card-action">
