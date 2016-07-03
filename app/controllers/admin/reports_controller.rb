@@ -43,6 +43,6 @@ class Admin::ReportsController < ApplicationController
     end
 
     def report_params
-      params.require(:report).permit(:lat, :lng, :time, :address, :description, :summary, :approved, :town, :postcode, :region, :country, :house, :street, :name )
+      params.require(:report).permit(:lat, :lng, :time, :address, :description, :support, :approved, :town, :postcode, :region, :country, :house, :street, :name )
     end
 end
