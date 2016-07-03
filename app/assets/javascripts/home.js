@@ -26,7 +26,10 @@ function initMap() {
     scaleControl: true
   });
 
+
+
   var infowindow = new google.maps.InfoWindow();
+  var markers = [];
 
   events.forEach(function(event) {
     marker = new google.maps.Marker({
@@ -37,10 +40,10 @@ function initMap() {
         scale: 5,
         fillColor: '#ffffff',
         fillOpacity: 1
-      },
-      map: map
+      }
     });
 
+    markers.push(marker);
     google.maps.event.addListener(marker, 'click', (function(marker, event) {
       return function() {
         infowindow.setContent(bubbleContent(event));
@@ -48,6 +51,8 @@ function initMap() {
       }
     })(marker, event));
   });
+
+  var markerCluster = new MarkerClusterer(map, markers, {imagePath: 'm', gridSize: 40});
 
   init();
 }

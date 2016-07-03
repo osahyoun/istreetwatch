@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require materialize
 //= require moment.min
+//= require markerclusterer
 //= require_tree .
 
 
