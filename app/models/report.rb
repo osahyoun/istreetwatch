@@ -1,6 +1,8 @@
 class Report < ApplicationRecord
   validates :description, :time, :town, presence: true
 
+  scope :approved, -> { where(approved: true ) }
+
   class << self
     def latest
       where(approved: true).

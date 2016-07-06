@@ -20,6 +20,8 @@ class Admin::ReportsController < ApplicationController
   def update
     respond_to do |format|
       if @report.update(report_params)
+        REDIS.set("reports:counter", Report.approved.count)
+
         format.html { redirect_to [:admin, :reports], notice: 'Report was successfully updated.' }
         format.json { render :show, status: :ok, location: @report }
       else
