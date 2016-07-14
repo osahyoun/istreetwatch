@@ -7,7 +7,7 @@ class Report < ApplicationRecord
     def latest
       where(approved: true).
       order('created_at desc').
-      limit(200)
+      all()
     end
 
     def latest_for_map
