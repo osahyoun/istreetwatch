@@ -2,35 +2,39 @@
 
 <h1>Reports</h1>
 
+<% unless @reports.empty? %>
 
-<table class='table'>
-  <thead>
-    <tr>
-      <th>When</th>
-      <th>Town</th>
-      <th>Description</th>
-      <th>Support</th>
-      <th>Approved</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+  <%= will_paginate @reports %>
 
-  <tbody>
-    <% @reports.each do |report| %>
+  <table class='table'>
+    <thead>
       <tr>
-        <td><%= report.time.strftime("%d %B") %></td>
-        <td><%= report.town %></td>
-        <td><%= truncate(report.description, length: 100) %></td>
-        <td><%= truncate(report.support, length: 100) %></td>
-        <td><%= report.approved %></td>
-        <td><%= link_to 'Edit', edit_admin_report_path(report) %></td>
-        <td><%= link_to 'Destroy', [:admin, report], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>When</th>
+        <th>Town</th>
+        <th>Description</th>
+        <th>Support</th>
+        <th>Approved</th>
+        <th colspan="2"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% @reports.each do |report| %>
+        <tr>
+          <td><%= report.time.strftime("%d %B") %></td>
+          <td><%= report.town %></td>
+          <td><%= truncate(report.description, length: 100) %></td>
+          <td><%= truncate(report.support, length: 100) %></td>
+          <td><%= report.approved %></td>
+          <td><%= link_to 'Edit', edit_admin_report_path(report) %></td>
+          <td><%= link_to 'Destroy', [:admin, report], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
- <% if @reports.empty? %>
+  <%= will_paginate @reports %>
+
+<% else %>
   <h4> No reports yet to see.<h4>
- <% end %>
+<% end %>
