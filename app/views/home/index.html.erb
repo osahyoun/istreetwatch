@@ -17,5 +17,5 @@
   var events = <%= Report.latest_for_map.to_json.html_safe %>;
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT3-Tll1vHfGMSQuvCOnPUpeWw1YC0FKk&callback=initMap&libraries=places"
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.secrets.google_api_key %>&callback=initMap&libraries=places"
 async defer></script>

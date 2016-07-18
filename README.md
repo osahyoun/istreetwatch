@@ -16,7 +16,7 @@ iStreetWatch uses __ruby 2.3.0__
 
  see [http://redis.io/topics/quickstart](http://redis.io/topics/quickstart)
 
-* Install app gem dependencies:
+* Install gem dependencies:
 
  `bundle install`
 
@@ -25,5 +25,6 @@ iStreetWatch uses __ruby 2.3.0__
  `bin/rake db:migrate`
 
 * Start the server:
+
  `bin/rails s`
 

@@ -15,6 +15,6 @@ function init() {
 }
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT3-Tll1vHfGMSQuvCOnPUpeWw1YC0FKk&callback=init&libraries=places"
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.secrets.google_api_key %>&callback=init&libraries=places"
 
 async defer></script>
