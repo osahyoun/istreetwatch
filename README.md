@@ -1,24 +1,29 @@
-# README
+#iStreetWatch
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+iStreetWatch uses __ruby 2.3.0__ 
 
-Things you may want to cover:
+## Running iStreetWatch locally
 
-* Ruby version
+* Clone the repository:
 
-* System dependencies
+ `git clone git@github.com:osahyoun/istreetwatch.git`
 
-* Configuration
+* Navigate into the root directory of the app:
 
-* Database creation
+ `cd istreetwatch`
 
-* Database initialization
+* Install redis and start the redis server.
 
-* How to run the test suite
+ see [http://redis.io/topics/quickstart](http://redis.io/topics/quickstart)
 
-* Services (job queues, cache servers, search engines, etc.)
+* Install app gem dependencies:
 
-* Deployment instructions
+ `bundle install`
 
-* ...
+* Run migrations:
+
+ `bin/rake db:migrate`
+
+* Start the server:
+ `bin/rails s`
+
