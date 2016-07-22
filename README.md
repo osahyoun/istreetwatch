@@ -24,6 +24,10 @@ iStreetWatch uses __ruby 2.3.0__
 
  `bin/rake db:migrate`
 
+* To seed the database with 100 reports run:
+
+  `bin/rake db:seed`
+
 * Start the server:
 
  `bin/rails s`
