@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :reports, only: [:create, :show, :new] do
     collection do
       get 'timeline'
+      get 'search'
     end
   end
 

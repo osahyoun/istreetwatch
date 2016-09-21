@@ -18,6 +18,8 @@ require "sprockets/es6"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Elasticsearch::Model.client = Elasticsearch::Client.new host: ENV['BONSAI_URL']
+
 module MapApp
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -25,3 +27,4 @@ module MapApp
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+

@@ -1,9 +1,13 @@
 source 'https://rubygems.org'
+gem 'will_paginate', '~> 3.1.0'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '>= 5.0.0.rc1', '< 5.1'
+gem 'rails', '5.0.0.1'
 # Use sqlite3 as the database for Active Record
+gem 'bonsai-elasticsearch-rails'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 gem 'pg'
 
@@ -56,6 +60,5 @@ gem "sprockets-es6"
 gem 'rails-assets-materialize', source: 'https://rails-assets.org'
 gem 'rails_12factor', group: :production
 
-gem 'will_paginate', '~> 3.1.0'
 
 ruby "2.3.0"
