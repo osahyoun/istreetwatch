@@ -17,9 +17,6 @@ class ReportsController < ApplicationController
 
   def search
     @reports = Report.search(params[:query]).page(params[:page])
-    #@articles = Article.search(params[:q]).page(params[:page]).records
-
-    #@reports = Report.latest.paginate(page: params[:page], per_page: 40)
   end
 
   def create
