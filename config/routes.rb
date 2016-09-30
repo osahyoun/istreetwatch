@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get '/about', to: 'home#about'
+  get '/support', to: 'home#support'
 
   namespace :admin do
     resources :reports
