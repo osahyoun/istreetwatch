@@ -58,4 +58,4 @@ gem 'rails_12factor', group: :production
 
 gem 'will_paginate', '~> 3.1.0'
 
-ruby "2.3.0"
+ruby "2.3.3"
