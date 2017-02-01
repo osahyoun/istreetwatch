@@ -19,15 +19,18 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
+
 en:
   activerecord:
-    errors:
-      models:
-        report:
-          attributes:
-            time:
-              blank: "Date of incident is missing."
-            town:
-              blank: "Report must at least have a town."
-            description:
-              blank: "Description of incident is missing."
+    attributes:
+      report:
+        informant_name: "Name"
+        informant_email: "Email"
+        informant_role: "Role (This incident was...)"
+        type_incident: "Type of Incident"
+        type_incident_other: "Please Tell Us Type of Incident"
+        description: "Description (what happened)"
+        date: "Date (when it happened)"
+        type_location: "Type of Location"
+        type_location_other: "Please Tell Us Type of Location"
+        reported_to_police: "Was Incident Reported"
