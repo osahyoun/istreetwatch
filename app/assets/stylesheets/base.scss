@@ -1,0 +1,13 @@
+.content {
+  padding-bottom: 2rem;
+}
+
+.row .col > .row {
+  margin-bottom: 0;
+}
+
+p {
+  &.small {
+    font-size: 1em;
+  }
+}
