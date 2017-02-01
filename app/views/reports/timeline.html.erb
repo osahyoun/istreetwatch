@@ -7,11 +7,11 @@
         <div class="card-content">
           <p class='grey-para truncate'>
             <strong>
-              <%= "#{report.name}, " unless report.name.blank? %>
+              <%= "#{report.informant_name}, " unless report.informant_name.blank? %>
               <%= report.town %>
             </strong>
 
-            <%= content_tag(:small, "- #{report.time.strftime("%d %B")}") if report.time %>
+            <%= content_tag(:small, "- #{report.date.strftime("%d %B")}") if report.date %>
           </p>
           <% if report.description  %>
             <section>

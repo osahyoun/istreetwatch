@@ -19,4 +19,41 @@ module ReportsHelper
 
     "#{url}?#{options.to_query}"
   end
+
+  def select_options_for_informant_role
+    [
+      "Something that happened to me",
+      "Something that I witnessed",
+      "Something that someone asked for my help to report",
+      "Something that I heard about and wanted to report"
+    ]
+  end
+
+  def select_options_for_type_incident
+    [
+      "Physical assault",
+      "Verbal abuse / insults",
+      "Damage to property / vandalism",
+      "Threats / intimidation",
+      "Hate mail",
+      "Other"
+    ]
+  end
+
+  def select_options_for_type_location
+    [
+      "Street / public park",
+      "Public transportation",
+      "University / college",
+      "Place of worship",
+      "Shops",
+      "Pub / bar / club",
+      "Private residence",
+      "Other"
+    ]
+  end
+
+  def select_options_for_was_reported
+    ["Yes", "No", "Don't know"]
+  end
 end

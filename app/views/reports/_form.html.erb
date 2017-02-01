@@ -1,84 +1,164 @@
-<%= form_for(report, id: 'report-form') do |f| %>
+<%= form_for(report, html:{ id: 'report-form' }) do |f| %>
 
-  <% if report.errors.any? %>
-    <div id="error_explanation">
-      <h4><%= pluralize(report.errors.count, "error") %> stopped this report from being saved:</h4>
+  <p class='center small'><sup>*</sup> Required field</p>
+  <p class='center small'>Your name and contact details will not be displayed anywhere on the website.</p>
 
-      <ul>
-      <% report.errors.messages.values.each do |message| %>
-        <li><%= message.first %></li>
+  <%= render 'form_errors', report: @report %>
+
+  <div class='row section'>
+
+    <div class='input-field col s12'>
+      <i class='material-icons prefix'>person</i>
+      <%= f.text_field :informant_name, class: 'big', required: true, autofocus: true %>
+      <%= f.label :informant_name do %>
+        Name <sup>*</sup>
       <% end %>
-      </ul>
+      <span class='right'>Will not be displayed.</span>
     </div>
 
-    <style type="text/css" media="all">
-      .hide-fields {
-        display: block;
-      }
-    </style>
-  <% end %>
-
-  <p class="flow-text center">Tell us your name...</p>
-  <p class="center">(Skip this if you want to report anonymously)</p>
-
-  <div class="field">
-    <%= f.text_field :name %>
-  </div>
-
-  <p class="flow-text center">Tell us what happened...</p>
-
-  <div class="field">
-    <%= f.text_area :description %>
-  </div>
-
-  <p class="flow-text center">Tell us if anyone spoke up, or offered support...</p>
-
-  <div class="field">
-    <%= f.text_area :support %>
-  </div>
-
-  <p class="flow-text center">Tell us when it happened...</p>
-
-  <div class="field">
-    <%= f.text_field :time, class: 'datepicker' %>
-  </div>
-
-  <p class="flow-text center">Tell us where it happened...</p>
-
-  <div class="field field-big">
-    <%= text_field_tag 'map_address_finder', nil, id: 'autocomplete' %>
-  </div>
-
-  <div class="hide-fields">
-    <div class="field">
-      <%= f.label :street %>
-      <%= f.text_field :street %>
+    <div class='input-field col s12'>
+      <i class='material-icons prefix'>email</i>
+      <%= f.text_field :informant_email, type: 'email', class: 'big', required: true %>
+      <%= f.label :informant_email do %>
+        Email <sup>*</sup>
+      <% end %>
+      <span class='right'>Will not be displayed.</span>
     </div>
 
-    <div class="field">
-      <%= f.label :town %>
-      <%= f.text_field :town %>
+    <div class='input-field col s12'>
+      <i class='material-icons prefix'>phone</i>
+      <%= f.text_field :informant_tel, type: 'tel', pattern: '[\d+()-]{5,20}', class: 'big' %>
+      <%= f.label :informant_tel, 'Phone Number' %>
+      <span class='right'>Will not be displayed.</span>
     </div>
 
-    <div class="field">
-      <%= f.label :postcode %>
-      <%= f.text_field :postcode %>
+    <div class='col s12'>
+      <p>Your contact information will remain private to Migrants Rights Network. We will not share it without your permission.</p>
+      <p>To support our campaigning and advocacy work, we may get in touch with you for more details about the incident you have reported. Please tick this box, if you agree to being contacted for this purpose:</p>
+      <p>
+        <%= f.check_box :informant_permission %>
+        <%= f.label :informant_permission, 'I agree to being contacted for this purpose.' %>
+      </p>
     </div>
 
-    <div class="field">
-      <%= f.label :region %>
-      <%= f.text_field :region %>
+  </div><!-- end .row.section -->
+
+  <div class="divider"></div>
+
+  <div class='row section'>
+
+    <div class='input-field col s12 m6'>
+      <%= f.select(:informant_role, select_options_for_informant_role,
+        {include_blank: 'Choose your option'}, {required: true}) %>
+      <%= f.label :informant_role do %>
+        This incident was... <sup>*</sup>
+      <% end %>
     </div>
-  </div>
 
-  <%= f.hidden_field :lng %>
-  <%= f.hidden_field :lat %>
-  <%= f.hidden_field :house %>
-  <%= f.hidden_field :country %>
+    <div class='input-field col s12 m6'>
+      <%= f.select(:type_incident, select_options_for_type_incident,
+        {include_blank: 'Choose your option'}, {class: 'type-incident', required: true}) %>
+      <%= f.label :type_incident do %>
+        What type of incident was it? <sup>*</sup>
+      <% end %>
+    </div>
 
-  <div class='center-btn'>
+    <div class='input-field col s10 offset-s1 m6 offset-m6 hide-fields'>
+      <%= f.text_field :type_incident_other %>
+      <%= f.label :type_incident_other do %>
+        Please tell us <sup>*</sup>
+      <% end %>
+    </div>
+
+    <div class='input-field col s12'>
+      <%= f.text_area :description, class: 'materialize-textarea', required: true %>
+      <%= f.label :description do %>
+        Tell us what happened... <sup>*</sup>
+      <% end %>
+    </div>
+
+    <div class='input-field col s12'>
+      <%= f.text_area :support, class: 'materialize-textarea' %>
+      <%= f.label :support, 'Tell us if anyone spoke up, or offered support...' %>
+    </div>
+
+    <div class='input-field col s12 m6'>
+      <%= f.text_field :date, class: 'datepicker' %>
+      <%= f.label :date do %>
+        Tell us when it happened... <sup>*</sup>
+      <% end %>
+    </div>
+
+    <div class='col s12'>
+      <div class='row'>
+        <div class='input-field col s12 m6'>
+           <%= text_field_tag :map_address_finder, nil, id: 'autocomplete' %>
+           <%= f.label :map_address_finder, 'Tell us where it happened...' %>
+        </div>
+
+        <div class='hide-fields location'>
+          <div class='input-field col s12 m6'>
+            <%= f.text_field :street %>
+            <%= f.label :street %>
+          </div>
+
+          <div class='input-field col s12 m6'>
+            <%= f.text_field :town, class: 'town' %>
+            <%= f.label :town do %>
+              Town <sup>*</sup>
+            <% end %>
+          </div>
+
+          <div class='input-field col s12 m6'>
+            <%= f.text_field :postcode %>
+            <%= f.label :postcode %>
+          </div>
+
+          <div class='input-field col s12 m6'>
+            <%= f.text_field :region %>
+            <%= f.label :region %>
+          </div>
+
+          <%= f.hidden_field :lng %>
+          <%= f.hidden_field :lat %>
+          <%= f.hidden_field :house %>
+          <%= f.hidden_field :country %>
+        </div>
+      </div>
+    </div>
+
+    <div class='col s12'>
+      <div class='row'>
+        <div class='input-field col s12 m6'>
+          <%= f.select(:type_location, select_options_for_type_location,
+            {include_blank: 'Choose your option'}, {class: 'type-location', required: true}) %>
+          <%= f.label :type_location do %>
+            Type of location: <sup>*</sup>
+          <% end %>
+        </div>
+
+        <div class='input-field col s10 offset-s1 m6 hide-fields'>
+          <%= f.text_field :type_location_other %>
+          <%= f.label :type_location_other do %>
+            Please tell us <sup>*</sup>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class='input-field col s12 m6'>
+      <%= f.select(:reported_to_police, select_options_for_was_reported, {include_blank: 'Choose your option'}, {required: true}) %>
+      <%= f.label :reported_to_police do %>
+        Has this incident been reported to the police? <sup>*</sup>
+      <% end %>
+    </div>
+
+  </div><!-- end .row.section -->
+
+  <div class='center'>
     <button class="actions waves-effect waves-light btn-large submit-button">
       Create Report
     </button>
   </div>
+
 <% end %>

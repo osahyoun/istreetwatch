@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160701125244) do
+ActiveRecord::Schema.define(version: 20170131161820) do
 
   create_table "pledges", force: :cascade do |t|
     t.string   "email"
@@ -20,24 +20,32 @@ ActiveRecord::Schema.define(version: 20160701125244) do
   end
 
   create_table "reports", force: :cascade do |t|
-    t.decimal  "lat",         precision: 10, scale: 6
-    t.decimal  "lng",         precision: 10, scale: 6
-    t.datetime "time"
+    t.decimal  "lat",                  precision: 10, scale: 6
+    t.decimal  "lng",                  precision: 10, scale: 6
+    t.datetime "date"
     t.string   "address"
     t.string   "street"
     t.string   "house"
     t.string   "town"
     t.text     "description"
     t.string   "summary"
-    t.boolean  "approved",                             default: false
+    t.boolean  "approved",                                      default: false
     t.string   "postcode"
     t.string   "country"
     t.string   "region"
-    t.string   "email"
-    t.string   "name"
-    t.datetime "created_at",                                           null: false
-    t.datetime "updated_at",                                           null: false
+    t.string   "informant_email"
+    t.string   "informant_name"
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
     t.string   "support"
+    t.string   "informant_tel"
+    t.boolean  "informant_permission"
+    t.string   "informant_role"
+    t.string   "type_incident"
+    t.string   "type_incident_other"
+    t.string   "type_location"
+    t.string   "type_location_other"
+    t.string   "reported_to_police"
   end
 
 end
