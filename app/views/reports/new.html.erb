@@ -3,18 +3,17 @@
   <%= render 'form', report: @report %>
 </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.js"></script>
-
 <script>
-$(function(){
-  $('.datepicker').pickadate();
-});
+  $(function(){
+    $('.datepicker').pickadate();
+  });
 
-function init() {
-  initAutocomplete();
-}
+  function init() {
+    initAutocomplete();
+  }
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.secrets.google_api_key %>&callback=init&libraries=places"
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.js"></script>
 
-async defer></script>
+<%# Required for Google's location API %>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.secrets.google_api_key %>&callback=init&libraries=places" async defer></script>
