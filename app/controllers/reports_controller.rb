@@ -20,7 +20,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
-        format.html { redirect_to report_sent_path }
+        format.html { render :sent }
       else
         format.html { render :new }
       end

@@ -1,9 +1,15 @@
 <div class='row'>
-  <div class="col s12 m10 offset-m1">
+  <div class='col s12'>
 
-    <h4>Thank you</h4>
-    <p class='flow-text'>One of our moderators will now read and post your report.</p>
-    <p><%= link_to 'Go Back...', root_path %></p>
+    <div class='container'>
+      <h2>Thank You</h2>
+      <p class='flow-text'>We appreciate you taking time to report this incident. One of our moderators will now read and post your report.</p>
+      <% unless @report.reported_to_police == 'yes' %>
+        <p>
+          There are laws to protect people from abuse and harassment, which should be enforced. If you’ve experienced, or witnessed, a hate incident or crime you can report it to the police. You can contact the police directly, or use the police online hate crime reporting site <%= link_to 'True Vision', 'http://www.report-it.org.uk/home', target: '_blank' %>.
+        </p>
+      <% end %>
+    </div>
 
   </div>
 </div>
