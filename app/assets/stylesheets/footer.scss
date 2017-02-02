@@ -1,0 +1,32 @@
+@import 'variables';
+
+footer.page-footer {
+  margin-top: 2rem;
+  background: $charcoal;
+  color: $white;
+  p {
+    font-size: 1rem;
+  }
+  a {
+    color: $white;
+    border-bottom: 1px solid $white;
+  }
+}
+
+/* Sticky Footer -------  */
+
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+}
+
+/* ------- Sticky Footer */

@@ -1,29 +1,6 @@
 @import 'variables';
 
 
-/* FOOTER */
-
-footer.page-footer { margin-top: 0; }
-
-/* Sticky Footer -------  */
-
-html {
-  height: 100%;
-}
-body {
-  min-height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.content {
-  flex: 1;
-}
-
-/* ------- Sticky Footer */
-
-
 /* DEFAULTS */
 
 * {
