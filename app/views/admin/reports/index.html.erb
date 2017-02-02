@@ -21,7 +21,7 @@
     <tbody>
       <% @reports.each do |report| %>
         <tr>
-          <td><%= report.time.strftime("%d %B") %></td>
+          <td><%= report.date.strftime("%d %B") %></td>
           <td><%= report.town %></td>
           <td><%= truncate(report.description, length: 100) %></td>
           <td><%= truncate(report.support, length: 100) %></td>
