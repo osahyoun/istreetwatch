@@ -1,10 +1,28 @@
+@import 'variables';
+
+* {
+  &:focus { outline: none; }
+}
+
 .row .col > .row {
   margin-bottom: 0;
 }
 
 p {
   font-weight: 300;
+  font-size: 1.1rem;
   &.small {
-    font-size: 1em;
+    font-size: 1rem;
+  }
+}
+
+a {
+  color: $blue;
+  &:hover {
+    color: $blue-hover;
+  }
+  &.report {
+    color: $red;
+    &:hover { color: $red-hover; }
   }
 }

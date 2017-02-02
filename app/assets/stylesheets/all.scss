@@ -1,45 +1,6 @@
 @import 'variables';
 
 
-/* DEFAULTS */
-
-* {
-  &:focus { outline: none; }
-}
-
-.hide-fields { display: none; }
-
-.container {
-  padding-bottom: 1em;
-}
-
-.center-btn {
-  text-align: center;
-  padding-top: 5px;
-}
-
-a {
-  color: $blue;
-  &:hover { color: $blue-hover; }
-  &.report {
-    color: $red;
-    &:hover { color: $red-hover; }
-  }
-}
-
-a.email {
-  color: $white;
-  font-size: 0.8em;
-}
-
-.col:not(.center) ul.browser-default {
-  margin-left: 1em;
-  li { list-style-type: square; }
-}
-
-p { font-size: 110%; }
-
-
 /* NAV */
 
 nav {
@@ -104,11 +65,3 @@ nav {
 
   .grey-para { color: #9e9e9e; }
 }
-
-
-/*Share Buttons*/
-
-.share-buttons iframe,.share-buttons>span {
-  vertical-align: bottom;
-}
-
