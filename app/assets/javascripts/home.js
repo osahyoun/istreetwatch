@@ -2,21 +2,23 @@ function init(){}
 
 var map;
 
-function setHeightOfMap() {
-  var bodyHeight = $(window).height(),
-      navHeight = $('nav').outerHeight();
-
-
-  $('#map').css('height', bodyHeight - navHeight - 1);
-}
+// function setHeightOfMap() {
+//   var bodyHeight = $(window).height(),
+//       navHeight = $('nav').outerHeight();
+//
+//   $('#map').css('height', bodyHeight - navHeight - 1);
+// }
 
 function initMap() {
-  setHeightOfMap();
+  var lat = 54.5,
+      lng = -3.91907;
 
-  $( window ).resize(setHeightOfMap);
+  // setHeightOfMap();
+  // $( window ).resize(setHeightOfMap);
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 53.096556, lng:  -3.91907},
+    center: {lat:lat, lng:lng},
     zoom: 6,
+    minZoom: 5,
     mapTypeControl: false,
     zoomControl: true,
     streetViewControl: false,
@@ -25,8 +27,6 @@ function initMap() {
     },
     scaleControl: true
   });
-
-
 
   var infowindow = new google.maps.InfoWindow();
   var markers = [];
@@ -56,6 +56,8 @@ function initMap() {
 
   init();
 }
+
+
 
 function bubbleContent(report){
   var content = report.description;

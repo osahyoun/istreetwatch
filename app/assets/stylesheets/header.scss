@@ -1,0 +1,79 @@
+@import 'variables';
+
+
+header nav {
+  background: $light-grey;
+  box-shadow: none;
+  a {
+    &.title {
+      color: $charcoal;
+      font-size: 2rem;
+    }
+    &.button-collapse {
+      color: $blue;
+      margin-right: 1rem;
+    }
+  }
+}
+
+.iSW header ul {
+  a:not(.btn):hover {
+    color: $black;
+  }
+  li.logo a {
+    &:hover {
+      background: none;
+    }
+    img {
+      height: 40px;
+      margin-top: 12px;
+    }
+  }
+  li p {
+    height: auto;
+    color: darken( $orange, 10% );
+    line-height: 2rem;
+    padding: .5rem;
+  }
+  li a i {
+    font-size: 30px;
+    margin-top: 17px;
+  }
+}
+
+.btn.report {
+  background: $red;
+  margin-right: 0;
+}
+
+
+//nav {
+//  a.brand-logo {
+//    margin-top: 0.3em;
+//  }
+//  background: $light-grey;
+//  box-shadow: none;
+//
+//  .brand-logo {
+//    padding: 0 0.5em;
+//    color: black;
+//  }
+//
+//  .button-collapse {
+//    padding: 0 1em;
+//    color: $blue;
+//    &:hover { color: $blue-hover; }
+//  }
+//
+//  li a {
+//    font-size: 110%;
+//    color: $blue;
+//    &:hover { background: transparent; }
+//    &.report {
+//      color: $red;
+//      &:hover { color: $red-hover; }
+//    }
+//  }
+//}
+
+

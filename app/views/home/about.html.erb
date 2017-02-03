@@ -1,58 +1,65 @@
-<div class="row">
-  <div class="col s12 m10 offset-m1">
-    <div class="container">
-      <h2>Welcome to iStreetWatch</h2>
+<div class="row section">
+  <div class="col s12">
+    <h2>About</h2>
 
-      <p class="flow-text">We track racist and xenophobic harassment in public spaces. Incidents of racist and anti-migrant abuse are becoming ever more public and ever more prolific. If you have witnessed or experienced racist or xenophobic harassment, please submit your experience <%= link_to "here", new_report_path, class: 'report' %>.</p>
+    <p class="flow-text">Tracking racist and xenophobic harassment in public spaces.</p>
 
-      <h4>We aim to:</h4>
+    <p>Incidents of racist and anti-migrant abuse are becoming ever more public and ever more prolific. If you have witnessed or experienced racist or xenophobic harassment, <%= link_to "please submit your experience", new_report_path, class: 'report' %>.</p>
 
-      <ul class='browser-default'>
-        <li><p>Make these now everyday incidents visible to a wider community.</p></li>
-        <li><p>Help people at risk map which areas are safer to be in.</p></li>
-        <li><p>Collect data over time to help monitor the correlation between these incidents and inflammatory speech from the media and politicians.</p></li>
-      </ul>
+    <p><strong>We aim to:</strong></p>
 
-      <p>Everyone has the right to feel safe on the street. For many people, leaving their house means risking verbal and sometimes physical abuse. This site has been created in response to the rise in hate crime following the referendum result. We all have a role to play in making our streets safe for everyone.</p>
+    <ul class='bullet'>
+      <li><p>Make these now everyday incidents visible to a wider community.</p></li>
+      <li><p>Help people at risk map which areas are safer to be in.</p></li>
+      <li><p>Collect data over time to help monitor the correlation between these incidents and inflammatory speech from the media and politicians.</p></li>
+    </ul>
 
-      <p class="flow-text">If you witness racist or xenophobic harassment, there are <a href='https://www.theguardian.com/uk-news/2015/nov/13/how-do-i-respond-racial-abuse-public-transport-onlookers-silent?CMP=share_btn_fb'>other things you can do</a>:</p>
+    <p>Everyone has the right to feel safe on the street. For many people, leaving their house means risking verbal and sometimes physical abuse. This site has been created in response to the rise in hate crime following the referendum result. We all have a role to play in making our streets safe for everyone.</p>
 
-      <ul class='browser-default'>
-        <li><p><strong>Say something</strong>: Show you won’t accept this behaviour on our streets.</p></li>
-        <li><p><strong>Film it</strong>: Providing evidence can be key to making an arrest or charge.</p></li>
-        <li><p><strong>Report abuse to the police</strong>: There are laws to protect people from abuse and harassment which should be enforced</p></li>
-        <li><p><strong>Be safe</strong>: Don’t intervene if you think you will escalate the situation.</p></li>
-      </ul>
+    <p><strong>If you witness racist or xenophobic harassment, there are
+      <%= link_to "other things you can do", 'https://www.theguardian.com/uk-news/2015/nov/13/how-do-i-respond-racial-abuse-public-transport-onlookers-silent', target: '_blank' %>:</strong></p>
 
-      <h4>Sources</h4>
+    <div class='row'>
+      <div class='col s12 m6'>
+          <h4>Say Something</h4>
+          <p>Show you won’t accept this behaviour on our streets.</p>
+      </div>
+      <div class='col s12 m6'>
+          <h4>Film It</h4>
+          <p>Providing evidence can be key to making an arrest or charge.</p>
+      </div>
+      <div class='col s12 m6'>
+          <h4>Report Abuse</h4>
+          <p>There are laws to protect people from abuse and harassment which should be enforced.</p>
+      </div>
+      <div class='col s12 m6'>
+          <h4>Be Safe</h4>
+          <p>Don’t intervene if you think you will escalate the situation.</p>
+      </div>
+    </div><!-- end div.row -->
+  </div>
+</div><!-- end div.row -->
 
-      <ul>
-        <li class="truncate">
-          <a href='https://www.theguardian.com/uk-news/2016/jun/27/sadiq-khan-muslim-council-britain-warning-of-post-brexit-racism'>
-            https://www.theguardian.com/uk-news/2016/jun/27/sadiq-khan-muslim-council-britain-warning-of-post-brexit-racism
-          </a>
-        </li>
-        <li class="truncate">
-          <a href='http://www.standard.co.uk/news/uk/actress-subjected-to-racist-abuse-as-hate-crimes-spike-after-brexit-vote-a3281286.html'>
-            http://www.standard.co.uk/news/uk/actress-subjected-to-racist-abuse-as-hate-crimes-spike-after-brexit-vote-a3281286.html
-          </a>
-        </li>
-        <li class="truncate">
-          <a href='http://www.independent.co.uk/news/uk/home-news/brexit-eu-referendum-racial-racism-abuse-hate-crime-reported-latest-leave-immigration-a7104191.html'>
-            http://www.independent.co.uk/news/uk/home-news/brexit-eu-referendum-racial-racism-abuse-hate-crime-reported-latest-leave-immigration-a7104191.html
-          </a>
-        </li>
-        <li class="truncate">
-          <a href='http://www.standard.co.uk/news/mayor/sadiq-khan-issues-rallying-cry-to-londoners-after-brexit-vote-triggers-surge-in-hate-crime-a3281456.html'>
-            http://www.standard.co.uk/news/mayor/sadiq-khan-issues-rallying-cry-to-londoners-after-brexit-vote-triggers-surge-in-hate-crime-a3281456.html'
-          </a>
-        </li>
-        <li class="truncate">
-          <a href='http://www.telegraph.co.uk/news/2016/06/26/spate-of-racist-attacks-blamed-on-brexit-vote/'>
-            http://www.telegraph.co.uk/news/2016/06/26/spate-of-racist-attacks-blamed-on-brexit-vote
-          </a>
-        </li>
-      </ul>
-    </div>
+<div class="row section">
+  <div class="col s12">
+    <h5>Sources</h5>
+
+    <ul>
+      <li class='truncate'>
+        <%= link_to 'https://www.theguardian.com/uk-news/2016/jun/27/sadiq-khan-muslim-council-britain-warning-of-post-brexit-racism', 'https://www.theguardian.com/uk-news/2016/jun/27/sadiq-khan-muslim-council-britain-warning-of-post-brexit-racism', target: '_blank' %>
+      </li>
+      <li class='truncate'>
+        <%= link_to 'http://www.standard.co.uk/news/uk/actress-subjected-to-racist-abuse-as-hate-crimes-spike-after-brexit-vote-a3281286.html', 'http://www.standard.co.uk/news/uk/actress-subjected-to-racist-abuse-as-hate-crimes-spike-after-brexit-vote-a3281286.html', target: '_blank' %>
+      </li>
+      <li class='truncate'>
+        <%= link_to 'http://www.independent.co.uk/news/uk/home-news/brexit-eu-referendum-racial-racism-abuse-hate-crime-reported-latest-leave-immigration-a7104191.html', 'http://www.independent.co.uk/news/uk/home-news/brexit-eu-referendum-racial-racism-abuse-hate-crime-reported-latest-leave-immigration-a7104191.html', target: '_blank' %>
+      </li>
+      <li class='truncate'>
+        <%= link_to 'http://www.standard.co.uk/news/mayor/sadiq-khan-issues-rallying-cry-to-londoners-after-brexit-vote-triggers-surge-in-hate-crime-a3281456.html', 'http://www.standard.co.uk/news/mayor/sadiq-khan-issues-rallying-cry-to-londoners-after-brexit-vote-triggers-surge-in-hate-crime-a3281456.html', target: '_blank' %>
+      </li>
+      <li class='truncate'>
+        <%= link_to 'http://www.telegraph.co.uk/news/2016/06/26/spate-of-racist-attacks-blamed-on-brexit-vote/', 'http://www.telegraph.co.uk/news/2016/06/26/spate-of-racist-attacks-blamed-on-brexit-vote/', target: '_blank' %>
+      </li>
+    </ul>
   </div>
 </div>

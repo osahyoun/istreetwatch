@@ -24,34 +24,16 @@
   </head>
 
   <body class='iSW'>
-    <nav>
-      <%= link_to image_tag('logo.png', height: 40, alt: "Report racism and xenophobia"), root_path, class: 'brand-logo' %>
+    <%= render partial: 'layouts/header' %>
 
-      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-
-      <ul class='right hide-on-med-and-down'>
-        <li><%= link_to "Map", root_path %></li>
-        <li><%= link_to "Timeline", timeline_reports_path %></li>
-        <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "Pledge", new_pledge_path %></li>
-        <li><%= link_to "Report Incident", new_report_path, class: 'report' %></li>
-      </ul>
-
-      <ul id='slide-out' class='side-nav'>
-        <li><%= link_to "Map", root_path %></li>
-        <li><%= link_to "Timeline", timeline_reports_path %></li>
-        <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "Pledge", new_pledge_path %></li>
-        <li><%= link_to "Report Incident", new_report_path, class: 'report' %></li>
-      </ul>
-    </nav>
-
-    <%= javascript_include_tag 'application' %>
-
-    <div class='content'>
-      <%= yield %>
-    </div>
+    <main>
+      <div class='container'>
+        <%= yield %>
+      </div>
+    </main>
 
     <%= render partial: 'layouts/footer' %>
+
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>

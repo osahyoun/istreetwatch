@@ -1,17 +1,21 @@
-<div id="pledge-bar" class="center">
-    <span>
-      <%= Pledge.counter %> people have pledged to help end street harassment.
-      <strong><%= link_to "Will you?", new_pledge_path %></strong>
-    </span>
-</div>
+<div class='row'>
 
-<div id="map" style="width: 100%"></div>
+  <div class='col s12'>
+    <h2>Welcome to iStreetWatch</h2>
+    <p class='flow-text'>Pellentesque pulvinar, nunc a dapibus ultricies, felis lorem dapibus diam, nec viverra justo metus non neque. Curabitur fringilla nisi at lectus auctor, sed pellentesque magna semper.</p>
+  </div>
 
-<div class="fixed-action-btn" style="bottom: 24px; right: 24px;">
-  <a class="btn-floating btn-large waves-effect waves-light red" href='/reports/new'>
-    <i class="material-icons">add</i>
-  </a>
-</div>
+  <div class='col s12'>
+    <div id='map-container'>
+      <div id="map"></div>
+      <a class="btn-floating btn-large waves-effect waves-light red" href='/reports/new'>
+        <i class="material-icons">add</i>
+      </a>
+    </div>
+  </div>
+
+</div><!-- end div.row -->
+
 
 <script>
   var events = <%= Report.latest_for_map.to_json.html_safe %>;

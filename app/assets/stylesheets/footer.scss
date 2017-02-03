@@ -9,6 +9,7 @@ footer.page-footer {
   a {
     color: $white;
     border-bottom: 1px solid $white;
+    &:hover { color: $white; }
   }
 }
 

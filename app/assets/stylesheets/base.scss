@@ -18,11 +18,39 @@ p {
 
 a {
   color: $blue;
-  &:hover {
+  &:not(.btn):hover {
     color: $blue-hover;
   }
-  &.report {
-    color: $red;
-    &:hover { color: $red-hover; }
+}
+
+.iSW ul.bullet {
+  margin-left: 2rem;
+  li {
+    list-style: square outside none;
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
+// Offset content when visible side nav
+
+#nav-mobile.side-nav {
+  width: 300px;
+}
+
+header, main, footer {
+  padding-left: 300px;
+}
+
+@media only screen and (min-width: 993px) {
+  .container {
+    width: 85%;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  header, main, footer {
+    padding-left: 0;
   }
 }
