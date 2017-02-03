@@ -1,0 +1,26 @@
+<li>
+  <div class="collapsible-header truncate">
+    <i class="material-icons">timeline</i>
+    <%= report.town %><%= content_tag(:small, ", #{report.date.strftime("%d %B %Y")}") if report.date %>
+    <span class='grey-text'>- Type of incident</span>
+    <!-- <%= content_tag(:span, "- #{report.type_incident}") if report.type_incident %> -->
+  </div>
+
+  <div class="collapsible-body">
+    <% if report.description  %>
+      <%= simple_format report.description.strip %>
+    <% end %>
+    <% unless report.support.blank?  %>
+      <p><strong>Did anyone speak up or offer support?</strong></p>
+      <%= simple_format report.support %>
+    <% end %>
+    <div class='share-buttons'>
+      <div class="fb-share-button"
+           data-href="<%= report_url(report)%>"
+           data-layout="button"
+           data-size="large"
+           data-mobile-iframe="true">
+      </div>
+    </div>
+  </div>
+</li>

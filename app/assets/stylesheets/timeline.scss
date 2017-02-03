@@ -1,0 +1,23 @@
+@import 'variables';
+
+.timeline.collapsible .collapsible-body {
+  p {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 2rem 0;
+  }
+  div.share-buttons {
+    margin: 2rem;
+    text-align: right;
+  }
+}
+
+.timeline.collapsible li {
+  .collapsible-header .material-icons {
+    will-change: opacity;
+    opacity: .5;
+  }
+  &:hover .collapsible-header .material-icons {
+    opacity: 1;
+  }
+} 

@@ -1,44 +1,12 @@
-<div class='row'>
-  <div class="col s12 m10 offset-m1">
+<div class='row section'>
+  <div class="col s12">
     <h2>Timeline</h2>
     <h5 class='right-align'><strong><%= REDIS.get("reports:counter") %></strong> reports</h5>
-    <%- @reports.each do |report| %>
-      <div class="report card">
-        <div class="card-content">
-          <p class='grey-para truncate'>
-            <strong>
-              <%= "#{report.informant_name}, " unless report.informant_name.blank? %>
-              <%= report.town %>
-            </strong>
-
-            <%= content_tag(:small, "- #{report.date.strftime("%d %B")}") if report.date %>
-          </p>
-          <% if report.description  %>
-            <section>
-              <%= simple_format report.description.strip %>
-            </section>
-          <% end %>
-
-          <% unless report.support.blank?  %>
-            <p class='grey-para'>Did anyone speak up or offer support?</p>
-            <section>
-              <%= simple_format report.support %>
-            </section>
-          <% end %>
-        </div>
-        <div class="card-action">
-          <div class='share-buttons'>
-            <div class="fb-share-button"
-                 data-href="<%= report_url(report)%>"
-                 data-layout="button"
-                 data-size="large"
-                 data-mobile-iframe="true">
-            </div>
-          </div>
-         </div>
-      </div>
-    <%- end %>
-
+    <ul class="collapsible timeline" data-collapsible="expandable">
+      <%- @reports.each do |report| %>
+        <%= render partial: 'reports/timeline_item', locals: {report: report} %>
+      <%- end %>
+    </ul>
     <%= will_paginate @reports %>
   </div>
 </div>
