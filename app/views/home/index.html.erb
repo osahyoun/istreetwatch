@@ -21,7 +21,7 @@
 
     <ul class="collapsible timeline" data-collapsible="expandable">
       <%- Report.limit(5).each do |report| %>
-        <%= render partial: 'reports/timeline_item', locals: {report: report} %>
+        <%= render partial: 'reports/timeline_item', locals: {report: report, is_active: false} %>
       <%- end %>
     </ul>
 
