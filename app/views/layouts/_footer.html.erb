@@ -3,16 +3,16 @@
     <div class='row'>
       <div class="col s6">
         <ul>
-          <li><%= link_to "Map", root_path %></li>
-          <li><%= link_to "Timeline", timeline_reports_path %></li>
-          <li><%= link_to "About", about_path %></li>
+          <li><%= link_to_unless_current "Home", root_path %></li>
+          <li><%= link_to_unless_current "Timeline", timeline_reports_path %></li>
+          <li><%= link_to_unless_current "About", about_path %></li>
         </ul>
       </div>
 
       <div class="col s6">
         <ul>
-          <li><%= link_to "Pledge", new_pledge_path %></li>
-          <li><%= link_to "Report Incident", new_report_path %></li>
+          <li><%= link_to_unless_current "Pledge", new_pledge_path %></li>
+          <li><%= link_to_unless_current "Report Incident", new_report_path %></li>
         </ul>
       </div>
 

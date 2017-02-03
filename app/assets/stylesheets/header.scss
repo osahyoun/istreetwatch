@@ -17,8 +17,13 @@ header nav {
 }
 
 .iSW header ul {
-  a:not(.btn):hover {
-    color: $black;
+  a {
+    will-change: opacity;
+    &:not(.btn):hover { color: $black; }
+    &.current {
+      pointer-events: none;
+      opacity: .5;
+    }
   }
   li.logo a {
     &:hover {

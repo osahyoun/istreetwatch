@@ -10,8 +10,10 @@
         <!-- <%= link_to 'iStreetWatch', root_path, class: 'title hide-on-med-and-down' %> -->
 
         <ul class='right'>
-          <li><%= link_to "Report Incident", new_report_path,
-              class: 'report btn' %></li>
+          <li>
+            <% disabled = current_page?(new_report_path) ? 'disabled' : '' %>
+            <%= link_to "Report Incident", new_report_path, class: "report btn #{disabled}" %>
+          </li>
         </ul>
       </div>
     </div>
@@ -32,24 +34,28 @@
       </p>
     </li>
     <li class='icon'>
-      <%= link_to new_pledge_path do %>
+      <% klass = current_page?(new_pledge_path) ? 'current' : '' %>
+      <%= link_to new_pledge_path, class: klass do %>
         <i class="material-icons right">person_add</i>Pledge
       <% end %>
     </li>
     <li>
     <!-- <li><%= link_to "Map", root_path %></li> -->
     <li class='icon'>
-      <%= link_to timeline_reports_path do %>
+      <% klass = current_page?(timeline_reports_path) ? 'current' : '' %>
+      <%= link_to timeline_reports_path, class: klass do %>
         <i class="material-icons right">timeline</i>Timeline
       <% end %>
     </li>
     <li class='icon'>
-      <%= link_to about_path do %>
+      <% klass = current_page?(about_path) ? 'current' : '' %>
+      <%= link_to about_path, class: klass do %>
         <i class="material-icons right">info_outline</i>About
       <% end %>
     </li>
     <li class='icon'>
-      <%= link_to about_path, class: 'hide-on-large-only' do %>
+      <% klass = current_page?(new_report_path) ? 'current hide-on-large-only' : 'hide-on-large-only' %>
+      <%= link_to new_report_path, class: klass do %>
         <i class="material-icons right">report_problem</i>Report Incident
       <% end %>
     </li>
