@@ -19,10 +19,13 @@
     </div>
   </nav>
 
-  <div class='container'>
-  </div>
-
   <ul id='nav-mobile' class='side-nav fixed'>
+    <li class='icon'>
+      <% klass = current_page?(root_path) ? 'current hide-on-large-only' : 'hide-on-large-only' %>
+      <%= link_to root_path, class: klass do %>
+        <i class="material-icons right">home</i>Home
+      <% end %>
+    </li>
     <li class='logo center hide-on-med-and-down'>
       <%= link_to image_tag('logo.png', alt: "Report racism and xenophobia"),
         root_path %>
