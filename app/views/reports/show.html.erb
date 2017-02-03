@@ -8,17 +8,13 @@
   <meta property="og:image:height" content="400" />
 <% end %>
 
-
-<div class="row">
-  <div class="col s12 m10 offset-m1">
+<div class="row section">
+  <div class="col s12">
     <h2>Report #<%= @report.id %></h2>
 
-    <p class="flow-text">
-      <%= display_address(@report) %>
-    </p>
+    <ul class="collapsible timeline" data-collapsible="expandable">
+      <%= render partial: 'reports/timeline_item', locals: {report: @report, is_active: true} %>
+    </ul>
 
-    <p class='flow-text'>
-      <%= simple_format @report.description %>
-    </p>
   </div>
 </div>

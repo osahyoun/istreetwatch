@@ -4,7 +4,7 @@
     <h5 class='right-align'><strong><%= REDIS.get("reports:counter") %></strong> reports</h5>
     <ul class="collapsible timeline" data-collapsible="expandable">
       <%- @reports.each do |report| %>
-        <%= render partial: 'reports/timeline_item', locals: {report: report} %>
+        <%= render partial: 'reports/timeline_item', locals: {report: report, is_active: false} %>
       <%- end %>
     </ul>
     <%= will_paginate @reports %>
