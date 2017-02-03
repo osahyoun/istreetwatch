@@ -17,7 +17,7 @@
     will-change: opacity;
     opacity: .5;
   }
-  &:hover .collapsible-header .material-icons {
+  &:hover .collapsible-header .material-icons, &.active .collapsible-header .material-icons {
     opacity: 1;
   }
 } 
