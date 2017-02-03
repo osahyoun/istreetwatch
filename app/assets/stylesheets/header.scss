@@ -1,14 +1,9 @@
 @import 'variables';
 
-
 header nav {
   background: $light-grey;
   box-shadow: none;
   a {
-    &.title {
-      color: $charcoal;
-      font-size: 2rem;
-    }
     &.button-collapse {
       color: $blue;
       margin-right: 1rem;
@@ -26,30 +21,38 @@ header nav {
     }
   }
   li.logo a {
+    display: flex;
+    justify-content: center;
     &:hover {
       background: none;
+      color: inherit;
     }
-    img {
+    img { // logo
       height: 40px;
       margin-top: 12px;
+      margin-right: 5px;
     }
+    font-color: #646464;
+    font-size: 2rem;
   }
   li.pledge-ad {
-    background: $purple;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.16), 0 0 10px 0 rgba(0, 0, 0, 0.12);
     p {
       height: auto;
-      color: $white;
       line-height: 2rem;
-      padding: .5rem;
+      padding: .5rem 2rem;
       margin: 0;
       a {
         padding: 0; margin: 0;
         display: inline;
-        line-height: 0;
-        color: $white;
-        border-bottom: 1px solid $white;
+        line-height: inherit;
+        color: inherit;
         font-size: inherit;
-        &:hover { color: $white; }
+        box-shadow: 0 1px 0 0 $charcoal;
+        &:hover {
+          color: inherit;
+          background: none;
+        }
       }
     }
   }

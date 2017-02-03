@@ -2,12 +2,9 @@
   <nav class='top-nav'>
     <div class='container'>
       <div class='nav-wrapper'>
-
         <a href="#" data-activates='nav-mobile' class="button-collapse top-nav full hide-on-large-only">
           <i class="material-icons">menu</i>
         </a>
-
-        <!-- <%= link_to 'iStreetWatch', root_path, class: 'title hide-on-med-and-down' %> -->
 
         <ul class='right'>
           <li>
@@ -20,17 +17,18 @@
   </nav>
 
   <ul id='nav-mobile' class='side-nav fixed'>
+    <li class='logo hide-on-med-and-down'>
+      <%= link_to root_path do %>
+        <%= image_tag('logo.png', alt: "Report racism and xenophobia") %>
+      <% end %>
+    </li>
     <li class='icon'>
       <% klass = current_page?(root_path) ? 'current hide-on-large-only' : 'hide-on-large-only' %>
       <%= link_to root_path, class: klass do %>
         <i class="material-icons right">home</i>Home
       <% end %>
     </li>
-    <li class='logo center hide-on-med-and-down'>
-      <%= link_to image_tag('logo.png', alt: "Report racism and xenophobia"),
-        root_path %>
-    </li>
-    <li class='pledge-ad center hide-on-med-and-down'>
+    <li class='pledge-ad hide-on-med-and-down'>
       <p>
         <%= pluralize(Pledge.counter, 'person') %> have pledged to help end street harassment.
         <%= link_to_unless_current "Will you?", new_pledge_path %>
