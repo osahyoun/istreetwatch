@@ -26,6 +26,10 @@
       transform: translateY(-140%);
     }
   }
+
+  .row .col > .row {
+    margin-bottom: 0;
+  }
 }
 
 .iSW ul.select-dropdown {

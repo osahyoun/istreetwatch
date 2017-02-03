@@ -7,39 +7,58 @@
 <% end %>
 
 
-<div class="row take-pledge-page">
-  <div class="col s12 m10 offset-m1 center">
-    <p>
-      <%= image_tag 'pledge-logo', class: 'responsive-img', width: 500 %>
+<div class='row section'>
+  <div class='col s12'>
+    <p class='center'>
+      <%= image_tag 'pledge-logo', class: 'responsive-img', width: 400 %>
     </p>
 
-    <p class="flow-text">We all have a responsibility to tackle racism and xenophobia on our streets: Take the iStreetwatch pledge today and commit to making our streets safe for everyone.</p>
+    <p class='flow-text'>We all have a responsibility to tackle racism and xenophobia on our streets; Take the iStreetwatch pledge today and commit to making our streets safe for everyone.</p>
 
-    <h4>I pledge:</h4>
-
-    <ul class='browser-default'>
-      <li><p><strong>Not to look away</strong> if I see someone being harassed on the street.</p></li>
-      <li><p><strong>To speak up</strong> in situations where someone is being racist or xenophobic.</p></li>
-      <li><p><strong>To offer support</strong>  to people who have been harassed on the street.</p></li>
-    </ul>
-
-    <%= form_for Pledge.new do |f| %>
-
-      <div class="field">
-        <%= f.label :name, "Name" %>
-        <%= f.text_field :name, class: 'validate', required: true %>
+    <div class='row section pledge'>
+      <div class='col s12'>
+        <h3 class='center'>I Pledge...</h3>
       </div>
-
-      <div class="field">
-        <%= f.label :email, "Email" %>
-        <%= f.email_field :email, class: 'validate', required: true %>
+      <div class='col s12 m4 center'>
+        <p><strong>1</strong></p>
+        <p>Not to look away if I see someone being harassed on the street.</p>
       </div>
-
-      <div class="field">
-        <button class="btn actions waves-effect waves-light">Pledge</button>
+      <div class='col s12 m4 center'>
+        <p><strong>2</strong></p>
+        <p>To speak up in situations where someone is being racist or xenophobic.</p>
       </div>
-    <% end %>
+      <div class='col s12 m4 center'>
+        <p><strong>3</strong></p>
+        <p>To offer support to people who have been harassed on the street.</p>
+      </div>
+    </div><!-- end div.row-->
 
-    <p>Many people feel unsure what to do when they witness abuse or harassment. But doing something is better than doing nothing at all. People who take the iStreetwatch pledge are committing to taking action whenever it is safe to do so, including documenting incidents of harassment and where possible reporting them to the police.</p>
+    <div class='row section pledge'>
+      <%= form_for Pledge.new do |f| %>
+        <div class="input-field col s12 m6">
+          <i class='material-icons prefix'>person</i>
+          <%= f.text_field :name, class: 'big', required: true %>
+          <%= f.label :name do %>
+            Name <sup>*</sup>
+          <% end %>
+        </div>
+
+        <div class="input-field col s12 m6">
+          <i class='material-icons prefix'>email</i>
+          <%= f.email_field :email, class: 'big', required: true %>
+          <%= f.label :email do %>
+            Email <sup>*</sup>
+          <% end %>
+        </div>
+
+        <div class="input-field col s12 center">
+          <button class="btn-large actions waves-effect waves-light">Pledge</button>
+        </div>
+      <% end %>
+    </div><!--end div.row.section-->
+
+    <div class='col s12'>
+      <p>Many people feel unsure what to do when they witness abuse or harassment. But doing something is better than doing nothing at all. People who take the iStreetwatch pledge are committing to taking action whenever it is safe to do so, including documenting incidents of harassment and where possible reporting them to the police.</p>
+    </div>
   </div>
-</div>
+</div><!--end div.row-->
