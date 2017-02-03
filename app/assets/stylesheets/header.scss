@@ -8,6 +8,12 @@ header nav {
       color: $blue;
       margin-right: 1rem;
     }
+    &.logo {
+      img {
+        margin-top: 12px;
+        height: 40px;
+      }
+    }
   }
 }
 
