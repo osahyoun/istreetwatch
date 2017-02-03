@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag 'favicon.ico' %>
+    <%= javascript_include_tag 'application' %>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,6 +35,5 @@
 
     <%= render partial: 'layouts/footer' %>
 
-    <%= javascript_include_tag 'application' %>
   </body>
 </html>
