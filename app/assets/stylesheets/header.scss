@@ -34,11 +34,24 @@ header nav {
       margin-top: 12px;
     }
   }
-  li p {
-    height: auto;
-    color: darken( $orange, 10% );
-    line-height: 2rem;
-    padding: .5rem;
+  li.pledge-ad {
+    background: $purple;
+    p {
+      height: auto;
+      color: $white;
+      line-height: 2rem;
+      padding: .5rem;
+      margin: 0;
+      a {
+        padding: 0; margin: 0;
+        display: inline;
+        line-height: 0;
+        color: $white;
+        border-bottom: 1px solid $white;
+        font-size: inherit;
+        &:hover { color: $white; }
+      }
+    }
   }
   li a i {
     font-size: 30px;
@@ -50,35 +63,3 @@ header nav {
   background: $red;
   margin-right: 0;
 }
-
-
-//nav {
-//  a.brand-logo {
-//    margin-top: 0.3em;
-//  }
-//  background: $light-grey;
-//  box-shadow: none;
-//
-//  .brand-logo {
-//    padding: 0 0.5em;
-//    color: black;
-//  }
-//
-//  .button-collapse {
-//    padding: 0 1em;
-//    color: $blue;
-//    &:hover { color: $blue-hover; }
-//  }
-//
-//  li a {
-//    font-size: 110%;
-//    color: $blue;
-//    &:hover { background: transparent; }
-//    &.report {
-//      color: $red;
-//      &:hover { color: $red-hover; }
-//    }
-//  }
-//}
-
-
