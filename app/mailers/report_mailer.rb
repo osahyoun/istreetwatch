@@ -1,5 +1,5 @@
 class ReportMailer < ApplicationMailer
-  default from: "iStreetWatch@migrantsrights.org.uk"
+  default from: "info@bitsalad.co"
 
   def report_published_email( report )
     @name = report.informant_name
