@@ -4,6 +4,7 @@ class PledgesController < ApplicationController
 
     if @pledge.save
       REDIS.incr("pledges:counter")
+      PledgeMailer.thank_you_email( @pledge ).deliver_now
     end
 
     redirect_to thankyou_pledges_path
