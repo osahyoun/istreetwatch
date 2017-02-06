@@ -58,4 +58,6 @@ gem 'rails_12factor', group: :production
 
 gem 'will_paginate', '~> 3.1.0'
 
+gem 'postmark-rails', '>= 0.10.0'
+
 ruby "2.3.3"

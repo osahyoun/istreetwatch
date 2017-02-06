@@ -89,6 +89,12 @@ GEM
       pkg-config (~> 1.1.7)
     pg (0.18.4)
     pkg-config (1.1.7)
+    postmark (1.10.0)
+      json
+      rake
+    postmark-rails (0.15.0)
+      actionmailer (>= 3.0.0)
+      postmark (~> 1.10.0)
     puma (3.4.0)
     rack (2.0.0.rc1)
       json
@@ -185,6 +191,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   pg
+  postmark-rails (>= 0.10.0)
   puma (~> 3.0)
   rails (>= 5.0.0.rc1, < 5.1)
   rails-assets-materialize!

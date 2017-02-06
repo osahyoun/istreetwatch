@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170131161820) do
+ActiveRecord::Schema.define(version: 20170206125740) do
 
   create_table "pledges", force: :cascade do |t|
     t.string   "email"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20170131161820) do
     t.string   "type_location"
     t.string   "type_location_other"
     t.string   "reported_to_police"
+    t.time     "approved_at"
   end
 
 end

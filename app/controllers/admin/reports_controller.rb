@@ -4,6 +4,7 @@ class Admin::ReportsController < ApplicationController
   end
 
   before_action :set_report, only: [:show, :edit, :update, :destroy]
+  after_action :send_published_email, only: [:update]
   layout 'admin'
 
   def index
@@ -21,12 +22,9 @@ class Admin::ReportsController < ApplicationController
     respond_to do |format|
       if @report.update(report_params)
         REDIS.set("reports:counter", Report.approved.count)
-
         format.html { redirect_to [:admin, :reports], notice: 'Report was successfully updated.' }
-        format.json { render :show, status: :ok, location: @report }
       else
         format.html { render :edit }
-        format.json { render json: @report.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,6 +40,12 @@ class Admin::ReportsController < ApplicationController
   private
     def set_report
       @report = Report.find(params[:id])
+    end
+
+    def send_published_email
+      if @report.previous_changes[ :approved_at ]
+        ReportMailer.report_published_email( @report ).deliver_now
+      end
     end
 
     def report_params

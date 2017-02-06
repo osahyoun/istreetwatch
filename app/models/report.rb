@@ -10,6 +10,8 @@ class Report < ApplicationRecord
 
   scope :approved, -> { where(approved: true ) }
 
+  before_save :set_approved_at, if: :approved_changed?
+
   def type_incident_other?
     type_incident.downcase.strip == 'other'
   end
@@ -17,6 +19,13 @@ class Report < ApplicationRecord
   def type_location_other?
     type_location.downcase.strip == 'other'
   end
+
+  private
+    def set_approved_at
+      if approved && approved_at.nil?
+        self.approved_at = Time.now
+      end
+    end
 
   class << self
     def latest

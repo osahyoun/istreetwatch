@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get '/reports/sent', to: 'reports#sent', as: :report_sent
   get 'take_the_pledge', to: 'pledges#new', as: :take_the_pledge
+  default_url_options :host => "www.istreetwatch.co.uk"
 
   resources :pledges, only: [:create, :new] do
     collection do
