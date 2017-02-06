@@ -21,7 +21,7 @@ class Report < ApplicationRecord
   class << self
     def latest
       where(approved: true).
-      order('created_at desc').
+      order('date desc').
       all()
     end
 
