@@ -41,6 +41,12 @@ header nav {
     font-color: #646464;
     font-size: 2rem;
   }
+  li.pledge {
+    a {
+      color: lighten( $purple, 5% );
+      &:hover { color: $purple; }
+    }
+  }
   li.pledge-ad {
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.16), 0 0 10px 0 rgba(0, 0, 0, 0.12);
     p {
@@ -52,11 +58,11 @@ header nav {
         padding: 0; margin: 0;
         display: inline;
         line-height: inherit;
-        color: inherit;
+        color: lighten( $purple, 5% );
         font-size: inherit;
-        box-shadow: 0 1px 0 0 $charcoal;
+        font-weight: 400;
         &:hover {
-          color: inherit;
+          color: $purple;
           background: none;
         }
       }

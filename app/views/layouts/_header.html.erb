@@ -42,7 +42,7 @@
         <%= link_to_unless_current "Will you?", new_pledge_path %>
       </p>
     </li>
-    <li class='icon'>
+    <li class='icon pledge'>
       <% klass = current_page?(new_pledge_path) ? 'current' : '' %>
       <%= link_to new_pledge_path, class: klass do %>
         <i class="material-icons right">person_add</i>Pledge
