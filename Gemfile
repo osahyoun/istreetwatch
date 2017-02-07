@@ -39,6 +39,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
   gem "factory_girl_rails", '~> 4.0'
+  gem 'capybara'
+  gem 'poltergeist'
 end
 
 group :development do
@@ -49,6 +51,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'sqlite3'
+end
+
+group :test do
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
