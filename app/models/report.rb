@@ -13,23 +13,23 @@ class Report < ApplicationRecord
   before_save :set_approved_at, if: :approved_changed?
 
   def type_incident_other?
-    type_incident.downcase.strip == 'other'
+    type_incident&.downcase&.strip == 'other'
   end
 
   def type_location_other?
-    type_location.downcase.strip == 'other'
+    type_location&.downcase&.strip == 'other'
   end
 
   private
     def set_approved_at
       if approved && approved_at.nil?
-        self.approved_at = Time.now
+        self.approved_at = Time.zone.now
       end
     end
 
   class << self
     def latest
-      where(approved: true).
+      approved.
       order('date desc').
       all()
     end
