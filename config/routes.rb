@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/about', to: 'home#about'
 
   namespace :admin do
+    get '', to: 'dashboard#index', as: :dashboard
     resources :reports
   end
 end

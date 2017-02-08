@@ -19,7 +19,8 @@
       <% end %>
     </li>
     <li>
-      <%= link_to "Dashboard", '#' %>
+      <% klass = current_page?(admin_dashboard_path) ? 'current' : '' %>
+      <%= link_to "Dashboard", admin_dashboard_path, class: klass %>
     </li>
     <li>
       <% klass = current_page?(admin_reports_path) ? 'current' : '' %>
