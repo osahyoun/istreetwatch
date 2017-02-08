@@ -78,8 +78,10 @@
     </div>
 
     <div class='input-field col s12'>
-      <%= f.text_area :support, class: 'materialize-textarea' %>
-      <%= f.label :support, 'Tell us if anyone spoke up, or offered support...' %>
+      <%= f.text_area :support, class: 'materialize-textarea', required: true %>
+      <%= f.label :support do %>
+        Tell us if anyone spoke up, or offered support... <sup>*</sup>
+      <% end %>
     </div>
 
     <div class='input-field col s12 m6'>
@@ -93,7 +95,9 @@
       <div class='row'>
         <div class='input-field col s12 m6'>
            <%= text_field_tag :map_address_finder, nil, id: 'autocomplete' %>
-           <%= f.label :map_address_finder, 'Tell us where it happened...' %>
+            <%= f.label :map_address_finder do %>
+              Tell us where it happened... <sup>*</sup>
+            <% end %>
         </div>
 
         <div class='hide-fields location'>

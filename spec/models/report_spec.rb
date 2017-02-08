@@ -51,6 +51,11 @@ describe Report do
       expect( report.errors[ :description ] ).to include( "can't be blank" )
     end
 
+    it 'should validate presence of support' do
+      expect( report ).not_to be_valid
+      expect( report.errors[ :support ] ).to include( "can't be blank" )
+    end
+
     it 'should validate presence of date' do
       expect( report ).not_to be_valid
       expect( report.errors[ :date ] ).to include( "can't be blank" )

@@ -1,7 +1,7 @@
 class Report < ApplicationRecord
   validates(
     :informant_name, :informant_email, :informant_role,
-    :type_incident, :description, :date,
+    :type_incident, :description, :support, :date,
     :town, :type_location,
     :reported_to_police, presence: true
   )

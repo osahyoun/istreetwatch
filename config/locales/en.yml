@@ -30,6 +30,7 @@ en:
         type_incident: "Type of Incident"
         type_incident_other: "Please Tell Us Type of Incident"
         description: "Description (what happened)"
+        support: "Support Offered"
         date: "Date (when it happened)"
         type_location: "Type of Location"
         type_location_other: "Please Tell Us Type of Location"
