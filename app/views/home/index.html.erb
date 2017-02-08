@@ -2,7 +2,12 @@
   <div class='col s12'>
 
     <h2>Welcome to iStreetWatch</h2>
-    <p class='flow-text'>Pellentesque pulvinar, nunc a dapibus ultricies, felis lorem dapibus diam, nec viverra justo metus non neque.</p>
+    <p class='flow-text'>We track racist and xenophobic harassment in public spaces.</p>
+
+    <p class='flow-text'>
+      If you have witnessed or experienced racist or xenophobic harassment,
+      <%= link_to "please submit your experience", new_report_path %>.
+    </p>
   </div>
 
   <div class='col s12'>
@@ -20,7 +25,7 @@
     <h4>Latest Reports</h4>
 
     <ul class="collapsible timeline" data-collapsible="expandable">
-      <%- Report.limit(5).each do |report| %>
+      <%- Report.latest.limit(5).each do |report| %>
         <%= render partial: 'reports/timeline_item', locals: {report: report, is_active: false} %>
       <%- end %>
     </ul>
