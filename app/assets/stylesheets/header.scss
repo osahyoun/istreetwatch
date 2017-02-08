@@ -15,6 +15,14 @@ header nav {
       }
     }
   }
+  p {
+    margin: 0;
+    &.title {
+      color: darken( $grey, 20% );
+      font-weight: 400;
+      font-size: 2rem;
+    }
+  }
 }
 
 .iSW header ul {

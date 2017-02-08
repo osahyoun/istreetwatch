@@ -1,3 +1,9 @@
-<h1>Editing Report</h1>
-<%= render 'form', report: @report %>
+<% content_for :title do %>
+  Edit Report #<%= @report.id %>
+<% end %>
 
+<div class="row section">
+  <div class="col s12">
+    <%= render 'form', report: @report %>
+  </div>
+</div>

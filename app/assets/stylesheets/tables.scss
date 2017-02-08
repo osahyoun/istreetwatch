@@ -1,0 +1,23 @@
+@import 'variables';
+
+.admin {
+  table.highlight tbody tr {
+    &:hover {
+      background: $light-grey;
+    }
+  }
+  td, th {
+    &.id {
+      color: darken( $grey, 20% );
+    }
+    &.town {
+      max-width: 150px;
+    }
+    &.small i {
+      font-size: 1.5rem;
+    }
+    &.delete i {
+      color: $red;
+    }
+  }
+}

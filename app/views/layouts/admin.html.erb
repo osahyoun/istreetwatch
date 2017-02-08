@@ -3,21 +3,21 @@
   <head>
     <title>iStreetWatch | ADMIN</title>
     <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
-  <body>
-    <div class="container">
-      <nav class='navbar'>
-        <ul class="nav navbar-nav">
-          <li><%= link_to "Reports", admin_reports_path %></li>
-        </ul>
-      </nav>
-      <%= yield %>
-    </div>
+  <body class='iSW admin'>
+    <%= render partial: 'layouts/admin_header' %>
+
+    <main>
+      <div class='container'>
+        <p id="notice"><%= notice %></p>
+        <%= yield %>
+      </div>
+    </main>
   </body>
 </html>

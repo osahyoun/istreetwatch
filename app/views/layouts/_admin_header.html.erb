@@ -1,0 +1,29 @@
+<header>
+  <nav class='top-nav'>
+    <div class='container'>
+      <div class='nav-wrapper'>
+        <a href="#" data-activates='nav-mobile' class="button-collapse top-nav full hide-on-large-only">
+          <i class="material-icons">menu</i>
+        </a>
+
+        <p class='title'><%= yield :title %></p>
+
+      </div>
+    </div>
+  </nav>
+
+  <ul id='nav-mobile' class='side-nav fixed'>
+    <li class='logo hide-on-med-and-down'>
+      <%= link_to '#' do %>
+        <%= image_tag('logo.png', alt: "Report racism and xenophobia") %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to "Dashboard", '#' %>
+    </li>
+    <li>
+      <% klass = current_page?(admin_reports_path) ? 'current' : '' %>
+      <%= link_to "Reports", admin_reports_path, class: klass %>
+    </li>
+  </ul>
+</header>

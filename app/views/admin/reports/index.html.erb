@@ -1,40 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Reports</h1>
-
-<% unless @reports.empty? %>
-
-  <%= will_paginate @reports %>
-
-  <table class='table'>
-    <thead>
-      <tr>
-        <th>When</th>
-        <th>Town</th>
-        <th>Description</th>
-        <th>Support</th>
-        <th>Approved</th>
-        <th colspan="2"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @reports.each do |report| %>
-        <tr>
-          <td><%= report.date.strftime("%d %B") %></td>
-          <td><%= report.town %></td>
-          <td><%= truncate(report.description, length: 100) %></td>
-          <td><%= truncate(report.support, length: 100) %></td>
-          <td><%= report.approved %></td>
-          <td><%= link_to 'Edit', edit_admin_report_path(report) %></td>
-          <td><%= link_to 'Destroy', [:admin, report], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <%= will_paginate @reports %>
-
-<% else %>
-  <h4> No reports yet to see.<h4>
+<% content_for :title do %>
+  Reports
 <% end %>
+
+<div class="row section">
+  <div class="col s12">
+
+    <p><strong><%= @reports.approved.count %></strong> of <strong><%= @reports.count %></strong> reports have been approved.</p>
+
+    <% unless @reports.empty? %>
+      <%= will_paginate @reports, class: 'center' %>
+
+      <%= render 'table', reports: @reports %>
+
+      <%= will_paginate @reports, class: 'center' %>
+    <% end %>
+
+  </div>
+</div>

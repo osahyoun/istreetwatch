@@ -1,85 +1,164 @@
 <%= form_for([:admin, report], id: 'report-form') do |f| %>
 
-  <% if report.errors.any? %>
-    <div id="error_explanation">
-      <h4><%= pluralize(report.errors.count, "error") %> stopped this report from being saved:</h4>
+  <%= render 'reports/form_errors', report: report %>
 
-      <ul>
-      <% report.errors.messages.values.each do |message| %>
-        <li><%= message.first %></li>
+  <h5>Informant Details</h5>
+  <div class='row section'>
+    <div class='input-field col s12 m6'>
+      <%= f.text_field :informant_name %>
+      <%= f.label :informant_name do %>
+        Name <sup>*</sup>
       <% end %>
-      </ul>
     </div>
 
-    <style type="text/css" media="all">
-      .hidden-address {
-        display: block;
-      }
-    </style>
-  <% end %>
+    <div class='input-field col s12 m6'>
+      <%= f.email_field :informant_email %>
+      <%= f.label :informant_email do %>
+        Email <sup>*</sup>
+      <% end %>
+    </div>
 
-  <div class="checkbox">
-    <label>
-      <%= f.check_box :approved %> Approved
-    </label>
-  </div>
+    <div class='input-field col s12 m6'>
+      <%= f.telephone_field :informant_tel %>
+      <%= f.label :informant_tel, 'Phone Number' %>
+    </div>
 
+    <div class='input-field col s12 m6'>
+      <%= f.select(:informant_role, select_options_for_informant_role, {include_blank: 'Choose your option'}) %>
+      <%= f.label :informant_role do %>
+        Role in Incident <sup>*</sup>
+      <% end %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :informant_name %>
-    <%= f.text_field :informant_name, class: 'form-control' %>
-  </div>
+    <div class='col s12'>
+      <p><strong>Permission to make contact: <%= report.informant_permission ? 'Yes' : 'No' %></strong></p>
+    </div>
+  </div><!-- end .row.section -->
 
-  <div class="form-group">
-    <%= f.label :description %>
-    <%= f.text_area :description, class: 'form-control' %>
-  </div>
+  <h5>Incident Details</h5>
+  <div class='row section'>
+    <div class='input-field col s12 m6'>
+      <%= f.date_field :date, class: 'datepicker' %>
+      <%= f.label :date do %>
+        Date <sup>*</sup>
+      <% end %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :support %>
-    <%= f.text_area :support, class: 'form-control' %>
-  </div>
+    <div class='col s12'>
+      <div class='row'>
+        <div class='input-field col s12 m6'>
+          <%= f.select(:type_incident, select_options_for_type_incident, {include_blank: 'Choose your option'}) %>
+          <%= f.label :type_incident do %>
+            Type of Incident <sup>*</sup>
+          <% end %>
+        </div>
 
-  <div class="form-group">
-    <%= f.label :date %>
-    <%= f.date_field :date, class: 'form-control' %>
-  </div>
+        <% if report.type_incident == 'Other' %>
+          <div class='input-field col s12 m6'>
+            <%= f.text_field :type_incident_other %>
+            <%= f.label :type_incident_other do %>
+              Other Type of Incident <sup>*</sup>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :street %>
-    <%= f.text_field :street, class: 'form-control' %>
-  </div>
+    <div class='input-field col s12'>
+      <%= f.text_area :description, class: 'materialize-textarea' %>
+      <%= f.label :description do %>
+        Description <sup>*</sup>
+      <% end %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :town %>
-    <%= f.text_field :town, class: 'form-control' %>
-  </div>
+    <div class='input-field col s12'>
+      <%= f.text_area :support, class: 'materialize-textarea'%>
+      <%= f.label :support do %>
+        Support Offered <sup>*</sup>
+      <% end %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :postcode %>
-    <%= f.text_field :postcode, class: 'form-control' %>
-  </div>
+  </div><!-- end .row.section -->
 
-  <div class="form-group">
-    <%= f.label :region %>
-    <%= f.text_field :region, class: 'form-control' %>
-  </div>
+  <h5>Incident Location</h5>
+  <div class='row section'>
+    <div class='input-field col s12 m6'>
+      <%= f.text_field :house %>
+      <%= f.label :house %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :country %>
-    <%= f.text_field :country, class: 'form-control' %>
-  </div>
+    <div class='input-field col s12 m6'>
+      <%= f.text_field :street %>
+      <%= f.label :street %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :house %>
-    <%= f.text_field :house, class: 'form-control' %>
-  </div>
+    <div class='input-field col s12 m6'>
+      <%= f.text_field :town, class: 'town' %>
+      <%= f.label :town do %>
+        Town <sup>*</sup>
+      <% end %>
+    </div>
 
-  <%= f.hidden_field :lng %>
-  <%= f.hidden_field :lat %>
+    <div class='input-field col s12 m6'>
+      <%= f.text_field :region %>
+      <%= f.label :region %>
+    </div>
 
-  <button class='btn'>
-    Update Report
-  </button>
+    <div class='input-field col s12 m6'>
+      <%= f.text_field :postcode %>
+      <%= f.label :postcode %>
+    </div>
 
+    <div class='input-field col s12 m6'>
+      <%= f.text_field :country %>
+      <%= f.label :country %>
+    </div>
+
+    <%= f.hidden_field :lng %>
+    <%= f.hidden_field :lat %>
+
+    <div class='col s12'>
+      <div class='row'>
+        <div class='input-field col s12 m6'>
+          <%= f.select(:type_location, select_options_for_type_location,
+            {include_blank: 'Choose your option'}, {class: 'type-location'}) %>
+          <%= f.label :type_location do %>
+            Type of location <sup>*</sup>
+          <% end %>
+        </div>
+
+        <div class='input-field col s10 offset-s1 m6 hide-fields'>
+          <%= f.text_field :type_location_other %>
+          <%= f.label :type_location_other do %>
+            Other Type of location<sup>*</sup>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div><!-- end .row.section -->
+
+  <h5>Report Info</h5>
+  <div class='row section'>
+    <div class='input-field col s12 m6'>
+      <%= f.select(:reported_to_police, select_options_for_was_reported, {include_blank: 'Choose your option'}) %>
+      <%= f.label :reported_to_police do %>
+        Has this incident been reported to the police? <sup>*</sup>
+      <% end %>
+    </div>
+
+    <div class='col s12'>
+      <p><strong>Reported to iStreetWatch on <%= report.created_at.strftime("%d %b %Y") %></strong></p>
+      <% if report.created_at != report.updated_at %>
+        <p><strong>Last updated on <%= report.updated_at.strftime("%d %b %Y") %><strong></p>
+      <% end %>
+    </div>
+  </div><!-- end .row.section -->
+
+  <div class='row section'>
+    <div class='input-field col s12 center'>
+      <button class="btn-large submit-button">
+        Save Changes
+      </button>
+    </div>
+  </div><!-- end .row.section -->
 <% end %>

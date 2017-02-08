@@ -10,6 +10,7 @@
   label {
     top: 1rem;
     color: $black;
+    transition: none;
     &.active {
       font-size: 1rem;
       & + span {
@@ -22,7 +23,7 @@
     &.big {
       font-size: 1.5rem;
     }
-    &[type='text'] ~ label, &[type='email'] ~ label, &[type='tel'] ~ label {
+    &[type='text'] ~ label, &[type='email'] ~ label, &[type='tel'] ~ label, &[type='date'] ~ label {
       -webkit-transform: translateY(-140%);
       transform: translateY(-140%);
     }
@@ -63,6 +64,15 @@
   border-color: $red !important;
   box-shadow: 0 1px 0 0 $red !important;
 }
+
+// Admin area
+
+.admin form {
+  label {
+    color: darken( $grey, 20% );
+  }
+}
+
 
 // CSS FORM VALIDATIONS FOR SELECT DROP-DOWNS
 .iSW select[required] {

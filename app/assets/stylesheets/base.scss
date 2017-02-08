@@ -12,6 +12,10 @@ p {
   }
 }
 
+h5 {
+  color: darken( $grey, 20% );
+}
+
 a {
   color: $blue;
   &:not(.btn):hover {
@@ -42,6 +46,9 @@ header, main, footer {
 @media only screen and (min-width: 993px) {
   .container {
     width: 85%;
+  }
+  .admin .container {
+    width: 90%;
   }
 }
 
