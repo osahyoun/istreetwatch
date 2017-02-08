@@ -7,17 +7,37 @@
     }
   }
   td, th {
+    i.pending-approval {
+      opacity: .2;
+    }
+    a {
+      display: inline-block;
+    }
     &.id {
       color: darken( $grey, 20% );
-    }
-    &.town {
-      max-width: 150px;
     }
     &.small i {
       font-size: 1.5rem;
     }
-    &.delete i {
+    a.delete i {
       color: $red;
+    }
+  }
+}
+
+
+@media only screen and (min-width: 993px) {
+  .admin table {
+    td.town {
+      max-width: 150px;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .admin table {
+    tr:hover {
+      background: none !important;
     }
   }
 }

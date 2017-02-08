@@ -9,7 +9,7 @@
           <th>Town</th>
           <th>Reported</th>
           <th>Approved</th>
-          <th colspan="2"></th>
+          <th></th>
         </tr>
       </thead>
 
@@ -23,16 +23,17 @@
             <td><%= report.created_at.strftime("%d %b %Y") %></td>
             <td class='center'>
               <% if report.approved %>
-                <i class="material-icons">done</i>
+                <i class='material-icons'>done</i>
+              <% else %>
+                <i class='material-icons pending-approval'>remove</i>
               <% end %>
             </td>
             <td class='small'>
               <%= link_to edit_admin_report_path(report) do %>
-                <i class="material-icons">create</i>
+                <i class="material-icons">edit</i>
               <% end %>
-            </td>
-            <td class='small delete'>
-              <%= link_to [:admin, report], method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <%= link_to [:admin, report], method: :delete, data: { confirm: 'Are you sure?' },
+                class: 'delete' do %>
                 <i class="material-icons">delete</i>
               <% end %>
             </td>
