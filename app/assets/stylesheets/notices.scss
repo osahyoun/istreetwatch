@@ -7,10 +7,10 @@
   top: 0; left: 0; right: 0;
   z-index: 2;
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem 1rem;
   margin-top: 0; margin-bottom: 0;
   color: #fff;
-  background: $green;
+  background: $charcoal;
   font-weight: 400;
   &:empty {
     @include vendorize( transform, translate3d(0, -100%, 0) );
