@@ -16,22 +16,17 @@ class Admin::ReportsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @report.update(report_params)
-        REDIS.set("reports:counter", Report.approved.count)
-        format.html { redirect_to [:admin, :reports], notice: 'Report was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @report.update(report_params)
+      REDIS.set("reports:counter", Report.approved.count)
+      redirect_to [:admin, :reports], notice: 'Report was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def destroy
     @report.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_reports_url, notice: 'Report was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to admin_reports_url, notice: 'Report was successfully destroyed.'
   end
 
   private
