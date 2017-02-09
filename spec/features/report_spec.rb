@@ -8,7 +8,7 @@ RSpec.describe 'Filling out report', type: :feature do
   describe 'selecting type of incident', js: true do
     context 'when "other" is not selected' do
       before do
-        select('Hate post', from: 'What type of incident was it?')
+        select('Verbal abuse / insults', from: 'What type of incident was it?')
       end
 
       it 'should not show type_incident_other field' do

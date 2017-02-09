@@ -35,7 +35,6 @@ module ReportsHelper
       "Verbal abuse / insults",
       "Damage to property / vandalism",
       "Threats / intimidation",
-      "Hate post",
       "Other"
     ]
   end
