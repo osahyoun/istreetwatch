@@ -1,0 +1,21 @@
+@mixin vendorize( $prop, $val... ) {
+  -webkit-#{$prop}: $val;
+  -moz-#{$prop}: $val;
+  -ms-#{$prop}: $val;
+  -o-#{$prop}: $val;
+  #{$prop}: $val;
+}
+
+@mixin animation($animate...) {
+  -webkit-animation: $animate;
+  animation: $animate;
+}
+
+@mixin keyframes( $animation-name ) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}

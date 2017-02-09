@@ -39,10 +39,6 @@ a {
   width: 300px !important;
 }
 
-header, main, footer {
-  padding-left: 300px;
-}
-
 @media only screen and (min-width: 993px) {
   .container {
     width: 85%;
@@ -50,10 +46,13 @@ header, main, footer {
   .admin .container {
     width: 90%;
   }
+  header, main, footer {
+    padding-left: 300px;
+  }
+  #notice {
+    margin-left: 300px;
+  }
 }
 
 @media only screen and (max-width: 992px) {
-  header, main, footer {
-    padding-left: 0;
-  }
 }

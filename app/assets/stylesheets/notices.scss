@@ -1,0 +1,30 @@
+@import 'variables';
+@import 'mixins';
+
+#notice {
+  will-change: transform;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 2;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 0; margin-bottom: 0;
+  color: #fff;
+  background: $green;
+  font-weight: 400;
+  &:empty {
+    @include vendorize( transform, translate3d(0, -100%, 0) );
+  }
+  &:not(:empty) {
+    @include animation( animation, slide-in-out-top 4s ease-out forwards );
+  }
+}
+
+@include keyframes ( slide-in-out-top ) {
+  0%, 100% {
+    @include vendorize( transform, translate3d(0, -100%, 0) );
+  }
+  10%, 90% {
+    @include vendorize( transform, translate3d(0, 0, 0) );
+  }
+}

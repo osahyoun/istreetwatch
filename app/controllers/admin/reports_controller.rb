@@ -18,7 +18,7 @@ class Admin::ReportsController < ApplicationController
   def update
     if @report.update(report_params)
       REDIS.set("reports:counter", Report.approved.count)
-      redirect_to [:admin, :reports], notice: 'Report was successfully updated.'
+      redirect_to [:admin, :reports], notice: "Report ##{@report.id} was successfully updated."
     else
       render :edit
     end
