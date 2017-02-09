@@ -51,8 +51,7 @@ header nav {
   }
   li.pledge {
     a {
-      color: lighten( $purple, 5% );
-      &:hover { color: $purple; }
+      color: $purple;
     }
   }
   li.pledge-ad {
@@ -67,11 +66,10 @@ header nav {
         padding: 0; margin: 0;
         display: inline;
         line-height: inherit;
-        color: lighten( $purple, 5% );
+        color: $purple;
         font-size: inherit;
         font-weight: 400;
         &:hover {
-          color: $purple;
           background: none;
         }
       }
