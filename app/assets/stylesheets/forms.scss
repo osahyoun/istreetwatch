@@ -8,7 +8,6 @@
   }
 
   label {
-    top: 1rem;
     color: $black;
     transition: none;
     &.active {
@@ -24,6 +23,7 @@
       font-size: 1.5rem;
     }
     &[type='text'] ~ label, &[type='email'] ~ label, &[type='tel'] ~ label, &[type='date'] ~ label {
+      top: 1rem;
       -webkit-transform: translateY(-140%);
       transform: translateY(-140%);
     }
@@ -70,6 +70,15 @@
 .admin form {
   label {
     color: darken( $grey, 20% );
+  }
+  .approved {
+    background: $light-grey;
+    border: 1px solid $grey;
+    padding: 1rem;
+    label {
+      color: black;
+      font-weight: 500;
+    }
   }
 }
 

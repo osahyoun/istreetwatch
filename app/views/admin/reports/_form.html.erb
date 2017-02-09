@@ -147,6 +147,13 @@
     </div>
 
     <div class='col s12'>
+      <p class='approved'>
+        <%= f.check_box :approved %>
+        <%= f.label :approved, 'Approved for publication on iStreetWatch.' %>
+      </p>
+    </div>
+
+    <div class='col s12'>
       <p><strong>Reported to iStreetWatch on <%= report.created_at.strftime("%d %b %Y") %></strong></p>
       <% if report.created_at != report.updated_at %>
         <p><strong>Last updated on <%= report.updated_at.strftime("%d %b %Y") %><strong></p>
