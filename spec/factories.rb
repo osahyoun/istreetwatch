@@ -3,9 +3,9 @@ FactoryGirl.define do
     informant_name 'Name'
     informant_email 'email@example.com'
     informant_tel '12345'
-    informant_role 'Role'
+    informant_role 'Something that happened to me'
     informant_permission true
-    type_incident 'Type of incident'
+    type_incident 'Verbal abuse / insults'
     type_incident_other ''
     description 'Description'
     support 'Support'
@@ -18,9 +18,10 @@ FactoryGirl.define do
     lat 0.1372
     house 'House'
     country 'Country'
-    type_location "Type of location"
+    type_location "Shops"
     type_location_other ''
     reported_to_police 'No'
+    approved false
   end
 
   factory :pledge do

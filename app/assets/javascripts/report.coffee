@@ -19,7 +19,7 @@ hide = ( $node ) ->
   $node.addClass( 'hide-fields' )
   $node.find( 'input' ).val('')
 
-getNextFormField = ( $node ) -> $node.closest( '.input-field' ).next( '.input-field' )
+getNextOtherField = ( $node ) -> $node.closest( '.input-field' ).next( '.input-field.other' )
 
 
 run = () ->
@@ -28,7 +28,7 @@ run = () ->
   $town_input = $( 'input.town' )
 
   [ $type_incident_select, $type_location_select ].forEach ( $select ) ->
-    $otherDiv = getNextFormField( $select )
+    $otherDiv = getNextOtherField( $select )
     show( $otherDiv ) if otherIsSelected( $select )
     observeNewOptions( $select, $otherDiv )
 
