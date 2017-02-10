@@ -68,4 +68,7 @@ gem 'will_paginate', '~> 3.1.0'
 
 gem 'postmark-rails', '>= 0.10.0'
 
+gem 'elasticsearch-model', '~> 0.1.9'
+gem 'elasticsearch-rails', '~> 0.1.9'
+
 ruby "2.3.3"

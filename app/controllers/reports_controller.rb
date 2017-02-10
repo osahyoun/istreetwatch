@@ -12,7 +12,11 @@ class ReportsController < ApplicationController
   end
 
   def timeline
-    @reports = Report.latest.paginate(page: params[:page], per_page: 40)
+    @reports = unless params[:q].blank?
+      Report.q_public( params[:q] ).page( params[:page] ).records
+    else
+      Report.latest.paginate(page: params[:page])
+    end
   end
 
   def create

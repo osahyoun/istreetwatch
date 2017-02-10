@@ -1,0 +1,10 @@
+<div class='search-wrapper'>
+  <%= form_tag timeline_reports_path, method: :get do %>
+    <div class="input-field">
+      <%= text_field_tag :q,  params[:q], class: 'big' %>
+      <button class='btn' type='submit'>
+        <i class='material-icons'>search</i>
+      </button>
+    </div>
+  <%- end %>
+</div>

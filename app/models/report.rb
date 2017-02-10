@@ -1,4 +1,9 @@
+require 'elasticsearch/model'
+
 class Report < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   validates(
     :informant_name, :informant_email, :informant_role,
     :type_incident, :description, :support, :date,
@@ -37,5 +42,36 @@ class Report < ApplicationRecord
     def latest_for_map
       latest.where.not(lat: nil)
     end
+
+    def q_public( q )
+      __elasticsearch__.search( q_public_query( q ) )
+    end
+
+    private
+      def q_public_query( q )
+        {
+          query: {
+            bool: {
+              must: public_multi_match( q ),
+              filter: {
+                term: { approved: true }
+              }
+            }
+          }
+        }
+      end
+
+      def public_multi_match( q )
+        {
+          multi_match: {
+            query: q,
+            type: 'best_fields',
+            fields: [
+              :type_incident, :type_incident_other, :description, :support,
+              :street, :town, :postcode, :region, :house, :country, :type_location, :type_location_other
+            ]
+          }
+        }
+      end
   end
 end
