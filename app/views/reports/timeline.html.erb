@@ -3,14 +3,13 @@
 
     <h2>Timeline</h2>
 
-    <h5 class='right-align'><strong><%= @reports.count %></strong> reports</h5>
+    <%= render "layouts/search", path: timeline_reports_path, range: false %>
+
+    <p class='right-align'><strong><%= @reports.total %> reports found</strong></p>
+
+    <%= will_paginate @reports, class: 'center' %>
 
     <ul class="collapsible timeline" data-collapsible="expandable">
-      <li>
-        <div class='collapsible-header'>
-          <%= render 'layouts/search' %>
-        </div>
-      </li>
       <%- @reports.each do |report| %>
         <%= render partial: 'reports/timeline_item', locals: {report: report, is_active: false} %>
       <%- end %>

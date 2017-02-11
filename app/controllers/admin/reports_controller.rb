@@ -8,8 +8,12 @@ class Admin::ReportsController < ApplicationController
   layout 'admin'
 
   def index
-    @reports = Report.order('created_at desc').paginate(page: params[:page], per_page: 50)
-    render :index
+    @reports = Report.q_admin( params[:q], params[:from], params[:to] ).paginate( page: params[:page], per_page: 30 ).records
+    @overview_info = unless params[:q].blank?
+      "#{@reports.total} reports found"
+    else
+      "#{Report.approved.count} of #{Report.count} reports have been approved"
+    end
   end
 
   def edit
@@ -17,7 +21,6 @@ class Admin::ReportsController < ApplicationController
 
   def update
     if @report.update(report_params)
-      REDIS.set("reports:counter", Report.approved.count)
       redirect_to [:admin, :reports], notice: "Report ##{@report.id} was successfully updated."
     else
       render :edit

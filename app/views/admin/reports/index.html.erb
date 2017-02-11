@@ -4,8 +4,9 @@
 
 <div class="row section">
   <div class="col s12">
+    <%= render "layouts/search", path: admin_reports_path, range: true %>
 
-    <p><strong><%= @reports.approved.count %></strong> of <strong><%= @reports.count %></strong> reports have been approved.</p>
+    <p><strong><%= @overview_info %></strong></p>
 
     <% unless @reports.empty? %>
       <%= will_paginate @reports, class: 'center' %>
@@ -14,6 +15,5 @@
 
       <%= will_paginate @reports, class: 'center' %>
     <% end %>
-
   </div>
 </div>

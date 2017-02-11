@@ -14,6 +14,7 @@ class Report < ApplicationRecord
   validates :type_location_other, presence: true, if: :type_location_other?
 
   scope :approved, -> { where(approved: true ) }
+  scope :date_desc, -> { order( 'date desc' ) }
 
   before_save :set_approved_at, if: :approved_changed?
 
@@ -44,20 +45,59 @@ class Report < ApplicationRecord
     end
 
     def q_public( q )
-      __elasticsearch__.search( q_public_query( q ) )
+      q.blank? ? __elasticsearch__.search( public_query_no_q ) :
+        __elasticsearch__.search( public_query_with_q(q) )
+    end
+
+    def q_admin( q, fDate, tDate )
+      q.blank? ? __elasticsearch__.search( admin_query_no_q( fDate, tDate ) ) :
+        __elasticsearch__.search( admin_query_with_q( q, fDate, tDate ) )
     end
 
     private
-      def q_public_query( q )
+      def public_query_with_q( q )
         {
           query: {
             bool: {
               must: public_multi_match( q ),
-              filter: {
-                term: { approved: true }
-              }
+              filter: public_filter
             }
-          }
+          },
+          sort: sort
+        }
+      end
+
+      def public_query_no_q
+        {
+          query: {
+            bool: {
+              must: public_filter
+            }
+          },
+          sort: sort
+        }
+      end
+
+      def admin_query_with_q( q, fDate, tDate )
+        {
+          query: {
+            bool: {
+              must: admin_multi_match( q ),
+              filter: admin_filter( fDate, tDate )
+            }
+          },
+          sort: sort
+        }
+      end
+
+      def admin_query_no_q( fDate, tDate )
+        {
+          query: {
+            bool: {
+              must: admin_filter( fDate, tDate )
+            }
+          },
+          sort: sort
         }
       end
 
@@ -68,8 +108,45 @@ class Report < ApplicationRecord
             type: 'best_fields',
             fields: [
               :type_incident, :type_incident_other, :description, :support,
-              :street, :town, :postcode, :region, :house, :country, :type_location, :type_location_other
+              :street, :town, :postcode, :region, :country, :type_location, :type_location_other
             ]
+          }
+        }
+      end
+
+      def admin_multi_match( q )
+        {
+          multi_match: {
+            query: q,
+            type: 'best_fields',
+            fields: [
+              :informant_name, :informant_email, :informant_tel, :informant_role,
+              :type_incident, :type_incident_other, :description, :support,
+              :street, :town, :postcode, :region, :country, :type_location, :type_location_other, :_id
+            ]
+          }
+        }
+      end
+
+      def public_filter
+        {
+          term: { approved: true }
+        }
+      end
+
+      def admin_filter( fDate, tDate )
+        fDate = Report.date_desc.last.date if fDate.blank?
+        tDate = Time.now if tDate.blank?
+
+        {
+          range: { date: { gte: fDate, lte: tDate } }
+        }
+      end
+
+      def sort
+        {
+          date: {
+            order: 'desc'
           }
         }
       end
