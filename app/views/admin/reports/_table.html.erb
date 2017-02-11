@@ -5,8 +5,8 @@
         <tr>
           <th class='id'>#</th>
           <th>Type of Incident</th>
-          <th>Date</th>
           <th>Town</th>
+          <th>When</th>
           <th>Reported</th>
           <th>Approved</th>
           <th></th>
@@ -18,8 +18,8 @@
           <tr>
             <td class='id'><%= report.id %></td>
             <td><%= report.type_incident %></td>
-            <td><%= report.date.strftime("%d %b %Y") %></td>
             <td class='town'><%= report.town %></td>
+            <td><%= report.date.strftime("%d %b %Y") %></td>
             <td><%= report.created_at.strftime("%d %b %Y") %></td>
             <td class='center'>
               <% if report.approved %>
