@@ -18,6 +18,7 @@ h5 {
 
 a {
   color: $blue;
+  transition: all 0.3s ease-out;
   &:not(.btn):hover {
     color: $blue-hover;
   }
