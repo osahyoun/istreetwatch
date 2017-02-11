@@ -9,11 +9,6 @@ class Admin::ReportsController < ApplicationController
 
   def index
     @reports = Report.q_admin( params[:q], params[:from], params[:to] ).paginate( page: params[:page], per_page: 30 ).records
-    @overview_info = unless params[:q].blank?
-      "#{@reports.total} reports found"
-    else
-      "#{Report.approved.count} of #{Report.count} reports have been approved"
-    end
   end
 
   def edit

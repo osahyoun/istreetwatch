@@ -144,11 +144,7 @@ class Report < ApplicationRecord
       end
 
       def sort
-        {
-          date: {
-            order: 'desc'
-          }
-        }
+        { date: 'desc' }
       end
   end
 end

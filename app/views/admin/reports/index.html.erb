@@ -6,7 +6,7 @@
   <div class="col s12">
     <%= render "layouts/search", path: admin_reports_path, range: true %>
 
-    <p><strong><%= @overview_info %></strong></p>
+    <p class='right-align'><strong><%= @reports.total %> reports found</strong></p>
 
     <% unless @reports.empty? %>
       <%= will_paginate @reports, class: 'center' %>
