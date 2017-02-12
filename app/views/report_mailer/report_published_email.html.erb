@@ -1,5 +1,9 @@
-<p>Thanks for your report, <%= @name %></p>
+<p>Hi <%= @name %>,</p>
 
-<p>To see your report, just follow this link: <%= @url %></p>
+<p>Thank you very much for sharing your story with iStreetWatch and helping us to monitor racist and xenophobic incidents in our communities. Your report has been posted on our website: <%= link_to 'click here to take a look',  @url, target: '_blank' %>.</p>
+
+<p>We know that experiencing or witnessing racist abuse can be a traumatic experience. If you would like to seek further support you can find information <%= link_to 'here', finding_help_url, target: '_blank' %>.</p>
+
+<p>To get in touch with iStreetWatch, e-mail us at istreetwatch@migrantsrights.org.uk</p>
 
 <p>Best wishes from the iStreetWatch Team</p>

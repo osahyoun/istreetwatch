@@ -1,5 +1,5 @@
 class PledgeMailer < ApplicationMailer
-  default from: "info@bitsalad.co"
+  default from: 'istreetwatch@migrantsrights.org.uk'
 
   def thank_you_email( pledge )
     @name = pledge.name
