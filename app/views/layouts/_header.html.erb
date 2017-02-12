@@ -31,8 +31,7 @@
       <% end %>
     </li>
     <li class='icon'>
-      <% klass = current_page?(root_path) ? 'current hide-on-large-only' : 'hide-on-large-only' %>
-      <%= link_to root_path, class: klass do %>
+      <%= link_to root_path, class: "hide-on-large-only #{'current' if current_page?(root_path)}" do %>
         <i class="material-icons right">home</i>Home
       <% end %>
     </li>
@@ -43,33 +42,28 @@
       </p>
     </li>
     <li class='icon pledge'>
-      <% klass = current_page?(new_pledge_path) ? 'current' : '' %>
-      <%= link_to new_pledge_path, class: klass do %>
+      <%= link_to new_pledge_path, class: "#{'current' if current_page?(new_pledge_path)}" do %>
         <i class="material-icons right">person_add</i>Pledge
       <% end %>
     </li>
     <li>
     <li class='icon'>
-      <% klass = current_page?(timeline_reports_path) ? 'current' : '' %>
-      <%= link_to timeline_reports_path, class: klass do %>
+      <%= link_to timeline_reports_path, class: "#{'current' if current_page?(timeline_reports_path)}" do %>
         <i class="material-icons right">timeline</i>Timeline
       <% end %>
     </li>
     <li class='icon'>
-      <% klass = current_page?(about_path) ? 'current' : '' %>
-      <%= link_to about_path, class: klass do %>
+      <%= link_to about_path, class: "#{'current' if current_page?(about_path)}" do %>
         <i class="material-icons right">info_outline</i>About
       <% end %>
     </li>
     <li class='icon'>
-      <% klass = current_page?(finding_help_path) ? 'current' : '' %>
-      <%= link_to finding_help_path, class: klass do %>
+      <%= link_to finding_help_path, class: "#{'current' if current_page?(finding_help_path)}" do %>
         <i class="material-icons right">help_outline</i>Finding Help
       <% end %>
     </li>
     <li class='icon'>
-      <% klass = current_page?(new_report_path) ? 'current hide-on-large-only' : 'hide-on-large-only' %>
-      <%= link_to new_report_path, class: klass do %>
+      <%= link_to new_report_path, class: "hide-on-large-only #{'current' if current_page?(new_report_path)}" do %>
         <i class="material-icons right">report_problem</i>Report Incident
       <% end %>
     </li>

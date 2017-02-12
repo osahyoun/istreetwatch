@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root 'home#index'
+  get '/about', to: 'home#about'
+  get '/finding-help', to: 'home#finding_help'
   get '/reports/sent', to: 'reports#sent', as: :report_sent
   get 'take_the_pledge', to: 'pledges#new', as: :take_the_pledge
   default_url_options :host => ENV[ 'HOST' ]
@@ -14,10 +17,6 @@ Rails.application.routes.draw do
       get 'timeline'
     end
   end
-
-  root 'home#index'
-  get '/about', to: 'home#about'
-  get '/finding-help', to: 'home#finding_help'
 
   namespace :admin do
     get '', to: 'dashboard#index', as: :dashboard
