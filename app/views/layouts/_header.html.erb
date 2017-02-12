@@ -62,6 +62,12 @@
       <% end %>
     </li>
     <li class='icon'>
+      <% klass = current_page?(finding_help_path) ? 'current' : '' %>
+      <%= link_to finding_help_path, class: klass do %>
+        <i class="material-icons right">help_outline</i>Finding Help
+      <% end %>
+    </li>
+    <li class='icon'>
       <% klass = current_page?(new_report_path) ? 'current hide-on-large-only' : 'hide-on-large-only' %>
       <%= link_to new_report_path, class: klass do %>
         <i class="material-icons right">report_problem</i>Report Incident

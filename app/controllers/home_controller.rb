@@ -4,4 +4,7 @@ class HomeController < ApplicationController
 
   def about
   end
+
+  def finding_help
+  end
 end
