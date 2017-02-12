@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
+  default_url_options :host => ENV[ 'HOST' ]
+
   root 'home#index'
   get '/about', to: 'home#about'
   get '/finding-help', to: 'home#finding_help'
-  get '/reports/sent', to: 'reports#sent', as: :report_sent
-  get 'take_the_pledge', to: 'pledges#new', as: :take_the_pledge
-  default_url_options :host => ENV[ 'HOST' ]
 
   resources :pledges, only: [:create, :new] do
     collection do
@@ -17,6 +16,8 @@ Rails.application.routes.draw do
       get 'timeline'
     end
   end
+  get '/reports', to: redirect( '/reports/timeline' )
+  get '/reports/sent', to: 'reports#sent', as: :report_sent
 
   namespace :admin do
     get '', to: 'dashboard#index', as: :dashboard
