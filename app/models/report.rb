@@ -63,7 +63,10 @@ class Report < ApplicationRecord
               filter: public_filter
             }
           },
-          sort: sort
+          sort: [
+            '_score',
+            { date: 'desc' }
+          ]
         }
       end
 
@@ -74,7 +77,7 @@ class Report < ApplicationRecord
               must: public_filter
             }
           },
-          sort: sort
+          sort: { date: 'desc' }
         }
       end
 
@@ -86,7 +89,10 @@ class Report < ApplicationRecord
               filter: admin_filter( fDate, tDate )
             }
           },
-          sort: sort
+          sort: [
+            '_score',
+            { date: 'desc' }
+          ]
         }
       end
 
@@ -97,7 +103,7 @@ class Report < ApplicationRecord
               must: admin_filter( fDate, tDate )
             }
           },
-          sort: sort
+          sort: { date: 'desc' }
         }
       end
 
@@ -141,10 +147,6 @@ class Report < ApplicationRecord
         {
           range: { date: { gte: fDate, lte: tDate } }
         }
-      end
-
-      def sort
-        { date: 'desc' }
       end
   end
 end
