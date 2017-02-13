@@ -33,7 +33,7 @@
     </div>
 
     <div class='col s12'>
-      <p>Your contact information will remain <a href="#">private</a> to Migrants' Rights Network. We will not share it without your permission.</p>
+      <p>Your contact information will remain <%= link_to 'private', privacy_path %> to Migrants' Rights Network. We will not share it without your permission.</p>
       <p>To support our campaigning and advocacy work, we may get in touch with you for more details about the incident you have reported. Please tick this box, if you agree to being contacted for this purpose:</p>
       <p>
         <%= f.check_box :informant_permission %>
