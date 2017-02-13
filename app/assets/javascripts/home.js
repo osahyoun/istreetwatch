@@ -2,19 +2,10 @@ function init(){}
 
 var map;
 
-// function setHeightOfMap() {
-//   var bodyHeight = $(window).height(),
-//       navHeight = $('nav').outerHeight();
-//
-//   $('#map').css('height', bodyHeight - navHeight - 1);
-// }
-
 function initMap() {
   var lat = 54.5,
       lng = -3.91907;
 
-  // setHeightOfMap();
-  // $( window ).resize(setHeightOfMap);
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat:lat, lng:lng},
     zoom: 6,
@@ -62,18 +53,11 @@ function initMap() {
 function bubbleContent(report){
   var content = report.description;
 
-  if(report.support){
-    content += '<br />Did anyone speak up or offer support?';
-    content += '<br />' + report.support;
+  if( content.length > 150 ){
+    content = content.substring(0,150) + "... <a href='/reports/" + report.id + "'>more</a>";
   }
 
-  content += "<br /><strong>";
-  if(report.name){
-    content += report.name + ", ";
-  }
-
-  content += report.town + "</strong>";
-  return content;
+  return content = "<strong>" + report.town + "</strong><br />" + content;
 }
 
 function initAutocomplete() {
