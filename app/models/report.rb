@@ -52,108 +52,14 @@ class Report < ApplicationRecord
     end
 
     def q_public( q )
-      q.blank? ? __elasticsearch__.search( public_query_no_q ) :
-        __elasticsearch__.search( public_query_with_q(q) )
+      q.blank? ? __elasticsearch__.search( Search.public_query_no_q ) :
+        __elasticsearch__.search( Search.public_query_with_q( q ) )
     end
 
     def q_admin( q, fDate, tDate )
-      q.blank? ? __elasticsearch__.search( admin_query_no_q( fDate, tDate ) ) :
-        __elasticsearch__.search( admin_query_with_q( q, fDate, tDate ) )
+      q.blank? ? __elasticsearch__.search( Search.admin_query_no_q( fDate, tDate ) ) :
+        __elasticsearch__.search( Search.admin_query_with_q( q, fDate, tDate ) )
     end
-
-    private
-      def public_query_with_q( q )
-        {
-          query: {
-            bool: {
-              must: public_multi_match( q ),
-              filter: public_filter
-            }
-          },
-          sort: [
-            '_score',
-            { date: 'desc' }
-          ]
-        }
-      end
-
-      def public_query_no_q
-        {
-          query: {
-            bool: {
-              must: public_filter
-            }
-          },
-          sort: { date: 'desc' }
-        }
-      end
-
-      def admin_query_with_q( q, fDate, tDate )
-        {
-          query: {
-            bool: {
-              must: admin_multi_match( q ),
-              filter: admin_filter( fDate, tDate )
-            }
-          },
-          sort: [
-            '_score',
-            { date: 'desc' }
-          ]
-        }
-      end
-
-      def admin_query_no_q( fDate, tDate )
-        {
-          query: {
-            bool: {
-              must: admin_filter( fDate, tDate )
-            }
-          },
-          sort: { date: 'desc' }
-        }
-      end
-
-      def public_multi_match( q )
-        {
-          multi_match: {
-            query: q,
-            type: 'best_fields',
-            fields: [
-              :type_incident, :type_incident_other, :description, :support,
-              :street, :town, :postcode, :region, :country, :type_location, :type_location_other
-            ]
-          }
-        }
-      end
-
-      def admin_multi_match( q )
-        {
-          multi_match: {
-            query: q,
-            type: 'best_fields',
-            fields: [
-              :informant_name, :informant_email, :informant_tel, :informant_role,
-              :type_incident, :type_incident_other, :description, :support,
-              :street, :town, :postcode, :region, :country, :type_location, :type_location_other, :_id
-            ]
-          }
-        }
-      end
-
-      def public_filter
-        {
-          term: { approved: true }
-        }
-      end
-
-      def admin_filter( fDate, tDate )
-        fDate = Report.date_desc.last.date if fDate.blank?
-        tDate = Time.now if tDate.blank?
-
-        {
-          range: { date: { gte: fDate, lte: tDate } }
-        }
-      end
   end
+
 end
