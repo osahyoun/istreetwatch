@@ -61,6 +61,15 @@ describe Report do
       expect( report.errors[ :date ] ).to include( "can't be blank" )
     end
 
+    it 'should validate date not in the future' do
+      report.date = 1.day.from_now
+      report.valid?
+      expect( report.errors[ :date ] ).to include( "can't be in the future" )
+      report.date = Date.today
+      report.valid?
+      expect( report.errors[ :date ] ).not_to include( "can't be in the future" )
+    end
+
     it 'should validate presence of town' do
       expect( report ).not_to be_valid
       expect( report.errors[ :town ] ).to include( "can't be blank" )

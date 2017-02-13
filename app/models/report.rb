@@ -10,6 +10,7 @@ class Report < ApplicationRecord
     :town, :type_location,
     :reported_to_police, presence: true
   )
+  validate :date_cannot_be_in_the_future
   validates :type_incident_other, presence: true, if: :type_incident_other?
   validates :type_location_other, presence: true, if: :type_location_other?
 
@@ -30,6 +31,12 @@ class Report < ApplicationRecord
     def set_approved_at
       if approved && approved_at.nil?
         self.approved_at = Time.zone.now
+      end
+    end
+
+    def date_cannot_be_in_the_future
+      if date.present? && date > Time.zone.now
+        errors.add(:date, "can't be in the future")
       end
     end
 
