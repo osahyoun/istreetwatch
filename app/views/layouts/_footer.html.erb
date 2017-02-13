@@ -1,22 +1,30 @@
 <footer class="page-footer">
   <div class="container">
     <div class='row'>
-      <div class="col s6">
+      <div class="col s4">
         <ul>
           <li><%= link_to_unless_current "Home", root_path %></li>
           <li><%= link_to_unless_current "Timeline", timeline_reports_path %></li>
           <li><%= link_to_unless_current "About", about_path %></li>
-          <li><%= link_to_unless_current "Finding Help", finding_help_path %></li>
         </ul>
       </div>
 
-      <div class="col s6">
+      <div class="col s4">
         <ul>
-          <li><%= link_to_unless_current "Pledge", new_pledge_path %></li>
-          <li><%= link_to_unless_current "Report Incident", new_report_path %></li>
+          <li class='truncate'><%= link_to_unless_current "Pledge", new_pledge_path %></li>
+          <li class='truncate'><%= link_to_unless_current "Report Incident", new_report_path %></li>
+          <li class='truncate'><%= link_to_unless_current "Finding Help", finding_help_path %></li>
         </ul>
       </div>
 
+      <div class="col s4">
+        <ul>
+          <li class='truncate'><%= link_to_unless_current "Privacy Policy", privacy_path %></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class='row'>
       <div class='col s12'>
         <div class='share-buttons'>
           <div class="fb-share-button" data-href="<%= request.original_url %>" data-layout="button" data-size="small" data-mobile-iframe="true"></div>

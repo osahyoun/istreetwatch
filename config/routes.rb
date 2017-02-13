@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/about', to: 'home#about'
   get '/finding-help', to: 'home#finding_help'
+  get '/privacy', to: 'home#privacy'
 
   resources :pledges, only: [:create, :new] do
     collection do
