@@ -51,13 +51,14 @@ function initMap() {
 
 
 function bubbleContent(report){
-  var content = report.description;
+  var content = report.description,
+      report_as_link = "<a href='/reports/" + report.id + "'>Report#" + report.id + "</a>";
 
   if( content.length > 150 ){
     content = content.substring(0,150) + "... <a href='/reports/" + report.id + "'>more</a>";
   }
 
-  return content = "<strong>" + report.town + "</strong><br />" + content;
+  return content = "<strong>" + report_as_link + ', ' + report.town + "</strong><br />" + content;
 }
 
 function initAutocomplete() {
