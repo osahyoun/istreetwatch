@@ -17,6 +17,7 @@ class Report < ApplicationRecord
   scope :approved, -> { where(approved: true ) }
   scope :date_desc, -> { order( 'date desc' ) }
 
+  before_save :check_lat_lng
   before_save :set_approved_at, if: :approved_changed?
 
   def type_incident_other?
@@ -38,6 +39,20 @@ class Report < ApplicationRecord
       if date.present? && date > Time.zone.now
         errors.add(:date, "can't be in the future")
       end
+    end
+
+    def check_lat_lng
+      while with_duplicate_position_count > 0
+        self.lat = lat + (rand - 0.5) / 1500
+        self.lng = lng + (rand - 0.5) / 1500
+      end
+    end
+
+    def with_duplicate_position_count
+      Report.where(lat: lat, lng: lng)
+        .where.not(lat: nil, lng: nil)
+        .where.not(id: id)
+        .count
     end
 
   class << self

@@ -121,6 +121,18 @@ describe Report do
     end
   end
 
+  describe 'hooks' do
+    describe ':check_lat_lng' do
+      let!( :exisiting_report ) { create( :report, lng: 1.0, lat: 1.0 ) }
+
+      it 'should change coords if location taken' do
+        new_report = create( :report, lng: 1.0, lat: 1.0 )
+        expect( new_report.lat ).not_to eql( exisiting_report.lat )
+        expect( new_report.lng ).not_to eql( exisiting_report.lng )
+      end
+    end
+  end
+
   describe 'class methods' do
     describe '.latest' do
       let!( :new_report ) { create( :report, approved: true, date: Time.zone.now ) }
