@@ -1,6 +1,6 @@
 <li class='<%= "active" if is_active %>'>
   <div class='collapsible-header truncate <%= "active" if is_active %>'>
-    <i class='material-icons'>timeline</i>
+    <i class='material-icons'>arrow_drop_down</i>
     <%= report.town %><%= content_tag(:small, ", #{report.date.strftime("%d %B %Y")}") if report.date %>
     <%= content_tag(:span, "- #{report.type_incident}", class: 'grey-text') if report.type_incident %>
   </div>
