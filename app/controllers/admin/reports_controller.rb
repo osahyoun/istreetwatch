@@ -1,11 +1,6 @@
-class Admin::ReportsController < ApplicationController
-  if Rails.env.production?
-    http_basic_authenticate_with name: "admin", password: ENV['PASSWORD']
-  end
-
+class Admin::ReportsController < Admin::AdminController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
   after_action :send_published_email, only: [:update]
-  layout 'admin'
 
   def index
     @reports = Report.q_admin( params[:q], params[:from], params[:to] ).paginate( page: params[:page], per_page: 30 ).records
