@@ -131,6 +131,18 @@ describe Report do
         expect( new_report.lng ).not_to eql( exisiting_report.lng )
       end
     end
+
+    describe ':set_approved_at' do
+      it 'should not set approved_at date if report not approved' do
+        report = create( :report, approved: false )
+        expect( report.approved_at ).to eql( nil )
+      end
+
+      it 'should set approved_at date if report approved' do
+        report = create( :report, approved: true )
+        expect( report.approved_at ).not_to eql( nil )
+      end
+    end
   end
 
   describe 'class methods' do

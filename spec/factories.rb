@@ -22,6 +22,7 @@ FactoryGirl.define do
     type_location_other ''
     reported_to_police 'No'
     approved false
+    approved_at nil
   end
 
   factory :pledge do
