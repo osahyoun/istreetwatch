@@ -71,7 +71,10 @@ class Report < ApplicationRecord
         __elasticsearch__.search( Search.public_query_with_q( q ) )
     end
 
-    def q_admin( q, fDate, tDate )
+    def q_admin( q, fDate=Report.date_desc.last.date, tDate=Time.now )
+      fDate = Report.date_desc.last.date if fDate.blank?
+      tDate = Time.now if tDate.blank?
+
       q.blank? ? __elasticsearch__.search( Search.admin_query_no_q( fDate, tDate ) ) :
         __elasticsearch__.search( Search.admin_query_with_q( q, fDate, tDate ) )
     end

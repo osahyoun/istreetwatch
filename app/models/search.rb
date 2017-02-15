@@ -90,9 +90,6 @@ class Search
       end
 
       def admin_filter( fDate, tDate )
-        fDate = Report.date_desc.last.date if fDate.blank?
-        tDate = Time.now if tDate.blank?
-
         {
           range: { date: { gte: fDate, lte: tDate } }
         }
