@@ -86,13 +86,9 @@
       transform: translateZ(0); will-change: opacity;
       transition: opacity .3s ease-out;
       color: $black;
-      opacity: .6;
       font-size: 2rem;
       line-height: 2rem;
       margin: 0; padding: 0;
-      &:hover {
-        opacity: 1;
-      }
     }
   }
   input {
@@ -100,6 +96,17 @@
       border-bottom: 1px solid $black;
       box-shadow: none;
       ~ label { color: inherit; }
+    }
+  }
+  &.public {
+    input {
+      border-bottom: 1px solid $green;
+      &:hover, &:focus {
+        box-shadow: 0 1px 0 0 $green;
+      }
+    }
+    .btn i {
+      color: $green;
     }
   }
   .filter-opts { // date range

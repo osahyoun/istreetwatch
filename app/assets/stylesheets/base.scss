@@ -37,7 +37,7 @@ a {
 // Offset content when visible side nav
 
 #nav-mobile.side-nav {
-  width: 300px !important;
+  width: 240px !important;
 }
 
 @media only screen and (min-width: 993px) {
@@ -48,10 +48,10 @@ a {
     width: 90%;
   }
   header, main, footer {
-    padding-left: 300px;
+    padding-left: 240px;
   }
   #notice {
-    margin-left: 300px;
+    margin-left: 240px;
   }
 }
 

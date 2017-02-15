@@ -3,14 +3,19 @@
 
     <h2>Timeline</h2>
 
-    <%= render "layouts/search", path: timeline_reports_path, range: false %>
+    <div class='row'>
+      <div class="col s12 m10 offset-m1">
+        <%= render "layouts/search", path: timeline_reports_path, admin: false %>
+      </div>
+    </div>
 
     <p class='right-align'><strong><%= @reports.total %> reports found</strong></p>
 
     <%= will_paginate @reports, class: 'center' %>
 
     <ul class="collapsible timeline" data-collapsible="expandable">
-      <%- @reports.each do |report| %>
+      <%= render partial: 'reports/timeline_item', locals: {report: @reports[0], is_active: true} %>
+      <%- @reports.drop(1).each do |report| %>
         <%= render partial: 'reports/timeline_item', locals: {report: report, is_active: false} %>
       <%- end %>
     </ul>

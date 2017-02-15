@@ -1,14 +1,16 @@
 @import 'variables';
 
-.timeline.collapsible .collapsible-body {
-  p {
-    padding-top: 0;
-    padding-bottom: 0;
-    margin: 2rem 0;
-  }
-  div.share-buttons {
-    margin: 2rem;
-    text-align: right;
+.iSW .timeline.collapsible {
+  .collapsible-body {
+    p {
+      padding-top: 0;
+      padding-bottom: 0;
+      margin: 2rem 0;
+    }
+    div.share-buttons {
+      margin: 2rem;
+      text-align: right;
+    }
   }
 }
 

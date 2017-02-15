@@ -41,31 +41,20 @@
         <%= link_to_unless_current "Will you?", new_pledge_path %>
       </p>
     </li>
-    <li class='icon pledge'>
-      <%= link_to new_pledge_path, class: "#{'current' if current_page?(new_pledge_path)}" do %>
-        <i class="material-icons right">person_add</i>Pledge
-      <% end %>
+    <li class='pledge'>
+      <%= link_to 'Pledge', new_pledge_path, class: "#{'current' if current_page?(new_pledge_path)}" %>
     </li>
     <li>
-    <li class='icon'>
-      <%= link_to timeline_reports_path, class: "#{'current' if current_page?(timeline_reports_path)}" do %>
-        <i class="material-icons right">timeline</i>Timeline
-      <% end %>
+      <%= link_to 'Timeline', timeline_reports_path, class: "#{'current' if current_page?(timeline_reports_path)}"%>
     </li>
-    <li class='icon'>
-      <%= link_to about_path, class: "#{'current' if current_page?(about_path)}" do %>
-        <i class="material-icons right">info_outline</i>About
-      <% end %>
+    <li>
+      <%= link_to 'About', about_path, class: "#{'current' if current_page?(about_path)}" %>
     </li>
-    <li class='icon'>
-      <%= link_to finding_help_path, class: "#{'current' if current_page?(finding_help_path)}" do %>
-        <i class="material-icons right">help_outline</i>Finding Help
-      <% end %>
+    <li>
+      <%= link_to 'Finding Help', finding_help_path, class: "#{'current' if current_page?(finding_help_path)}" %>
     </li>
-    <li class='icon'>
-      <%= link_to new_report_path, class: "hide-on-large-only #{'current' if current_page?(new_report_path)}" do %>
-        <i class="material-icons right">report_problem</i>Report Incident
-      <% end %>
+    <li>
+      <%= link_to 'Report Incident', new_report_path, class: "#{'current' if current_page?(new_report_path)}" %>
     </li>
   </ul>
 </header>
