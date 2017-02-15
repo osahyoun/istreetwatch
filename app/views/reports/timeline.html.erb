@@ -14,7 +14,7 @@
     <%= will_paginate @reports, class: 'center' %>
 
     <ul class="collapsible timeline" data-collapsible="expandable">
-      <%= render partial: 'reports/timeline_item', locals: {report: @reports[0], is_active: true} %>
+      <%= render partial: 'reports/timeline_item', locals: {report: @reports.first, is_active: true} %>
       <%- @reports.drop(1).each do |report| %>
         <%= render partial: 'reports/timeline_item', locals: {report: report, is_active: false} %>
       <%- end %>
