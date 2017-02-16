@@ -35,6 +35,9 @@
         <i class="material-icons right">home</i>Home
       <% end %>
     </li>
+    <li>
+      <%= link_to 'Report Incident', new_report_path, class: "#{'current' if current_page?(new_report_path)}" %>
+    </li>
     <li class='pledge-ad hide-on-med-and-down'>
       <p>
         <%= pluralize(Pledge.counter, 'person') %> have pledged to help end street harassment.
@@ -52,9 +55,6 @@
     </li>
     <li>
       <%= link_to 'Finding Help', finding_help_path, class: "#{'current' if current_page?(finding_help_path)}" %>
-    </li>
-    <li>
-      <%= link_to 'Report Incident', new_report_path, class: "#{'current' if current_page?(new_report_path)}" %>
     </li>
   </ul>
 </header>
