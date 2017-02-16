@@ -61,7 +61,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "sprockets-es6"
 
-gem 'rails-assets-materialize', source: 'https://rails-assets.org'
+gem 'rails-assets-materialize', '0.97.6', source: 'https://rails-assets.org'
 gem 'rails_12factor', group: :production
 
 gem 'will_paginate', '~> 3.1.0'

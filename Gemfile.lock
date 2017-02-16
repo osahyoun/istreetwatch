@@ -154,7 +154,7 @@ GEM
       railties (= 5.0.1)
       sprockets-rails (>= 2.0.0)
     rails-assets-jquery (3.1.1)
-    rails-assets-materialize (0.98.0)
+    rails-assets-materialize (0.97.6)
       rails-assets-jquery (>= 2.1.1)
     rails-dom-testing (2.0.2)
       activesupport (>= 4.2.0, < 6.0)
@@ -259,7 +259,7 @@ DEPENDENCIES
   postmark-rails (>= 0.10.0)
   puma (~> 3.0)
   rails (~> 5.0.1)
-  rails-assets-materialize!
+  rails-assets-materialize (= 0.97.6)!
   rails_12factor
   redis (~> 3.0)
   rspec-rails (~> 3.5)
