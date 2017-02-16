@@ -84,8 +84,10 @@
       <% end %>
     </div>
 
-    <div class='input-field col s12 m6'>
-      <%= f.date_field :date, placeholder: 'dd/mm/yyyy', required: true %>
+    <div class='input-field col s12 date'>
+      <%= f.date_select :date, end_year: Date.today.year, order: [:day, :month, :year], use_short_month: true,
+        prompt: { day: 'day', month: 'month', year: 'year' } %>
+
       <%= f.label :date do %>
         Tell us when it happened... <sup>*</sup>
       <% end %>

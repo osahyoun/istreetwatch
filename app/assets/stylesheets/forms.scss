@@ -29,6 +29,17 @@
     }
   }
 
+  .date .select-wrapper {
+    display: inline-block;
+    max-width: 7rem;
+    margin-right: 1rem;
+    &:last-of-type { margin-right: 0; }
+  }
+
+  .input-field {
+    margin-bottom: .5rem;
+  }
+
   .row .col > .row {
     margin-bottom: 0;
   }
@@ -60,10 +71,11 @@
   color: $red;
 }
 
-.error, .error input {
+input.error, .select-wrapper.error input, .select-wrapper.error ~ .select-wrapper input {
   border-color: $red !important;
   box-shadow: 0 1px 0 0 $red !important;
 }
+.iSW label.error { color: $red; }
 
 // SEARCH
 

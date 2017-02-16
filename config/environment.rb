@@ -4,14 +4,12 @@ require_relative 'application'
 # Initialize the Rails application.
 Rails.application.initialize!
 
-# Remove field_with_errors wrapper
-ActionView::Base.field_error_proc = Proc.new do |html_tag, object|
-  html = Nokogiri::HTML::DocumentFragment.parse(html_tag)
-  html = html.at_css("input") || html.at_css("textarea") || html.at_css("select")
-  unless html.nil?
-    css_class = html['class'] || ""
-    html['class'] = css_class.split.push("error").join(' ')
-    html_tag = html.to_s
+ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+  class_attr_index = html_tag.index 'class="'
+
+  if class_attr_index
+    html_tag.insert class_attr_index+7, 'error '
+  else
+    html_tag.insert html_tag.index('>'), ' class="error"'
   end
-  html_tag.html_safe
 end

@@ -70,18 +70,6 @@ describe Report do
       expect( report.errors[ :date ] ).not_to include( "can't be in the future" )
     end
 
-    it 'should validate date format' do
-      report.date = "banana"
-      report.valid?
-      expect( report.errors[ :date ] ).to include( "must be valid" )
-      report.date = "16 Feb"
-      report.valid?
-      expect( report.errors[ :date ] ).not_to include( "must be valid" )
-      report.date = "16/02/17"
-      report.valid?
-      expect( report.errors[ :date ] ).not_to include( "must be valid" )
-    end
-
     it 'should validate presence of town' do
       expect( report ).not_to be_valid
       expect( report.errors[ :town ] ).to include( "can't be blank" )
