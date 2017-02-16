@@ -11,6 +11,7 @@ class Report < ApplicationRecord
     :reported_to_police, presence: true
   )
   validate :date_cannot_be_in_the_future
+  validate :date_format
   validates :type_incident_other, presence: true, if: :type_incident_other?
   validates :type_location_other, presence: true, if: :type_location_other?
 
@@ -38,6 +39,12 @@ class Report < ApplicationRecord
     def date_cannot_be_in_the_future
       if date.present? && date > Time.zone.now
         errors.add(:date, "can't be in the future")
+      end
+    end
+
+    def date_format
+      unless date.is_a? Time
+        errors.add(:date, "must be valid")
       end
     end
 
