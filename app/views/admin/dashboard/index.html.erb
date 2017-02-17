@@ -5,7 +5,11 @@
 <div class="row section">
   <div class="col s12">
 
-    <p>Coming soon...</p>
+    <%= render 'data_date_range' %>
+
+    <p>Bird's-eye view of approved reports between dates:</p>
+
+    <canvas id='incident-count-over-time' class='line' data-data="<%= @data_incident_count_over_time.to_json %>" ></canvas>
 
   </div>
 </div>

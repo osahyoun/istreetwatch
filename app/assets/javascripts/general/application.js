@@ -21,11 +21,12 @@
 (function($){
   $(function(){
     $(".button-collapse").sideNav();
-    $('select').material_select();
-  });
 
-  $('.datepicker').pickadate({
-    selectMonths: true,
-    selectYears: 15
+    $('select').material_select();
+
+    $('.datepicker').pickadate({
+      selectMonths: true,
+      selectYears: 15
+    });
   });
 })(jQuery);
