@@ -38,14 +38,14 @@
     <li>
       <%= link_to 'Report Incident', new_report_path, class: "#{'current' if current_page?(new_report_path)}" %>
     </li>
+    <li class='pledge'>
+      <%= link_to 'Pledge', new_pledge_path, class: "#{'current' if current_page?(new_pledge_path)}" %>
+    </li>
     <li class='pledge-ad hide-on-med-and-down'>
       <p>
         <%= pluralize(Pledge.counter, 'person') %> have pledged to help end street harassment.
         <%= link_to_unless_current "Will you?", new_pledge_path %>
       </p>
-    </li>
-    <li class='pledge'>
-      <%= link_to 'Pledge', new_pledge_path, class: "#{'current' if current_page?(new_pledge_path)}" %>
     </li>
     <li>
       <%= link_to 'Timeline', timeline_reports_path, class: "#{'current' if current_page?(timeline_reports_path)}"%>
