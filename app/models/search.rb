@@ -63,7 +63,7 @@ class Search
             type: 'best_fields',
             fields: [
               :type_incident, :type_incident_other, :description, :support,
-              :street, :town, :postcode, :region, :country, :type_location, :type_location_other
+              :town, :postcode, :region, :country, :type_location, :type_location_other
             ]
           }
         }
