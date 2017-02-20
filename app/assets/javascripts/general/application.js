@@ -26,7 +26,8 @@
 
     $('.datepicker').pickadate({
       selectMonths: true,
-      selectYears: 15
+      selectYears: 15,
+      format: 'dd/mm/yyyy'
     });
   });
 })(jQuery);

@@ -1,0 +1,19 @@
+<div class='row'>
+  <%= form_tag admin_dashboard_path, method: :get do %>
+
+    <div class="input-field col s4 m3">
+      <%= text_field_tag :from, params[:from] || Chart::FROM_DATE.strftime("%-d/%m/%Y"), class: 'datepicker' %>
+      <%= label :from, 'from', for: :from %>
+    </div>
+
+    <div class="input-field col s4 m3">
+      <%= text_field_tag :to, params[:to] || Chart::TO_DATE.strftime("%-d/%m/%Y"), class: 'datepicker' %>
+      <%= label :to, 'to', for: :to %>
+    </div>
+
+    <div class="input-field col s4">
+      <button class='btn' type='submit'>go</button>
+    </div>
+
+  <%- end %>
+</div>

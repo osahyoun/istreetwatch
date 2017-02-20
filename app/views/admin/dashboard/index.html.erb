@@ -9,7 +9,12 @@
 
     <p>Bird's-eye view of approved reports between dates:</p>
 
-    <canvas id='incident-count-over-time' class='line' data-data="<%= @data_incident_count_over_time.to_json %>" ></canvas>
+    <div class='section'>
+      <canvas id='incident-count-over-time' class='line'
+        data-data="<%= @data_incident_count_over_time.to_json %>"
+        data-time-unit="<%= @unit %>" >
+      </canvas>
+    </div>
 
   </div>
 </div>

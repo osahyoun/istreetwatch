@@ -71,4 +71,6 @@ gem 'postmark-rails', '>= 0.10.0'
 gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 
+gem 'groupdate'
+
 ruby "2.3.3"
