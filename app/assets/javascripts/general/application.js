@@ -26,8 +26,18 @@
 
     $('.datepicker').pickadate({
       selectMonths: true,
-      selectYears: 15,
-      format: 'dd/mm/yyyy'
+      selectYears: true,
+      format: 'dd/mm/yyyy',
+      formatSubmit: 'yyyy-mm-dd',
+      hiddenName: true,
+      max: new Date( Date.today ),
+      clear: false,
+      closeOnSelect: true,
+      onSet: function (ele) {
+        if(ele.select){
+          this.close();
+        }
+      }
     });
   });
 })(jQuery);

@@ -16,12 +16,12 @@
 
       <% if admin %>
         <div class='row filter-opts'>
-          <div class="input-field col s12 m6 ">
-            <%= date_field_tag :from %>
+          <div class="input-field col s12 m6">
+            <%= text_field_tag :from, '', class: 'datepicker', placeholder: 'dd/mm/yyyy' %>
             <%= label :from, 'from', for: :from %>
           </div>
-          <div class="input-field col s12 m6 ">
-            <%= date_field_tag :to %>
+          <div class="input-field col s12 m6">
+            <%= text_field_tag :to, Date.today.strftime("%-d/%m/%Y"), class: 'datepicker', placeholder: 'dd/mm/yyyy' %>
             <%= label :to, 'to', for: :to %>
           </div>
         </div>

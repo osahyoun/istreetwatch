@@ -1,13 +1,17 @@
 <div class='row'>
   <%= form_tag admin_dashboard_path, method: :get do %>
+    <%
+      from_date = params[:from] ? DateTime.parse( params[:from] ).strftime("%-d/%m/%Y") : Chart::FROM_DATE.strftime("%-d/%m/%Y")
+      to_date = params[:to] ? DateTime.parse( params[:to] ).strftime("%-d/%m/%Y") : Chart::TO_DATE.strftime("%-d/%m/%Y")
+    %>
 
     <div class="input-field col s4 m3">
-      <%= text_field_tag :from, params[:from] || Chart::FROM_DATE.strftime("%-d/%m/%Y"), class: 'datepicker' %>
+      <%= text_field_tag :from, from_date, data: { value: params[:from] }, class: 'datepicker' %>
       <%= label :from, 'from', for: :from %>
     </div>
 
     <div class="input-field col s4 m3">
-      <%= text_field_tag :to, params[:to] || Chart::TO_DATE.strftime("%-d/%m/%Y"), class: 'datepicker' %>
+      <%= text_field_tag :to, to_date, data: { value: params[:to] } , class: 'datepicker' %>
       <%= label :to, 'to', for: :to %>
     </div>
 
