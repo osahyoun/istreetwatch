@@ -2,6 +2,9 @@
 
 .admin {
   table.highlight tbody tr {
+    &.new {
+      background: lighten( $yellow, 45% );
+    }
     &:hover {
       background: $light-grey;
     }
