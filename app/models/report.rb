@@ -11,8 +11,8 @@ class Report < ApplicationRecord
     :reported_to_police, presence: true
   )
   validate :date_cannot_be_in_the_future
-  validates :type_incident_other, presence: true, if: :type_incident_other?
-  validates :type_location_other, presence: true, if: :type_location_other?
+  validates :type_incident_other, presence: true, if: lambda { |report| report.is_other?( report.type_incident ) }
+  validates :type_location_other, presence: true, if: lambda { |report| report.is_other?( report.type_location ) }
 
   scope :approved, -> { where(approved: true ) }
   scope :date_desc, -> { order( 'date desc' ) }
@@ -20,12 +20,8 @@ class Report < ApplicationRecord
   before_save :check_lat_lng
   before_save :set_approved_at, if: :approved_changed?
 
-  def type_incident_other?
-    type_incident&.downcase&.strip == 'other'
-  end
-
-  def type_location_other?
-    type_location&.downcase&.strip == 'other'
+  def is_other?( type )
+    type&.downcase&.strip == 'other'
   end
 
   private
@@ -77,6 +73,12 @@ class Report < ApplicationRecord
 
       q.blank? ? __elasticsearch__.search( Search.admin_query_no_q( fDate, tDate ) ) :
         __elasticsearch__.search( Search.admin_query_with_q( q, fDate, tDate ) )
+    end
+
+    def reindex_elasticsearch
+      __elasticsearch__.create_index! force: true
+      __elasticsearch__.refresh_index!
+      import
     end
   end
 
