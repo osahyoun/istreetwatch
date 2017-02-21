@@ -29,7 +29,10 @@ class Admin::ReportsController < Admin::AdminController
 
     def send_published_email
       if @report.previous_changes[ :approved_at ]
-        ReportMailer.report_published_email( @report ).deliver_now
+        begin
+          ReportMailer.report_published_email( @report ).deliver_now
+        rescue Postmark::InvalidMessageErro
+        end
       end
     end
 
