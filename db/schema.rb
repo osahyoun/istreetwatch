@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170206125740) do
+ActiveRecord::Schema.define(version: 20170221182324) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "pledges", force: :cascade do |t|
     t.string   "email"
@@ -41,12 +44,12 @@ ActiveRecord::Schema.define(version: 20170206125740) do
     t.string   "informant_tel"
     t.boolean  "informant_permission"
     t.string   "informant_role"
-    t.string   "type_incident"
     t.string   "type_incident_other"
     t.string   "type_location"
     t.string   "type_location_other"
     t.string   "reported_to_police"
     t.time     "approved_at"
+    t.string   "type_incident",                                                              array: true
   end
 
 end

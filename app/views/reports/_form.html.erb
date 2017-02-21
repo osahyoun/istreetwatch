@@ -55,19 +55,24 @@
       <% end %>
     </div>
 
-    <div class='input-field col s12 m6'>
-      <%= f.select(:type_incident, select_options_for_type_incident,
-        {include_blank: 'Choose your option'}, {class: 'type-incident', required: true}) %>
-      <%= f.label :type_incident do %>
-        What type of incident was it? <sup>*</sup>
-      <% end %>
-    </div>
+    <div class='col s12'>
+      <div class='row'>
+        <div class='input-field col s12 m6'>
+          <%= f.select(:type_incident, select_options_for_type_incident,
+            { include_blank: 'Choose your option', include_hidden: false },
+            { multiple: true, class: 'type-incident', required: true}) %>
+          <%= f.label :type_incident do %>
+            What type of incident was it? <sup>*</sup>
+          <% end %>
+        </div>
 
-    <div class='input-field other col s10 offset-s1 m6 offset-m6 hide-fields'>
-      <%= f.text_field :type_incident_other %>
-      <%= f.label :type_incident_other do %>
-        Please tell us <sup>*</sup>
-      <% end %>
+        <div class='input-field other col s10 offset-s1 m6 hide-fields'>
+          <%= f.text_field :type_incident_other %>
+          <%= f.label :type_incident_other do %>
+            Please tell us <sup>*</sup>
+          <% end %>
+        </div>
+      </div>
     </div>
 
     <div class='input-field col s12'>

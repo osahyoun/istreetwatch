@@ -21,7 +21,15 @@ class Report < ApplicationRecord
   before_save :set_approved_at, if: :approved_changed?
 
   def is_other?( type )
-    type&.downcase&.strip == 'other'
+    if type.is_a?( Array )
+      type.map { |item| item&.downcase&.strip }.include?( 'other' )
+    else
+      type&.downcase&.strip == 'other'
+    end
+  end
+
+  def type_incident_to_string
+    type_incident&.join( ', ' )
   end
 
   private

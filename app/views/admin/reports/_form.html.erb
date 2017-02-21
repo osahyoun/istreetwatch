@@ -48,7 +48,8 @@
       <div class='row'>
         <div class='input-field col s12 m6'>
           <%= f.select(:type_incident, select_options_for_type_incident,
-            {include_blank: 'Choose your option'}, {class: 'type-incident'}) %>
+            { include_blank: 'Choose your option', include_hidden: false },
+            {multiple: true, class: 'type-incident'}) %>
           <%= f.label :type_incident do %>
             Type of Incident <sup>*</sup>
           <% end %>

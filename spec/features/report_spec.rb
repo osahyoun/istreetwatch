@@ -48,4 +48,35 @@ RSpec.describe 'Filling out report', type: :feature do
       end
     end
   end
+
+  describe 'submitting report', js: true do
+    before do
+      fill_in 'Name or Initials', with: 'name'
+      fill_in 'Email', with: 'test@email'
+      select('Something that happened to me', from: 'This incident was')
+      select('Other', from: 'What type of incident was it?')
+      fill_in 'Please tell us', with: 'other'
+      fill_in 'Tell us what happened', with: 'description'
+      fill_in 'Tell us if anyone spoke up, or offered support', with: 'support'
+      within( '.input-field.date' ) do
+        select( '3', from: 'report_date_3i', visible: false )
+        select( 'Nov', from: 'report_date_2i', visible: false )
+        select( '2016', from: 'report_date_1i', visible: false )
+      end
+      select('Shops', from: 'Type of location')
+      select('No', from: 'Has this incident been reported to the police?')
+      click_button( 'Create Report' )
+    end
+
+    it 'should show any errors' do
+      expect( page ).to have_content( /1 error stopped this report from being saved/i )
+      expect( page ).to have_content( /town can't be blank/i )
+    end
+
+    it 'should successfully submit form if no errors' do
+      fill_in 'Town', with: 'Brighton'
+      click_button( 'Create Report' )
+      expect( page ).to have_content( /thank you/i )
+    end
+  end
 end

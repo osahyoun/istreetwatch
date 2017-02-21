@@ -26,7 +26,7 @@ describe Report do
 
     context 'when type of incident is not other' do
       before do
-        report.type_incident = 'not other'
+        report.type_incident = ['not other']
       end
 
       it 'should not validate presence of type_incident_other' do
@@ -37,7 +37,7 @@ describe Report do
 
     context 'when type of incident is other' do
       before do
-        report.type_incident = 'other'
+        report.type_incident = ['other']
       end
 
       it 'should validate presence of type_incident_other' do

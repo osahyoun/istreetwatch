@@ -11,7 +11,14 @@ handleSelection = ( $select, $otherDiv ) ->
   else
     hide( $otherDiv )
 
-otherIsSelected = ( $select ) -> $select.val().toLowerCase().trim() == 'other'
+otherIsSelected = ( $select ) ->
+  values = $select.val()
+  reduce = () ->
+    values.reduce(
+      ( acc, curr ) -> true if curr.toLowerCase().trim() == 'other'
+    , false )
+
+  if Array.isArray( values ) then reduce() else values.toLowerCase().trim() == 'other'
 
 show = ( $node ) -> $node.removeClass( 'hide-fields' )
 

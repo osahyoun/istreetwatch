@@ -60,6 +60,11 @@
       span {
         color: $grey;
       }
+      label:before { // substitute checkbox
+        border-color: grey;
+        background: grey;
+        opacity: .5;
+      }
     }
   }
 }

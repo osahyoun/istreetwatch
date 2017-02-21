@@ -31,6 +31,9 @@
 
 @media only screen and (min-width: 993px) {
   .admin table {
+    td.incident-type {
+      max-width: 300px;
+    }
     td.town {
       max-width: 150px;
     }

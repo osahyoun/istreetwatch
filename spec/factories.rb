@@ -5,7 +5,7 @@ FactoryGirl.define do
     informant_tel '12345'
     informant_role 'Something that happened to me'
     informant_permission true
-    type_incident 'Verbal abuse / insults'
+    type_incident ['Verbal abuse / insults']
     type_incident_other ''
     description 'Description'
     support 'Support'

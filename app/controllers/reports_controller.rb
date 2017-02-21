@@ -35,7 +35,7 @@ class ReportsController < ApplicationController
     def report_params
       params.require(:report).permit(
         :informant_name, :informant_email, :informant_tel, :informant_role, :informant_permission,
-        :type_incident, :type_incident_other, :description, :support, :date,
+        {type_incident: []}, :type_incident_other, :description, :support, :date,
         :street, :town, :postcode, :region, :lng, :lat, :house, :country, :type_location, :type_location_other,
         :reported_to_police
       )
