@@ -27,7 +27,7 @@ class Search
     end
 
     def admin_query_with_q( q, fDate, tDate)
-      sort = is_search_phrase(q) ? [ '_score', { date: 'desc' } ] : { date: 'desc' }
+      sort = is_search_phrase(q) ? [ '_score', { created_at: 'desc' } ] : { created_at: 'desc' }
 
       {
         query: {
@@ -47,7 +47,7 @@ class Search
             must: admin_filter( fDate, tDate )
           }
         },
-        sort: { date: 'desc' }
+        sort: { created_at: 'desc' }
       }
     end
 
