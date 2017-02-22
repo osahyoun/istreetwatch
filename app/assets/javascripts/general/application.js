@@ -31,7 +31,6 @@
       formatSubmit: 'yyyy-mm-dd',
       hiddenName: true,
       max: new Date( Date.today ),
-      clear: false,
       closeOnSelect: true,
       onSet: function (ele) {
         if(ele.select){

@@ -1,8 +1,8 @@
 <div class='row'>
   <%= form_tag admin_dashboard_path, method: :get do %>
     <%
-      from_date = params[:from] ? DateTime.parse( params[:from] ) : Chart.default_from_date
-      to_date = params[:to] ? DateTime.parse( params[:to] ) : Chart.default_to_date
+      to_date = params[:to].blank? ? Chart.default_to_date : DateTime.parse( params[:to] )
+      from_date = params[:from].blank? ? Chart.default_from_date( to_date ) : DateTime.parse( params[:from] )
     %>
 
     <div class="input-field col s4 m3">

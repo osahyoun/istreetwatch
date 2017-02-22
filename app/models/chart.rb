@@ -1,7 +1,7 @@
 class Chart
   def initialize( fDate:, tDate: )
-    @fDate = ( fDate.blank? ? Chart.default_from_date : DateTime.parse(fDate) ).beginning_of_day.to_time
     @tDate = ( tDate.blank? ? Chart.default_to_date : DateTime.parse(tDate) ).end_of_day.to_time
+    @fDate = ( fDate.blank? ? Chart.default_from_date( @tDate ) : DateTime.parse(fDate) ).beginning_of_day.to_time
     @unit = set_time_unit
   end
 
@@ -17,8 +17,8 @@ class Chart
   end
 
   class << self
-    def default_from_date
-      30.days.ago
+    def default_from_date( tDate=0.days.ago )
+      tDate - 30.days
     end
 
     def default_to_date
