@@ -1,0 +1,44 @@
+<% content_for :title do %>
+  Pledges
+<% end %>
+
+<div class="row section">
+  <div class="col s12">
+
+    <p class='right-align'><strong>
+      <%= pluralize( @pledges.count, 'pledge' ) %>:
+      <%= link_to admin_pledges_path( format: 'csv' ) do %>
+        CSV<i class="material-icons">file_download</i>
+      <% end %>
+    </strong></p>
+
+    <% unless @pledges.empty? %>
+
+      <%= will_paginate @pledges, class: 'center' %>
+
+      <table class='responsive-table bordered highlight'>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @pledges.each do |pledge| %>
+            <tr">
+              <td><%= pledge.name %></td>
+              <td><%= pledge.email %></td>
+              <td><%= pledge.created_at.strftime("%d %b %Y") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <%= will_paginate @pledges, class: 'center' %>
+
+    <% end %>
+
+  </div>
+</div>

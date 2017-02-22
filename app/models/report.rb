@@ -80,7 +80,7 @@ class Report < ApplicationRecord
           'created_at', 'updated_at', 'approved_at'
         ]
         csv << column_names
-        reports.all.each do |report|
+        reports.each do |report|
           csv << report.attributes.values_at(*column_names)
         end
       end

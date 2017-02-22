@@ -19,12 +19,13 @@
       <% end %>
     </li>
     <li>
-      <% klass = current_page?(admin_dashboard_path) ? 'current' : '' %>
-      <%= link_to "Dashboard", admin_dashboard_path, class: klass %>
+      <%= link_to "Dashboard", admin_dashboard_path, class: "#{'current' if current_page?(admin_dashboard_path)}" %>
     </li>
     <li>
-      <% klass = current_page?(admin_reports_path) ? 'current' : '' %>
-      <%= link_to "Reports", admin_reports_path, class: klass %>
+      <%= link_to "Reports", admin_reports_path, class: "#{'current' if current_page?(admin_reports_path)}" %>
+    </li>
+    <li>
+      <%= link_to "Pledges", admin_pledges_path, class: "#{'current' if current_page?(admin_pledges_path)}"  %>
     </li>
   </ul>
 </header>

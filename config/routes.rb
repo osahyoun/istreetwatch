@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   namespace :admin do
     get '', to: 'dashboard#index', as: :dashboard
     resources :reports, only: [:index, :update, :edit, :destroy]
+    resources :pledges, only: [:index]
   end
 end
