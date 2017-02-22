@@ -16,25 +16,27 @@
 
       <%= will_paginate @pledges, class: 'center' %>
 
-      <table class='responsive-table bordered highlight'>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @pledges.each do |pledge| %>
-            <tr">
-              <td><%= pledge.name %></td>
-              <td><%= pledge.email %></td>
-              <td><%= pledge.created_at.strftime("%d %b %Y") %></td>
+      <div class='section'>
+        <table class='responsive-table bordered highlight'>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Date</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            <% @pledges.each do |pledge| %>
+              <tr>
+                <td><%= pledge.name %></td>
+                <td><%= pledge.email %></td>
+                <td><%= pledge.created_at.strftime("%d %b %Y") %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
 
       <%= will_paginate @pledges, class: 'center' %>
 
