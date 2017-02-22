@@ -70,17 +70,33 @@ class Report < ApplicationRecord
       latest.where.not(lat: nil)
     end
 
+    def to_csv( reports )
+      CSV.generate do |csv|
+        column_names = [
+          'informant_name', 'informant_email', 'informant_tel', 'informant_role', 'informant_permission',
+          'date', 'type_incident', 'type_incident_other', 'description', 'support',
+          'house', 'street', 'town', 'region', 'postcode', 'country', 'type_location', 'type_location_other',
+          'reported_to_police', 'approved',
+          'created_at', 'updated_at', 'approved_at'
+        ]
+        csv << column_names
+        reports.all.each do |report|
+          csv << report.attributes.values_at(*column_names)
+        end
+      end
+    end
+
     def q_public( q )
       q.blank? ? __elasticsearch__.search( Search.public_query_no_q ) :
         __elasticsearch__.search( Search.public_query_with_q( q ) )
     end
 
-    def q_admin( q, fDate=Report.date_desc.last.date, tDate=Time.now )
+    def q_admin( q:q, fDate:Report.date_desc.last.date, tDate:Time.now, approved_only:false )
       fDate = Report.date_desc.last.date if fDate.blank?
       tDate = Time.now if tDate.blank?
 
-      q.blank? ? __elasticsearch__.search( Search.admin_query_no_q( fDate, tDate ) ) :
-        __elasticsearch__.search( Search.admin_query_with_q( q, fDate, tDate ) )
+      q.blank? ? __elasticsearch__.search( Search.admin_query_no_q( fDate:fDate, tDate:tDate, approved_only:approved_only ) ) :
+        __elasticsearch__.search( Search.admin_query_with_q( q:q, fDate:fDate, tDate:tDate, approved_only:approved_only ) )
     end
 
     def reindex_elasticsearch

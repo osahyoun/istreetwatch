@@ -26,25 +26,25 @@ class Search
       }
     end
 
-    def admin_query_with_q( q, fDate, tDate)
+    def admin_query_with_q( q:, fDate:, tDate:, approved_only: )
       sort = is_search_phrase(q) ? [ '_score', { created_at: 'desc' } ] : { created_at: 'desc' }
 
       {
         query: {
           bool: {
             must: admin_multi_match( q ),
-            filter: admin_filter( fDate, tDate )
+            filter: admin_filter( fDate, tDate, approved_only )
           }
         },
         sort: sort
       }
     end
 
-    def admin_query_no_q( fDate, tDate )
+    def admin_query_no_q( fDate:, tDate:, approved_only: )
       {
         query: {
           bool: {
-            must: admin_filter( fDate, tDate )
+            must: admin_filter( fDate, tDate, approved_only )
           }
         },
         sort: { created_at: 'desc' }
@@ -89,10 +89,16 @@ class Search
         }
       end
 
-      def admin_filter( fDate, tDate )
-        {
-          range: { date: { gte: fDate, lte: tDate } }
-        }
+      def admin_filter( fDate, tDate, approved_only )
+        [
+          {
+            range: { date: { gte: fDate, lte: tDate } }
+          }
+        ].tap do |array|
+          if approved_only
+            array << { term: { approved: true } }
+          end
+        end
       end
   end
 end

@@ -3,7 +3,19 @@ class Admin::ReportsController < Admin::AdminController
   after_action :send_published_email, only: [:update]
 
   def index
-    @reports = Report.q_admin( params[:q], params[:from], params[:to] ).paginate( page: params[:page], per_page: 30 ).records
+    reports = Report.q_admin(
+      q: params[:q],
+      fDate: params[:from],
+      tDate: params[:to],
+      approved_only: params[:approved_only] == '1'
+    )
+
+    respond_to do |format|
+      format.html do
+        @reports = reports.paginate( page: params[:page], per_page: 30 ).records
+      end
+      format.csv { send_data Report.to_csv( reports.paginate( page: 0, per_page: Report.count ).records ) }
+    end
   end
 
   def edit

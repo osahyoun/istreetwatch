@@ -15,7 +15,7 @@
 
       <tbody>
         <% reports.each do |report| %>
-          <tr class="<%= 'new' if report.created_at > 7.days.ago %>">
+          <tr class="<%= 'new' if report.created_at > 7.days.ago.beginning_of_day %>">
             <td class='id'><%= report.id %></td>
             <td class='incident-type'><%= report.type_incident_to_string %></td>
             <td class='town'><%= report.town %></td>

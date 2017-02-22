@@ -6,7 +6,15 @@
   <div class="col s12">
     <%= render "layouts/search", path: admin_reports_path, admin: true %>
 
-    <p class='right-align'><strong><%= @reports.total %> reports found</strong></p>
+    <p class='right-align'><strong>
+      <%= @reports.total %> reports found:
+      <%= link_to admin_reports_path(
+        format: 'csv',
+        q:params[:q], to:params[:to], from:params[:from], approved_only:params[:approved_only]
+      ) do %>
+        CSV<i class="material-icons">file_download</i>
+      <% end %>
+    </strong></p>
 
     <% unless @reports.empty? %>
       <%= will_paginate @reports, class: 'center' %>
