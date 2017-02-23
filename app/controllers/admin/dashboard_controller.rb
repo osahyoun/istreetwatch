@@ -6,4 +6,7 @@ class Admin::DashboardController < Admin::AdminController
     @unit = c.get_time_unit
   end
 
+  def guide
+  end
+
 end
