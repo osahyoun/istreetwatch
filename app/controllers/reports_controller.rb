@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
+  before_action :allow_iframe, only: [:new, :create, :sent]
 
   def show
   end
@@ -32,6 +33,12 @@ class ReportsController < ApplicationController
   private
     def set_report
       @report = Report.find(params[:id])
+    end
+
+    def allow_iframe
+      if params[:partners].present?
+        response.headers.delete "X-Frame-Options"
+      end
     end
 
     def report_params
