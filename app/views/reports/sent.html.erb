@@ -2,11 +2,19 @@
   <div class='col s12'>
 
     <h2>Thank You</h2>
+
     <p class='flow-text'>We appreciate you taking time to report this incident. One of our moderators will now read and post your report.</p>
+
     <% unless @report.reported_to_police.strip.downcase == 'yes' %>
       <p>
-        There are laws to protect people from abuse and harassment, which should be enforced. If you’ve experienced, or witnessed, a hate incident or crime you can report it to the police. You can contact the police directly, or use the police online hate crime reporting site <%= link_to 'True Vision', 'http://www.report-it.org.uk/home', target: '_blank' %>.
+        There are laws to protect people from abuse and harassment, which should be enforced. If you've experienced, or witnessed, a hate incident or crime you can report it to the police. You can contact the police directly, or use the police online hate crime reporting site <%= link_to 'True Vision', 'http://www.report-it.org.uk/home', target: '_blank' %>.
       </p>
+    <% end %>
+
+    <% if params[:partners].present? %>
+      <div class='section'>
+        <p><%= link_to 'iStreetWatch', root_url, target: '_blank' %>: Because we all have a role to play in making our streets safe for everyone.</p>
+      </div>
     <% end %>
 
   </div>
