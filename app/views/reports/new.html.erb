@@ -8,16 +8,10 @@
 </div>
 
 <script>
-  $(function(){
-    $('.datepicker').pickadate();
-  });
-
   function init() {
     initAutocomplete();
   }
 </script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.js"></script>
 
 <%# Required for Google's location API %>
 <% unless Rails.env.test? %>

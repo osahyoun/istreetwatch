@@ -1,4 +1,5 @@
 <%= form_for(report, html:{ id: 'report-form' }) do |f| %>
+  <%= hidden_field_tag :partners, params[:partners] %>
 
   <p class='center small'><sup>*</sup> Required field</p>
   <p class='center small'>Your name and contact details will not be displayed anywhere on the website.</p>

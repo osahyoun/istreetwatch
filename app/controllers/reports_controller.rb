@@ -6,6 +6,9 @@ class ReportsController < ApplicationController
 
   def new
     @report = Report.new
+    if params[:partners].present?
+      render 'new', layout: 'layouts/iframe'
+    end
   end
 
   def sent
@@ -17,13 +20,12 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.new(report_params)
+    layout = params[:partners].present? ? 'layouts/iframe' : 'layouts/application'
 
-    respond_to do |format|
-      if @report.save
-        format.html { render :sent }
-      else
-        format.html { render :new }
-      end
+    if @report.save
+      render :sent, layout: layout
+    else
+      render :new, layout: layout
     end
   end
 

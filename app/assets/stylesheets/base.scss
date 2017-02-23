@@ -54,6 +54,11 @@ a {
   header, main, footer {
     padding-left: 240px;
   }
+
+  .iSW.iframe main {
+    padding-left: 0;
+  }
+
   #notice {
     margin-left: 240px;
   }
