@@ -25,5 +25,6 @@ Rails.application.routes.draw do
     get '/guide', to: 'dashboard#guide'
     resources :reports, only: [:index, :update, :edit, :destroy]
     resources :pledges, only: [:index]
+    resources :publications, except: [:show]
   end
 end

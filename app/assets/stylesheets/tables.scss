@@ -10,6 +10,7 @@
     }
   }
   td, th {
+    vertical-align: top;
     i.pending-approval {
       opacity: .2;
     }
@@ -37,6 +38,9 @@
     td.town {
       max-width: 150px;
     }
+    td.title {
+      min-width: 100px;
+    }
   }
 }
 
@@ -44,6 +48,11 @@
   .admin table {
     tr:hover {
       background: none !important;
+    }
+    th.thumb, td.thumb {
+      height: 100px; width: 100px;
+      display: inline-block;
+      padding: 0; margin: 0;
     }
   }
 }

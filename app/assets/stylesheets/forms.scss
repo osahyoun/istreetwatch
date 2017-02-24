@@ -41,6 +41,11 @@
     margin-bottom: .5rem;
   }
 
+  .file-field .btn {
+    background: $light-grey;
+    color: $charcoal;
+  }
+
   .row .col > .row {
     margin-bottom: 0;
   }
@@ -77,11 +82,11 @@
   color: $red;
 }
 
-input.error, .select-wrapper.error input, .select-wrapper.error ~ .select-wrapper input {
+.error-field input, textarea.error, .select-wrapper.error input, .select-wrapper.error ~ .select-wrapper input {
   border-color: $red !important;
   box-shadow: 0 1px 0 0 $red !important;
 }
-.iSW label.error { color: $red; }
+.iSW label.error, .error-field .btn { color: $red !important; }
 
 // SEARCH
 

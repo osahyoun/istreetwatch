@@ -1,6 +1,6 @@
 <%= form_for([:admin, report], html:{ id: 'report-form' }) do |f| %>
 
-  <%= render 'reports/form_errors', report: report %>
+  <%= render 'layouts/form_errors', model: report %>
 
   <h5>Informant Details</h5>
   <div class='row section'>

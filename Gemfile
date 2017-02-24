@@ -73,4 +73,6 @@ gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-ra
 
 gem 'groupdate'
 
+gem "paperclip", "~> 5.0.0"
+
 ruby "2.3.3"

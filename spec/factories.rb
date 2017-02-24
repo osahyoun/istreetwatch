@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :publication do
+    title "MyString"
+    summary "MyText"
+  end
   factory :report do
     informant_name 'Name'
     informant_email 'email@example.com'

@@ -1,0 +1,45 @@
+<%= form_for([:admin, publication], html:{ multipart: true, id: 'publication-form' }) do |f| %>
+
+  <%= render 'layouts/form_errors', model: publication %>
+
+  <div class='row section'>
+    <div class='input-field col s12 m6'>
+      <%= f.text_field :title %>
+      <%= f.label :title do %>
+        Title<sup>*</sup>
+      <% end %>
+    </div>
+
+    <div class='input-field col s12'>
+      <%= f.text_area :summary, class: 'materialize-textarea' %>
+      <%= f.label :summary do %>
+        Summary<sup>*</sup>
+      <% end %>
+    </div>
+
+    <% if publication.document.present? %>
+      <div class='col s12 right-align'>
+        <%= image_tag publication.document.url(:medium) %>
+      </div>
+    <% end %>
+
+    <div class='file-field input-field col s12'>
+      <div class="btn">
+        <span>Document<sup>*</sup></span>
+        <%= f.file_field :document %>
+      </div>
+      <div class='file-path-wrapper'>
+        <input class='file-path validate' type='text'>
+      </div>
+    </div>
+  </div><!-- end div.row.section -->
+
+  <div class='row section'>
+    <div class='input-field col s12 center'>
+      <button class='btn-large submit-button'>
+        Save
+      </button>
+    </div>
+  </div><!-- end .row.section -->
+
+<% end %>

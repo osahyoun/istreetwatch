@@ -1,0 +1,61 @@
+<% content_for :title do %>
+  Publications
+<% end %>
+
+<div class="row section">
+  <div class="col s12">
+
+    <div class='section right-align'>
+      <p><strong>
+        <%= pluralize( @publications.count, 'publication' ) %>:
+
+        <%= link_to new_admin_publication_path do %>
+          Add a publication <i class="material-icons">add_circle</i>
+        <% end %>
+      </strong></p>
+    </div>
+
+    <% unless @publications.empty? %>
+
+      <%= will_paginate @publications, class: 'center' %>
+
+      <div class='section'>
+        <table class='responsive-table bordered highlight'>
+          <thead>
+            <tr>
+              <th class='thumb'></th>
+              <th>Title</th>
+              <th>Summary</th>
+              <th>Created</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @publications.each do |pub| %>
+              <tr>
+                <td class='thumb'><%= image_tag pub.document.url(:thumb) %></td>
+                <td class='title'><%= pub.title %></td>
+                <td><%= pub.summary %></td>
+                <td><%= pub.created_at.strftime("%-d/%m/%Y") %></td>
+                <td class='small right-align'>
+                  <%= link_to edit_admin_publication_path(pub) do %>
+                    <i class="material-icons">edit</i>
+                  <% end %>
+                  <%= link_to [:admin, pub], method: :delete, data: { confirm: 'Are you sure?' },
+                    class: 'delete' do %>
+                    <i class="material-icons">delete</i>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <%= will_paginate @publications, class: 'center' %>
+
+    <% end %>
+
+  </div>
+</div>
