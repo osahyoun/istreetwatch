@@ -1,0 +1,21 @@
+<div class='row section'>
+  <div class='col s10 m5 l4 offset-s1'>
+    <div class='publication'>
+      <div class='image'>
+        <%= image_tag publication.document.url(:large) %>
+      </div>
+      <div class='title center'>
+        <%= publication.title %>
+      </div>
+      <div class='action center'>
+        <%= link_to publication.document.url, target:'_blank' do %>
+          Open PDF in a new window <i class="material-icons">open_in_new</i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col s12 m7 l6">
+    <p><%= simple_format publication.summary %></p>
+  </div>
+</div>

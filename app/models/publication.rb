@@ -1,5 +1,5 @@
 class Publication < ApplicationRecord
-  has_attached_file :document, styles: { medium: ["250x250#", :png], thumb: ["100x100#", :png] }
+  has_attached_file :document, styles: { large: ["600x848>", :png], medium: ["250x353>", :png], thumb: ["141x100>", :png] }
 
   validates( :title, :summary, presence: true )
 

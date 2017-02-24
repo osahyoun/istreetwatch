@@ -1,0 +1,15 @@
+<div class='row section'>
+  <div class="col s12">
+
+    <h2><%= pluralize( @publications.count, 'Publication' ) %></h2>
+
+    <%= will_paginate @publications, class: 'center' %>
+
+    <%- @publications.each do |pub| %>
+      <%= render 'publication', publication: pub %>
+    <%- end %>
+
+    <%= will_paginate @publications, class: 'center' %>
+
+  </div>
+</div>

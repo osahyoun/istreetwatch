@@ -75,4 +75,6 @@ gem 'groupdate'
 
 gem "paperclip", "~> 5.0.0"
 
+gem 'aws-sdk', '~> 2.3'
+
 ruby "2.3.3"

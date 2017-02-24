@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get '/reports', to: redirect( '/reports/timeline' )
   get '/reports/sent', to: 'reports#sent', as: :report_sent
 
+  resources :publications, only: [:index]
+
   namespace :admin do
     get '', to: 'dashboard#index', as: :dashboard
     get '/guide', to: 'dashboard#guide'

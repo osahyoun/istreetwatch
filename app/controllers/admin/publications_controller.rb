@@ -13,7 +13,7 @@ class Admin::PublicationsController < Admin::AdminController
     @publication = Publication.new(publication_params)
 
     if @publication.save
-      redirect_to admin_publications_path
+      redirect_to admin_publications_path, notice: "#{@publication.title} was successfully created."
     else
       render :new
     end

@@ -56,5 +56,10 @@
     <li>
       <%= link_to 'Finding Help', finding_help_path, class: "#{'current' if current_page?(finding_help_path)}" %>
     </li>
+    <% if Publication.count > 0 %>
+      <li>
+        <%= link_to 'Publications', publications_path, class: "#{'current' if current_page?(publications_path)}" %>
+      </li>
+    <% end %>
   </ul>
 </header>
