@@ -4,13 +4,13 @@
   <p class='center small'><sup>*</sup> Required field</p>
   <p class='center small'>Your name and contact details will not be displayed anywhere on the website.</p>
 
-  <%= render 'form_errors', report: @report %>
+  <%= render 'layouts/form_errors', model: @report %>
 
   <div class='row section'>
 
     <div class='input-field col s12'>
       <i class='material-icons prefix'>person</i>
-      <%= f.text_field :informant_name, class: 'big', required: true, autofocus: true %>
+      <%= f.text_field :informant_name, class: 'big', autofocus: true %>
       <%= f.label :informant_name do %>
         Name or Initials <sup>*</sup>
       <% end %>
@@ -19,7 +19,7 @@
 
     <div class='input-field col s12'>
       <i class='material-icons prefix'>email</i>
-      <%= f.email_field :informant_email, type: 'email', class: 'big', required: true %>
+      <%= f.email_field :informant_email, type: 'email', class: 'big' %>
       <%= f.label :informant_email do %>
         Email <sup>*</sup>
       <% end %>
@@ -49,8 +49,8 @@
   <div class='row section'>
 
     <div class='input-field col s12 m6'>
-      <%= f.select(:informant_role, select_options_for_informant_role,
-        {include_blank: 'Choose your option'}, {required: true}) %>
+      <%= f.select( :informant_role, select_options_for_informant_role,
+        { include_blank: 'Choose your option' } ) %>
       <%= f.label :informant_role do %>
         This incident was... <sup>*</sup>
       <% end %>
@@ -61,7 +61,7 @@
         <div class='input-field col s12 m6'>
           <%= f.select(:type_incident, select_options_for_type_incident,
             { include_blank: 'Choose your option(s)', include_hidden: false },
-            { multiple: true, class: 'type-incident', required: true}) %>
+            { multiple: true, class: 'type-incident' }) %>
           <%= f.label :type_incident do %>
             What type of incident was it? <sup>*</sup>
           <% end %>
@@ -77,14 +77,14 @@
     </div>
 
     <div class='input-field col s12'>
-      <%= f.text_area :description, class: 'materialize-textarea', required: true %>
+      <%= f.text_area :description, class: 'materialize-textarea' %>
       <%= f.label :description do %>
         Tell us what happened... <sup>*</sup>
       <% end %>
     </div>
 
     <div class='input-field col s12'>
-      <%= f.text_area :support, class: 'materialize-textarea', required: true %>
+      <%= f.text_area :support, class: 'materialize-textarea' %>
       <%= f.label :support do %>
         Tell us if anyone spoke up, or offered support... <sup>*</sup>
       <% end %>
@@ -143,7 +143,7 @@
       <div class='row'>
         <div class='input-field col s12 m6'>
           <%= f.select(:type_location, select_options_for_type_location,
-            {include_blank: 'Choose your option'}, {class: 'type-location', required: true}) %>
+            { include_blank: 'Choose your option' }, { class: 'type-location' }) %>
           <%= f.label :type_location do %>
             Type of location: <sup>*</sup>
           <% end %>
@@ -159,7 +159,7 @@
     </div>
 
     <div class='input-field col s12 m6'>
-      <%= f.select(:reported_to_police, select_options_for_was_reported, {include_blank: 'Choose your option'}, {required: true}) %>
+      <%= f.select(:reported_to_police, select_options_for_was_reported, { include_blank: 'Choose your option' }) %>
       <%= f.label :reported_to_police do %>
         Has this incident been reported to the police? <sup>*</sup>
       <% end %>
