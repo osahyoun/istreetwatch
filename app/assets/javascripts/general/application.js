@@ -36,6 +36,10 @@
         if(ele.select){
           this.close();
         }
+      },
+      onClose: function() {
+        $('.datepicker').blur();
+        $('.picker').blur();
       }
     });
   });
