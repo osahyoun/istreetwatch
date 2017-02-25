@@ -36,7 +36,7 @@
               <tr>
                 <td class='thumb'><%= image_tag pub.document.url(:thumb) %></td>
                 <td class='title'><%= pub.title %></td>
-                <td><%= pub.summary %></td>
+                <td class='lengthen'><%= pub.summary %></td>
                 <td><%= pub.created_at.strftime("%-d/%m/%Y") %></td>
                 <td class='small right-align'>
                   <%= link_to edit_admin_publication_path(pub) do %>

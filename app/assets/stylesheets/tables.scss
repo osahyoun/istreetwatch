@@ -10,6 +10,12 @@
     }
   }
   td, th {
+    &:not(.lengthen) {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 300px;
+    }
     vertical-align: top;
     i.pending-approval {
       opacity: .2;
@@ -46,8 +52,22 @@
 
 @media only screen and (max-width: 992px) {
   .admin table {
-    tr:hover {
-      background: none !important;
+    tr {
+      max-width: 300px;
+      td.lengthen {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      &:hover {
+        background: none !important;
+      }
+      &.new {
+        background: none !important;
+        td.id {
+          background: lighten( $yellow, 45% );
+        }
+      }
     }
     th.thumb, td.thumb {
       height: 100px; width: 100px;
