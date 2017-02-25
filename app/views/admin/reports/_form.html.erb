@@ -38,7 +38,7 @@
   <h5>Incident Details</h5>
   <div class='row section'>
     <div class='input-field col s12 m6'>
-      <%= f.date_field :date, class: 'datepicker' %>
+      <%= f.text_field :date, class: 'datepicker', value: report.date.strftime("%-d/%m/%Y") %>
       <%= f.label :date do %>
         Date <sup>*</sup>
       <% end %>
