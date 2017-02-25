@@ -165,14 +165,3 @@
     }
   }
 }
-
-
-// CSS FORM VALIDATIONS FOR SELECT DROP-DOWNS
-.iSW select[required] {
-  position: absolute;
-  display: block;
-  bottom: 0;
-  height: 0; width: 0;
-  padding: 0;
-  border-color: transparent;
-}
