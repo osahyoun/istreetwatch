@@ -36,21 +36,23 @@
 }
 
 
-@media only screen and (min-width: 993px) {
+@media only screen and (min-width: 993px) and (max-width:1100px) {
   .admin table {
-    td.incident-type {
-      max-width: 300px;
-    }
-    td.town {
+    td:not(.lengthen) {
       max-width: 150px;
     }
+  }
+}
+
+@media only screen and (min-width: 993px) { // large screens
+  .admin table {
     td.title {
       min-width: 200px;
     }
   }
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 992px) { // small and medium screens
   .admin table {
     tr {
       max-width: 300px;
