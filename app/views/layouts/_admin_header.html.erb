@@ -14,9 +14,12 @@
 
   <ul id='nav-mobile' class='side-nav fixed'>
     <li class='logo hide-on-med-and-down'>
-      <%= link_to '#' do %>
+      <%= link_to root_path do %>
         <%= image_tag('logo.png', alt: "Report racism and xenophobia") %>
       <% end %>
+    </li>
+    <li class='hide-on-large-only'>
+      <%= link_to "iStreetWatch", root_path %>
     </li>
     <li>
       <%= link_to "Dashboard", admin_dashboard_path, class: "#{'current' if current_page?(admin_dashboard_path)}" %>
