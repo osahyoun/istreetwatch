@@ -35,7 +35,7 @@
             <% @publications.each do |pub| %>
               <tr>
                 <td class='thumb'><%= image_tag pub.document.url(:thumb) %></td>
-                <td class='title'><%= pub.title %></td>
+                <td><%= pub.title %></td>
                 <td class='lengthen'><%= pub.summary %></td>
                 <td><%= pub.created_at.strftime("%d %b %Y") %></td>
                 <td class='small right-align'>
