@@ -10,14 +10,15 @@ class Admin::PledgesController < Admin::AdminController
     @tDate = dates[:tDate]
     @fDate = dates[:fDate]
 
-    @pledges = Pledge.
+    pledges = Pledge.
       where( created_at: (@fDate..@tDate) ).
-      order( "created_at desc" ).
-      paginate( page: params[:page], per_page: 30 )
+      order( "created_at desc" )
 
     respond_to do |format|
-      format.html
-      format.csv { send_data Pledge.to_csv( @pledges ) }
+      format.html do
+        @pledges = pledges.paginate( page: params[:page], per_page: 30 )
+      end
+      format.csv { send_data Pledge.to_csv( pledges ) }
     end
   end
 

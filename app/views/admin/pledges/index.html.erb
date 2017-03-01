@@ -11,7 +11,10 @@
     <div class='right-align'>
       <p><strong>
         <%= pluralize( @pledges.count, 'pledge' ) %> found:
-        <%= link_to admin_pledges_path( format: 'csv' ) do %>
+        <%= link_to admin_pledges_path(
+          format: 'csv',
+          to:params[:to], from:params[:from]
+        ) do %>
           CSV<i class="material-icons">file_download</i>
         <% end %>
       </strong></p>
