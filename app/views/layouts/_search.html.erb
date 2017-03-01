@@ -14,6 +14,7 @@
         </button>
       </div>
     </div>
+
     <% if admin %>
       <%
         from_date = params[:from].blank? ? '' : DateTime.parse( params[:from] ).beginning_of_day.strftime("%-d/%m/%Y")
@@ -38,5 +39,6 @@
         </div>
       </div>
     <% end %>
+
   <%- end %>
 </div>

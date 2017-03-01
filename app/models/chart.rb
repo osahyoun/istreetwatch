@@ -1,7 +1,7 @@
 class Chart
   def initialize( fDate:, tDate: )
-    @tDate = ( tDate.blank? ? Chart.default_to_date : DateTime.parse(tDate) ).end_of_day.to_time
-    @fDate = ( fDate.blank? ? Chart.default_from_date( @tDate ) : DateTime.parse(fDate) ).beginning_of_day.to_time
+    @fDate = fDate
+    @tDate = tDate
     @unit = set_time_unit
   end
 
@@ -14,16 +14,6 @@ class Chart
       send( "group_by_#{@unit}", :date, range: @fDate..@tDate ).
       count.
       reduce( {} ) { |acc, (date,v) | acc[date.iso8601] = v; acc }
-  end
-
-  class << self
-    def default_from_date( tDate=0.days.ago )
-      tDate - 30.days
-    end
-
-    def default_to_date
-      0.days.ago
-    end
   end
 
   private

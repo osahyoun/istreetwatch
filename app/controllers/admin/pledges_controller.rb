@@ -1,7 +1,20 @@
 class Admin::PledgesController < Admin::AdminController
 
   def index
-    @pledges = Pledge.order( "created_at desc" ).paginate( page: params[:page], per_page: 30 )
+    dates = DatePicker.calc_to_and_from_dates(
+      tDate: DatePicker.s_to_date( params[:to] ),
+      fDate: DatePicker.s_to_date( params[:from] ),
+      fDate_default: Pledge.first.created_at
+    )
+
+    @tDate = dates[:tDate]
+    @fDate = dates[:fDate]
+
+    @pledges = Pledge.
+      where( created_at: (@fDate..@tDate) ).
+      order( "created_at desc" ).
+      paginate( page: params[:page], per_page: 30 )
+
     respond_to do |format|
       format.html
       format.csv { send_data Pledge.to_csv( @pledges ) }

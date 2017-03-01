@@ -3,12 +3,14 @@
   Pledges
 <% end %>
 
-<div class="row section">
-  <div class="col s12">
+<div class='row section'>
+  <div class='col s12'>
 
-    <div class='section right-align'>
+    <%= render 'admin/shared/date_picker', path: admin_pledges_path %>
+
+    <div class='right-align'>
       <p><strong>
-        <%= pluralize( @pledges.count, 'pledge' ) %>:
+        <%= pluralize( @pledges.count, 'pledge' ) %> found:
         <%= link_to admin_pledges_path( format: 'csv' ) do %>
           CSV<i class="material-icons">file_download</i>
         <% end %>
