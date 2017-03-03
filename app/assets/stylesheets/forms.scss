@@ -88,6 +88,18 @@
 }
 .iSW label.error, .error-field .btn { color: $red !important; }
 
+// PARTNER FORM
+
+.iSW.iframe {
+  position: relative;
+  background: $light-grey;
+  .position-bottom {
+    position: absolute;
+    bottom: 0;
+    left:0; right:0;
+  }
+}
+
 // SEARCH
 
 .iSW .search {

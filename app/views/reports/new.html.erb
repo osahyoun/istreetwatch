@@ -2,10 +2,10 @@
   <div class='col s12'>
 
     <h2 class="center">New Report</h2>
-    <% if params[:partners].present? %>
-      <p class='center'>Powered by <%= link_to 'iStreetWatch', root_url, target: '_blank' %></p>
-    <% end %>
     <%= render 'form', report: @report %>
+    <% if params[:partners].present? %>
+      <p class='center position-bottom'>Powered by <%= link_to 'iStreetWatch', root_url, target: '_blank' %></p>
+    <% end %>
 
   </div>
 </div>

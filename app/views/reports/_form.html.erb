@@ -160,7 +160,7 @@
 
     <div class='input-field col s12 m6'>
       <%= f.select(:reported_to_police, select_options_for_was_reported, { include_blank: 'Choose your option' }) %>
-      <%= f.label :reported_to_police do %>
+      <%= f.label :reported_to_police, class: 'truncate' do %>
         Has this incident been reported to the police? <sup>*</sup>
       <% end %>
     </div>
