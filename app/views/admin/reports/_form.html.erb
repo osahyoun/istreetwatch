@@ -154,7 +154,12 @@
     </div>
 
     <div class='col s12'>
+      <% if report.source %>
+        <p><strong>Source: <%= report.source %><strong></p>
+      <% end %>
+
       <p><strong>Reported to iStreetWatch on <%= report.created_at.strftime("%d %b %Y") %></strong></p>
+
       <% if report.created_at != report.updated_at %>
         <p><strong>Last updated on <%= report.updated_at.strftime("%d %b %Y") %><strong></p>
       <% end %>

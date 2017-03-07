@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224115401) do
+ActiveRecord::Schema.define(version: 20170307133625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20170224115401) do
     t.string   "reported_to_police"
     t.time     "approved_at"
     t.string   "type_incident",                                                              array: true
+    t.string   "source"
   end
 
 end
