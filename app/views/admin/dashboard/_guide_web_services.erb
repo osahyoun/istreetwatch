@@ -1,0 +1,21 @@
+<h4>Important Websites</h4>
+
+<div class='section'>
+  <h5><%= link_to 'Heroku', 'https://www.heroku.com', target: '_blank' %></h5>
+  <p><strong>Username: istreetwatch@migrantsrights.org.uk</strong></p>
+  <p>iStreetWatch's hosting provider is Heroku. Heroku is a cloud computing service that provides a platform for building, running, and operating applications entirely in the cloud. Heroku removes the complexity of building and maintaining the infrastructure typically associated with developing and launching an app. Another big advantage of cloud computing is the ability to scale quickly and easily with traffic.</p>
+  <p>Hosting is currently free, and backups of the database are handled manually. iStreetWatch will need to move to a paid plan when traffic increases. Backups of the database can then be automated.</p>
+  <p>One thing to be aware of on the free plan is that rarely-accessed websites can take a few seconds to start up. Upgrading to a paid plan will mean that iStreetWatch responds quickly every time it's accessed, even if it's the first time in a little while.</p>
+</div>
+
+<div class='section'>
+  <h5><%= link_to 'Amazon Web Services (AWS)', 'https://aws.amazon.com', target: '_blank' %></h5>
+  <p>iStreetWatch will use Amazon Web Services (AWS) to store files, which can't be stored in the database, in the cloud. A third-party storage service is necessary since Heroku doesn't offer one of its own.</p>
+  <p>The AWS storage service (called S3) is free for the first year; Very small charges apply thereafter for storing just the pdf publications and ads.</p>
+</div>
+
+<div class='section'>
+  <h5><%= link_to 'GitHub', 'https://github.com/osahyoun/istreetwatch', target: '_blank' %></h5>
+  <p>iStreetWatch is an open source project, and the code repository lives on GitHub - a popular code-sharing site.</p>
+  <p>The current maintainer is Omar Sahyoun (SumOfUs), but we should move the repository to an account under Migrants' Rights Network control at an appropriate time.</p>
+</div>

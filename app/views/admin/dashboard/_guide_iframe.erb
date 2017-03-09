@@ -1,0 +1,31 @@
+<h4>Sharing the Partner Form</h4>
+
+<p>Partners can embed the iStreetWatch report form on their own websites via an iframe. To do this, partners need to paste a snippet of code into their codebase.</p>
+
+<div class='section'>
+  <h5>No Tracking</h5>
+
+  <p>You can share the following code snippet with organisations that don't need tracking (we won't be able to identify which reports were submitted via their websites):</p>
+
+  <code>
+    <%= '<iframe src="http://www.istreetwatch.co.uk/reports/new?partners=true" id="iSW-report-form" type="text/html" title="New Report" width="100%" height="1800" style="border:none;"></iframe>' %>
+  </code>
+</div>
+
+<div class='section'>
+  <h5>With Tracking</h5>
+
+  <p>To track the source of the report, you need the code snippet below. Before you share this, make sure you replace the placeholder text (<code>REPLACE_ME_WITH_ORG_NAME</code>) with the organisation's name, using <strong>lowercase letters (a-z) and underscores only</strong> (nothing else is permitted, e.g., no spaces allowed).</p>
+
+  <code>
+    <%= '<iframe src="http://www.istreetwatch.co.uk/reports/new?partners=true&source=REPLACE_ME_WITH_ORG_NAME" id="iSW-report-form" type="text/html" title="New Report" width="100%" height="1800" style="border:none;"></iframe>' %>
+  </code>
+</div>
+
+<div class='section'>
+  <h5>HTTP to HTTPS</h5>
+ 
+  <p>At the moment iStreetWatch doesn't encrypt data between the browser and the server, so anyone could potentially snoop on that data (as it's being transmitted). We're talking about making the site more secure and one of the things this would entail is an SSL Certificate for establishing a secure connection between a browser and a server. With this certificate, the iStreetWatch address would change to <code>https://www.istreetwatch.co.uk</code></p>
+
+  <p>When the upgrade is made from HyperText Transfer Protocol (<strong>HTTP</strong>) to HyperText Transfer Protocol Secure (<strong>HTTPS</strong>), it would be advisable to ask partners to update their code snippets, to ensure all reports are transmitted securely.</p>
+</div>
