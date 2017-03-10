@@ -34,20 +34,21 @@ header nav {
       opacity: .5;
     }
   }
-  li.logo a {
-    display: flex;
-    justify-content: center;
-    &:hover {
-      background: none;
-      color: inherit;
+  li.logo {
+    a {
+      padding: 0 1rem;
+      display: -ms-flexbox;
+      -ms-flex-pack: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      &:hover {
+        background: none;
+        color: inherit;
+      }
     }
-    img { // logo
-      height: 40px;
-      margin-top: 12px;
-      margin-right: 5px;
-    }
-    font-color: #646464;
-    font-size: 2rem;
   }
   li.pledge {
     a {
