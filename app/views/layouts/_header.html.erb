@@ -6,9 +6,7 @@
           <i class="material-icons">menu</i>
         </a>
 
-        <%= link_to root_path, class: 'logo hide-on-small-only hide-on-large-only' do %>
-          <%= image_tag('logo.png', alt: "Report racism and xenophobia") %>
-        <% end %>
+        <%= logo( klass: 'logo hide-on-small-only hide-on-large-only' ) %>
 
         <ul class='right'>
           <% disabled = current_page?(new_report_path) ? 'disabled' : '' %>
@@ -26,9 +24,7 @@
 
   <ul id='nav-mobile' class='side-nav fixed'>
     <li class='logo hide-on-med-and-down'>
-      <%= link_to root_path do %>
-        <%= image_tag('logo.png', alt: "Report racism and xenophobia") %>
-      <% end %>
+      <%= logo %>
     </li>
     <li class='icon'>
       <%= link_to root_path, class: "hide-on-large-only #{'current' if current_page?(root_path)}" do %>
