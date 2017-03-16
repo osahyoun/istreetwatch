@@ -49,6 +49,20 @@
   .row .col > .row {
     margin-bottom: 0;
   }
+
+  p.emph_checkbox {
+    background: $light-grey;
+    border: 1px solid $grey;
+    padding: 1rem;
+    label {
+      color: black;
+      font-weight: 500;
+      height: auto;
+      &:before {
+        margin-top: 4px;
+      }
+    }
+  }
 }
 
 .iSW ul.select-dropdown {
@@ -166,14 +180,5 @@
 .admin form {
   label {
     color: darken( $grey, 20% );
-  }
-  .approved {
-    background: $light-grey;
-    border: 1px solid $grey;
-    padding: 1rem;
-    label {
-      color: black;
-      font-weight: 500;
-    }
   }
 }

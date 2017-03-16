@@ -35,9 +35,17 @@
     </div>
 
     <div class='col s12'>
+      <p>The National Union of Students is an iStreetWatch partner and is interested in the experience of students. Please tick this box if you are in further or higher education:</p>
+      <p class='emph_checkbox'>
+        <%= f.check_box :informant_is_student %>
+        <%= f.label :informant_is_student, "I'm in further or higher education." %>
+      </p>
+    </div>
+
+    <div class='col s12'>
       <p>Your contact information will remain <%= params[:partners].present? ? link_to( 'private', privacy_url, target: '_blank' ) : link_to('private', privacy_path ) %> to Migrants' Rights Network. We will not share it without your permission.</p>
       <p>To support our campaigning and advocacy work, we may get in touch with you for more details about the incident you have reported. Please tick this box, if you agree to being contacted for this purpose:</p>
-      <p>
+      <p class='emph_checkbox'>
         <%= f.check_box :informant_permission %>
         <%= f.label :informant_permission, 'I agree to being contacted for this purpose.' %>
       </p>

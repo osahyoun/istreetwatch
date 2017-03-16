@@ -31,6 +31,10 @@
     </div>
 
     <div class='col s12'>
+      <p><strong>In further or higher education: <%= report.informant_is_student ? 'Yes' : 'No' %></strong></p>
+    </div>
+
+    <div class='col s12'>
       <p><strong>Permission to make contact: <%= report.informant_permission ? 'Yes' : 'No' %></strong></p>
     </div>
   </div><!-- end .row.section -->
@@ -147,7 +151,7 @@
     </div>
 
     <div class='col s12'>
-      <p class='approved'>
+      <p class='emph_checkbox'>
         <%= f.check_box :approved %>
         <%= f.label :approved, 'Approved for publication on iStreetWatch' %>
       </p>
