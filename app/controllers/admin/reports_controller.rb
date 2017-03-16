@@ -43,7 +43,7 @@ class Admin::ReportsController < Admin::AdminController
       if @report.previous_changes[ :approved_at ]
         begin
           ReportMailer.report_published_email( @report ).deliver_now
-        rescue Postmark::InvalidMessageErro
+        rescue Postmark::InvalidMessageError
         end
       end
     end
