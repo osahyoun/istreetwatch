@@ -62,7 +62,7 @@ class Report < ApplicationRecord
   class << self
     def latest
       approved.
-      order('date desc').
+      order('created_at desc').
       all()
     end
 

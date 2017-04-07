@@ -147,8 +147,8 @@ describe Report do
 
   describe 'class methods' do
     describe '.latest' do
-      let!( :new_report ) { create( :report, approved: true, date: Time.zone.now ) }
-      let!( :old_report ) { create( :report, approved: true, date: 1.day.ago ) }
+      let!( :new_report ) { create( :report, approved: true, created_at: Time.zone.now ) }
+      let!( :old_report ) { create( :report, approved: true, created_at: 1.day.ago ) }
 
       it 'should return approved reports in desc order' do
         expect( Report.latest.count ).to eql( 2 )
@@ -158,9 +158,9 @@ describe Report do
     end
 
     describe '.latest_for_map' do
-      let!( :new_report_with_coords ) { create( :report, approved: true, date: Time.zone.now, lat: 50 ) }
-      let!( :old_report_with_coords ) { create( :report, approved: true, date: 1.day.ago, lat: 50 ) }
-      let!( :no_coords_report ) { create( :report, approved: true, date: 1.day.ago, lat: nil ) }
+      let!( :new_report_with_coords ) { create( :report, approved: true, created_at: Time.zone.now, lat: 50 ) }
+      let!( :old_report_with_coords ) { create( :report, approved: true, created_at: 1.day.ago, lat: 50 ) }
+      let!( :no_coords_report ) { create( :report, approved: true, created_at: 1.day.ago, lat: nil ) }
 
       it 'should return approved reports that have lat lng coordinates in desc order' do
         expect( Report.latest_for_map.count ).to eql( 2 )
