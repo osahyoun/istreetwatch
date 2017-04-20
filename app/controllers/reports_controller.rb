@@ -1,6 +1,7 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
   before_action :allow_iframe, only: [:new, :create, :sent]
+  skip_before_filter :verify_authenticity_token
 
   def show
   end
