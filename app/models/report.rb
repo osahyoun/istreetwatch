@@ -78,7 +78,8 @@ class Report < ApplicationRecord
           'date', 'type_incident', 'type_incident_other', 'description', 'support',
           'house', 'street', 'town', 'region', 'postcode', 'country', 'type_location', 'type_location_other',
           'reported_to_police', 'approved',
-          'created_at', 'updated_at', 'approved_at'
+          'created_at', 'updated_at', 'approved_at',
+          'source', 'informant_is_student'
         ]
         csv << column_names
         reports.each do |report|
