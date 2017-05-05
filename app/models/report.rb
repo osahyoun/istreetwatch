@@ -8,7 +8,8 @@ class Report < ApplicationRecord
     :informant_name, :informant_email, :informant_role,
     :type_incident, :description, :support, :date,
     :town, :type_location,
-    :reported_to_police, presence: true
+    :reported_to_police, presence: true,
+    on: :create
   )
   validate :date_cannot_be_in_the_future
   validates :type_incident_other, presence: true, if: lambda { |report| report.is_other?( report.type_incident ) }
