@@ -25,7 +25,8 @@ module ReportsHelper
       "Something that happened to me",
       "Something that I witnessed",
       "Something that someone asked for my help to report",
-      "Something that I heard about and wanted to report"
+      "Something that I heard about and wanted to report",
+      "Something seen in the media"
     ]
   end
 
