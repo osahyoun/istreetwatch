@@ -66,10 +66,10 @@ gem 'rails_12factor', group: :production
 
 gem 'will_paginate', '~> 3.1.0'
 
-gem 'postmark-rails', '>= 0.10.0'
+gem 'sendgrid-ruby'
 
-gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
-gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-model', git: 'https://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-rails', git: 'https://github.com/elasticsearch/elasticsearch-rails.git'
 
 gem 'groupdate'
 
