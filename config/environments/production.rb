@@ -98,4 +98,16 @@ Rails.application.configure do
     }
   }
   Paperclip::Attachment.default_options[:s3_host_name] = 's3-eu-west-2.amazonaws.com'
+
+  config.action_mailer.delivery_method   = :smtp
+  config.action_mailer.preview_path = "#{Rails.root}/spec/mailers/previews"
+  ActionMailer::Base.smtp_settings = {
+    :user_name => ENV.fetch('SENDGRID_USERNAME'),
+    :password => ENV.fetch('SENDGRID_PASSWORD'),
+    :domain => 'istreetwatch.co.uk',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 end
