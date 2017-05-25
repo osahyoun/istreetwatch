@@ -40,17 +40,11 @@
   </div><!-- end .row.section -->
 
   <h5>Incident Details</h5>
+  <p><strong>Date incident happened: <%= report.date.strftime("%d %b %Y") %></strong></p>
   <div class='row section'>
-    <div class='input-field col s12 m6'>
-      <%= f.text_field :date, class: 'datepicker', value: report.date.strftime("%-d/%m/%Y") %>
-      <%= f.label :date do %>
-        Date <sup>*</sup>
-      <% end %>
-    </div>
-
     <div class='col s12'>
       <div class='row'>
-        <div class='input-field col s12 m6'>
+        <div class='input-field col s12'>
           <%= f.select(:type_incident, select_options_for_type_incident,
             { include_blank: 'Choose your option(s)', include_hidden: false },
             {multiple: true, class: 'type-incident'}) %>
@@ -158,7 +152,7 @@
     </div>
 
     <div class='col s12'>
-      <% if report.source %>
+      <% unless report.source.blank? %>
         <p><strong>Source: <%= report.source %><strong></p>
       <% end %>
 
