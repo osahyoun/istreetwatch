@@ -18,7 +18,8 @@
         <% reports.each do |report| %>
           <tr class="
             <%= 'new' if report.created_at > 7.days.ago.beginning_of_day %>
-            <%= 'pending_verification' if report.verified_at.nil? && report.verification_code %>
+            <%= 'pending-approval' if report.verified_at.present? && report.approved_at.nil? %>
+            <%= 'pending-verification' if report.verified_at.nil? && report.verification_code %>
           ">
             <td class='id'><%= report.id %></td>
             <td><%= report.type_incident_to_string %></td>

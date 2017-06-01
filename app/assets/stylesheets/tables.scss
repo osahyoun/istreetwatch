@@ -2,13 +2,13 @@
 
 .admin {
   table.highlight tbody tr {
-    &.new {
+    &.new, &.pending-approval {
       background: lighten( $yellow, 45% );
     }
     &:hover {
       background: $light-grey;
     }
-    &.pending_verification {
+    &.pending-verification {
       opacity: .3;
     }
   }
