@@ -146,8 +146,15 @@
 
     <div class='col s12'>
       <p class='emph_checkbox'>
-        <%= f.check_box :approved %>
-        <%= f.label :approved, 'Approved for publication on iStreetWatch' %>
+        <% if report.approved %>
+          <strong>
+            <i class='material-icons green-text'>done</i>
+            Approved for publication on iStreetWatch on <%= report.approved_at.strftime("%d %b %Y") %>
+          </strong>
+        <% else %>
+          <%= f.check_box :approved %>
+          <%= f.label :approved, 'Approved for publication on iStreetWatch' %>
+        <% end %>
       </p>
     </div>
 
