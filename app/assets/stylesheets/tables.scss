@@ -8,6 +8,9 @@
     &:hover {
       background: $light-grey;
     }
+    &.pending_verification {
+      opacity: .3;
+    }
   }
   td, th {
     &:not(.lengthen) {

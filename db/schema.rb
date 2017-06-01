@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316112322) do
+ActiveRecord::Schema.define(version: 20170601114829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20170316112322) do
     t.string   "type_incident",                                                              array: true
     t.string   "source"
     t.boolean  "informant_is_student"
+    t.string   "verification_code"
+    t.datetime "verified_at"
   end
 
 end

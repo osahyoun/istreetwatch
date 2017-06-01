@@ -8,6 +8,7 @@
           <th>Town</th>
           <th>When</th>
           <th>Reported</th>
+          <th>Verified</th>
           <th>Approved</th>
           <th></th>
         </tr>
@@ -15,12 +16,26 @@
 
       <tbody>
         <% reports.each do |report| %>
-          <tr class="<%= 'new' if report.created_at > 7.days.ago.beginning_of_day %>">
+          <tr class="
+            <%= 'new' if report.created_at > 7.days.ago.beginning_of_day %>
+            <%= 'pending_verification' if report.verified_at.nil? && report.verification_code %>
+          ">
             <td class='id'><%= report.id %></td>
             <td><%= report.type_incident_to_string %></td>
             <td><%= report.town %></td>
             <td><%= report.date.strftime("%d %b %Y") %></td>
             <td><%= report.created_at.strftime("%d %b %Y") %></td>
+
+            <td class='center'>
+              <% if report.verified_at %>
+                <i class='material-icons'>done</i>
+              <% elsif report.verification_code.nil? %>
+                n/a
+              <% else %>
+                <i class='material-icons pending-approval'>remove</i>
+              <% end %>
+            </td>
+
             <td class='center'>
               <% if report.approved %>
                 <i class='material-icons'>done</i>
@@ -28,6 +43,7 @@
                 <i class='material-icons pending-approval'>remove</i>
               <% end %>
             </td>
+
             <td class='small right-align'>
               <%= link_to edit_admin_report_path(report) do %>
                 <i class="material-icons">edit</i>

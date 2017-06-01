@@ -156,10 +156,18 @@
         <p><strong>Source: <%= report.source %><strong></p>
       <% end %>
 
-      <p><strong>Reported to iStreetWatch on <%= report.created_at.strftime("%d %b %Y") %></strong></p>
+      <p><strong>Reported to iStreetWatch: <%= report.created_at.strftime("%d %b %Y") %></strong></p>
+
+      <p><strong> Email verified:
+        <% if report.verification_code %>
+          <%= report.verified_at ? report.verified_at.strftime("%d %b %Y") : 'pending' %>
+        <% else %>
+          n/a
+        <% end %>
+      </strong></p>
 
       <% if report.created_at != report.updated_at %>
-        <p><strong>Last updated on <%= report.updated_at.strftime("%d %b %Y") %><strong></p>
+        <p><strong>Last updated: <%= report.updated_at.strftime("%d %b %Y") %><strong></p>
       <% end %>
     </div>
   </div><!-- end .row.section -->

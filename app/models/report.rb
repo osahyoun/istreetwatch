@@ -20,6 +20,7 @@ class Report < ApplicationRecord
 
   before_save :check_lat_lng
   before_save :set_approved_at, if: :approved_changed?
+  before_create :set_verification_code
 
   def is_other?( type )
     if type.is_a?( Array )
@@ -33,11 +34,19 @@ class Report < ApplicationRecord
     type_incident&.join( ', ' )
   end
 
+  def set_verified_at
+    update( verified_at: Time.now ) if verified_at.nil?
+  end
+
   private
     def set_approved_at
       if approved && approved_at.nil?
         self.approved_at = Time.zone.now
       end
+    end
+
+    def set_verification_code
+      self.verification_code = SecureRandom.hex(12)
     end
 
     def date_cannot_be_in_the_future
@@ -78,7 +87,7 @@ class Report < ApplicationRecord
           'date', 'type_incident', 'type_incident_other', 'description', 'support',
           'house', 'street', 'town', 'region', 'postcode', 'country', 'type_location', 'type_location_other',
           'reported_to_police', 'approved',
-          'created_at', 'updated_at', 'approved_at',
+          'created_at', 'verified_at', 'updated_at', 'approved_at',
           'source', 'informant_is_student'
         ]
         csv << column_names

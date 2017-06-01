@@ -1,0 +1,15 @@
+<p>Hi <%= @name %>,</p>
+
+<p>Thanks for getting in touch! Let's confirm your email address.</p>
+
+<p>By clicking on the following link, you are confirming your email address and agreeing that iStreetWatch can publish your report:</p>
+
+<p><%= link_to 'CLICK HERE TO CONFIRM YOUR EMAIL ADDRESS',  @url, target: '_blank' %></p>
+
+<p>Here's a copy of your report for your reference:</p>
+
+<br />
+<p><em><%= @report_text %></em></p>
+<br />
+
+<p>Best wishes from the iStreetWatch Team</p>

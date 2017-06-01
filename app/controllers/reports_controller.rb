@@ -16,6 +16,11 @@ class ReportsController < ApplicationController
   def sent
   end
 
+  def verify
+    @report = Report.find_by( verification_code: params[:code] )
+    @report.set_verified_at if @report
+  end
+
   def timeline
     @reports = Report.q_public( params[:q] ).paginate( page: params[:page], per_page: 30 ).records
   end
@@ -25,6 +30,7 @@ class ReportsController < ApplicationController
     layout = params[:partners].present? ? 'layouts/iframe' : 'layouts/application'
 
     if @report.save
+      ReportMailer.verification_email( @report ).deliver_now
       render :sent, layout: layout
     else
       render :new, layout: layout

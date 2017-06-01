@@ -47,7 +47,10 @@ class Search
             must: admin_filter( fDate, tDate, approved_only )
           }
         },
-        sort: { created_at: 'desc' }
+        sort: [
+          { verified_at: 'desc' },
+          { created_at: 'desc' }
+        ]
       }
     end
 

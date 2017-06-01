@@ -12,13 +12,14 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/reports', to: redirect( '/reports/timeline' )
+  get '/reports/sent', to: 'reports#sent', as: :report_sent
+  get '/reports/verify', to: 'reports#verify', as: :verify_email
   resources :reports, only: [:create, :show, :new] do
     collection do
       get 'timeline'
     end
   end
-  get '/reports', to: redirect( '/reports/timeline' )
-  get '/reports/sent', to: 'reports#sent', as: :report_sent
 
   resources :publications, only: [:index]
 

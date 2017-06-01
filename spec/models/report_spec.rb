@@ -143,6 +143,33 @@ describe Report do
         expect( report.approved_at ).not_to eql( nil )
       end
     end
+
+    describe ':set_validation_code' do
+      it 'should set unique validation_code' do
+        report = create( :report )
+        report2 = create( :report )
+        expect( report.verification_code ).to be_an_instance_of(String)
+        expect( report.verification_code.length ).to be(24)
+        expect( report2.verification_code ).to be_an_instance_of(String)
+        expect( report2.verification_code.length ).to be(24)
+        expect( report.verification_code ).not_to equal( report2.verification_code )
+      end
+    end
+  end
+
+  describe 'verified_at' do
+    it 'should be nil' do
+      report = create( :report )
+      expect( report.verified_at ).to eql( nil )
+    end
+
+    context 'when set_verified_at called' do
+      it 'should set verified_at on first call only' do
+        report = create( :report )
+        expect{ report.set_verified_at }.to change{ report.verified_at }.from( nil ).to be_an_instance_of( ActiveSupport::TimeWithZone )
+        expect{ report.set_verified_at }.not_to change{ report.verified_at }
+      end
+    end
   end
 
   describe 'class methods' do
