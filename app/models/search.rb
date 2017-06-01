@@ -48,8 +48,7 @@ class Search
           }
         },
         sort: [
-          { verified_at: { order: 'desc', unmapped_type: 'long' } },
-          { created_at: 'desc' }
+          { created_at_or_verified_at: { order: 'desc' } }
         ]
       }
     end

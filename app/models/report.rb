@@ -4,6 +4,8 @@ class Report < ApplicationRecord
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  attribute :created_at_or_verified_at, :integer
+
   validates(
     :informant_name, :informant_email, :informant_role,
     :type_incident, :description, :support, :date,
@@ -21,6 +23,11 @@ class Report < ApplicationRecord
   before_save :check_lat_lng
   before_save :set_approved_at, if: :approved_changed?
   before_create :set_verification_code
+  after_save { |doc| doc.__elasticsearch__.index_document }
+
+  def created_at_or_verified_at
+    [created_at.to_i, (verified_at || 0 ).to_i].max
+  end
 
   def is_other?( type )
     if type.is_a?( Array )
