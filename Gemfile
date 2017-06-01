@@ -68,8 +68,8 @@ gem 'will_paginate', '~> 3.1.0'
 
 gem 'sendgrid-ruby'
 
-gem 'elasticsearch-model', git: 'https://github.com/elasticsearch/elasticsearch-rails.git'
-gem 'elasticsearch-rails', git: 'https://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-model', git: 'https://github.com/elasticsearch/elasticsearch-rails.git', branch: '5.x'
+gem 'elasticsearch-rails', git: 'https://github.com/elasticsearch/elasticsearch-rails.git', branch: '5.x'
 
 gem 'groupdate'
 
