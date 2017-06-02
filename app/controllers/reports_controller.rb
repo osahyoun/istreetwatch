@@ -17,6 +17,7 @@ class ReportsController < ApplicationController
   end
 
   def verify
+    return if params[:code].blank?
     @report = Report.find_by( verification_code: params[:code] )
     @report.set_verified_at if @report
   end
