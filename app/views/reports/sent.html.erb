@@ -5,9 +5,7 @@
 
     <p class='flow-text'>We have sent a confirmation link to your email address: Please check your inbox and click on this link to complete the report process.</p>
 
-    <p>Once we have confirmed your email address, one of our moderators will read and post your report <%= params[:partners].present? ? 'on the iStreetWatch website' : '' %>.</p>
-
-    <!--<p class='flow-text'>We appreciate you taking time to report this incident. One of our moderators will now read and post your report <%= params[:partners].present? ? 'on the iStreetWatch website' : '' %>.</p> -->
+    <p>Once we have confirmed your email address, one of our moderators will read and post your report<%= params[:partners].present? ? ' on the iStreetWatch website' : '' %>.</p>
 
     <% unless @report.reported_to_police.strip.downcase == 'yes' %>
       <p>
