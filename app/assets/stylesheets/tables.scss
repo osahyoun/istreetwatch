@@ -2,7 +2,7 @@
 
 .admin {
   table.highlight tbody tr {
-    &.new, &.pending-approval {
+    &.new.pending-verification, &.pending-approval {
       background: lighten( $yellow, 45% );
     }
     &:hover {
