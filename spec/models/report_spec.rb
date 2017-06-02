@@ -3,6 +3,26 @@ require 'rails_helper'
 describe Report do
   let( :report ) { Report.new }
 
+  describe 'virtual attribute - :created_at_or_verified_at' do
+    let!( :report ) { create( :report, created_at: 2.days.ago ) }
+
+    it 'should exist' do
+      expect( report.created_at_or_verified_at ).to be_present
+    end
+
+    it 'should be an integer' do
+      expect( report.created_at_or_verified_at ).to be_an_instance_of(Fixnum)
+    end
+
+    it 'should asign most recent date' do
+      expect( report.created_at_or_verified_at ).to eql( report.created_at.to_i )
+      expect( report.created_at_or_verified_at ).not_to eql( report.verified_at.to_i )
+      report.set_verified_at
+      expect( report.created_at_or_verified_at ).not_to eql( report.created_at.to_i )
+      expect( report.created_at_or_verified_at ).to eql( report.verified_at.to_i )
+    end
+  end
+
   describe 'validations' do
     it 'should validate presence of informant_name' do
       expect( report ).not_to be_valid
