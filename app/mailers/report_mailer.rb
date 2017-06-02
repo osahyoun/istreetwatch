@@ -4,7 +4,6 @@ class ReportMailer < ApplicationMailer
   def verification_email( report )
     @name = report.informant_name
     @url  = verify_email_url( code: report.verification_code )
-    @report_text = report.description
     mail(to: report.informant_email, subject: 'Please confirm your email address')
   end
 
