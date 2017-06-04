@@ -40,7 +40,7 @@ class Admin::ReportsController < Admin::AdminController
     end
 
     def send_published_email
-      if @report.previous_changes[ :approved_at ]
+      if @report.previous_changes[ :approved ]
         ReportMailer.report_published_email( @report ).deliver_now
       end
     end
