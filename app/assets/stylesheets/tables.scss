@@ -2,14 +2,14 @@
 
 .admin {
   table.highlight tbody tr {
-    &.new.pending-verification, &.pending-approval {
+    &.pending-verification, &.pending-approval {
       background: lighten( $yellow, 45% );
-    }
-    &:hover {
-      background: $light-grey;
     }
     &.pending-verification {
       opacity: .3;
+    }
+    &:hover {
+      background: $light-grey;
     }
   }
   td, th {
