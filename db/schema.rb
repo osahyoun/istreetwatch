@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601114829) do
+ActiveRecord::Schema.define(version: 20170604194553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,12 +58,12 @@ ActiveRecord::Schema.define(version: 20170601114829) do
     t.string   "type_location"
     t.string   "type_location_other"
     t.string   "reported_to_police"
-    t.time     "approved_at"
     t.string   "type_incident",                                                              array: true
     t.string   "source"
     t.boolean  "informant_is_student"
     t.string   "verification_code"
     t.datetime "verified_at"
+    t.datetime "approved_at"
   end
 
 end
