@@ -45,6 +45,14 @@ class Report < ApplicationRecord
     update( verified_at: Time.now ) if verified_at.nil?
   end
 
+  def is_from_isw
+    informant_email&.match(/@migrantsrights.org.uk/)
+  end
+
+  def remove_verification_code
+    update( verification_code: nil )
+  end
+
   private
     def set_approved_at
       if approved && approved_at.nil?

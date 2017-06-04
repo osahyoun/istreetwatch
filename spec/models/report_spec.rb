@@ -177,7 +177,7 @@ describe Report do
     end
   end
 
-  describe 'verified_at' do
+  describe '#verified_at' do
     it 'should be nil' do
       report = create( :report )
       expect( report.verified_at ).to eql( nil )
@@ -188,6 +188,24 @@ describe Report do
         report = create( :report )
         expect{ report.set_verified_at }.to change{ report.verified_at }.from( nil ).to be_an_instance_of( ActiveSupport::TimeWithZone )
         expect{ report.set_verified_at }.not_to change{ report.verified_at }
+      end
+    end
+  end
+
+  describe 'when iSW submits report' do
+    let!( :report_from_isw ) { create( :report, informant_email: 'istreetwatch@migrantsrights.org.uk' ) }
+    let!( :report_from_other ) { create( :report ) }
+
+    describe '#is_from_isw' do
+      it 'should identify reports from iSW/MRN' do
+        expect( report_from_isw.is_from_isw ).to be_truthy
+        expect( report_from_other.is_from_isw ).not_to be_truthy
+      end
+    end
+
+    describe '#remove_verification_code' do
+      it 'should remove_verification_code' do
+        expect{ report_from_isw.remove_verification_code }.to change{ report_from_isw.verification_code }.from( instance_of String ).to( nil )
       end
     end
   end
