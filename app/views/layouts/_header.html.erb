@@ -52,6 +52,9 @@
     <li>
       <%= link_to 'Finding Help', finding_help_path, class: "#{'current' if current_page?(finding_help_path)}" %>
     </li>
+    <li>
+      <%= link_to 'Bystander Intervention', intervention_path, class: "#{'current' if current_page?(intervention_path)}" %>
+    </li>
     <% if Publication.count > 0 %>
       <li>
         <%= link_to 'Publications', publications_path, class: "#{'current' if current_page?(publications_path)}" %>

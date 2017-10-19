@@ -7,4 +7,7 @@ class HomeController < ApplicationController
 
   def finding_help
   end
+
+  def intervention
+  end
 end
