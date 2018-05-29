@@ -6,20 +6,28 @@
   <div class='col s12'>
 
     <ul class='nav'>
-      <li><a href='#sharing_the_partner_form'>Sharing the Partner Form</a></li>
       <li><a href='#important_websites'>Important Websites</a></li>
+      <li><a href='#data_backups'>Backing Up the Database</a></li>
+      <li><a href='#sharing_the_partner_form'>Sharing the Partner Form</a></li>
     </ul>
 
     <div class='section'>
-      <a name='sharing_the_partner_form'></a>
-      <%= render partial: 'guide_iframe' %>
+      <a name='important_websites'></a>
+      <%= render partial: 'guide_web_services' %>
     </div>
 
     <div class='divider'></div>
 
     <div class='section'>
-      <a name='important_websites'></a>
-      <%= render partial: 'guide_web_services' %>
+      <a name='data_backups'></a>
+      <%= render partial: 'guide_data_backups' %>
+    </div>
+
+    <div class='divider'></div>
+
+    <div class='section'>
+      <a name='sharing_the_partner_form'></a>
+      <%= render partial: 'guide_iframe' %>
     </div>
 
   </div>

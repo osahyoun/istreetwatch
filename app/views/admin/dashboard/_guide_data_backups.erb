@@ -1,0 +1,15 @@
+<h4>Backing Up the Database</h4>
+
+<p>iStreetWatch creates an automatic backup once a day. Because this backup is stored for just one week (on Heroku Postgres), it's good practice to regularly download a remote backup to your machine. To do this, visit <%= link_to 'Heroku', 'https://id.heroku.com/login', target: '_blank' %> and sign in, then:</p>
+
+<ol>
+  <li>
+    <p><%= link_to 'Navigate to the database dashboard', 'https://data.heroku.com/datastores/689aec86-f540-4c56-a51c-98ed501918ed#durability', target: '_blank' %>.<p>
+  </li>
+  <li>
+    <p>Download the latest backup by clicking the 'download' button.<p>
+    <p><%= image_tag('guide-database-backups.png', :alt => 'Downloading a backup', width: '90%') %><p>
+  </li>
+</ol>
+
+<p>That's it!</p>
